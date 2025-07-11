@@ -105,25 +105,41 @@ with col6:
         unsafe_allow_html=True
     )
 
-# Total usage 시계열 차트 (수정된 버전)
+# Total usage 시계열 차트
 st.markdown("---")
 st.subheader("📅 Total Usage Over Time (All Functions)")
 
-df_active_org = df_active.copy()
-df_active_org["date_only"] = df_active_org["created_at"].dt.date
+# 1️⃣ 날짜별 전체 사용량 집계
+df_active_org = df_active.copy().sort_values("created_at")
+df_active_org["count"] = 1
+df_total_daily = df_active_org.groupby(df_active_org["created_at"].dt.date).size().reset_index(name="count")
+df_total_daily["created_at"] = pd.to_datetime(df_total_daily["created_at"])
 
-# 일자별 이벤트 수 집계
-df_total_daily = df_active_org.groupby("date_only").size().reset_index(name="count")
-df_total_daily["date_only"] = pd.to_datetime(df_total_daily["date_only"])  # 날짜형으로 다시 변환 (그래프 호환성)
+# ✅ 2️⃣ 날짜 라벨 생성 (예: 7/11)
+df_total_daily["date_label"] = df_total_daily["created_at"].dt.strftime("%-m/%d")  # macOS/Linux
+# 윈도우에서는 "%#m/%d" 사용 필요
 
-# Altair 차트 (bin 제거, 날짜만 x축)
+# 3️⃣ 날짜 수에 따라 x축 bin 수 결정 (선택사항)
+num_days = (df_total_daily["created_at"].max() - df_total_daily["created_at"].min()).days
+if num_days <= 14:
+    maxbins = 7
+elif num_days <= 30:
+    maxbins = 10
+elif num_days <= 60:
+    maxbins = 20
+else:
+    maxbins = 40
+
+# 4️⃣ 차트 생성 (날짜 레이블 사용)
 chart_total = alt.Chart(df_total_daily).mark_line(point=True).encode(
-    x=alt.X('date_only:T', title='Date'),
+    x=alt.X('date_label:N', title='Date', axis=alt.Axis(labelAngle=0)),
     y=alt.Y('count:Q', title='Total Event Count'),
-    tooltip=['date_only:T', 'count']
+    tooltip=['created_at:T', 'count']
 ).properties(width=900, height=300)
 
+# 5️⃣ 차트 출력
 st.altair_chart(chart_total, use_container_width=True)
+
 
 
 
