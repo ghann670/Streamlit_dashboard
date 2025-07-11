@@ -1,0 +1,597 @@
+id,selected_model,sender,function_mode,user_name,user_email,user_group,organization,created_at,status,week_bucket,day_bucket
+0007ba07-7c12-4f77-9d4a-651359008829,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 07:48:31.087,active,week3,2025-07-04
+005a2aab-79f2-4925-89b4-07c0ebdee8e3,rms,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-03 02:42:20.736,active,week3,2025-07-03
+00bb0c5a-0f7f-44ba-8aed-ba4deb4ff721,reasoning_r1,user,deep_research,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-07 02:19:12.735,active,week4,2025-07-07
+00d8f5db-0013-4ec4-b838-7af22e49d2df,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 08:42:51.173,active,week1,2025-06-18
+00dac538-4c27-486e-8b39-9de031d1a817,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-19 03:20:20.438,active,week1,2025-06-19
+0103ff2c-581f-4e00-b2f0-a9d367546d22,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 06:11:14.901,active,week2,2025-06-26
+02470e99-d39d-4531-bb38-9b795c84c3a9,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 04:24:58.985,active,week2,2025-06-26
+0284c486-2d6f-4ce9-989a-2859ee294eef,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 01:49:48.175,active,week1,2025-06-18
+02fa72eb-2a34-485d-8572-0b16923ed9c8,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 08:35:34.634,active,week1,2025-06-18
+031b460d-e470-427a-9a4d-a256057aa67b,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 16:25:28.752,active,week3,2025-07-02
+03ba85e9-994b-4339-b078-5bfe61c228de,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-20 03:04:55.245,active,week1,2025-06-20
+03d3531d-effd-4b5e-8750-9ea88979da4f,integrate_search,user,normal,Shagun Tyagi,shagun@carretprivate.com,general,Carret Private,2025-07-07 09:51:42.527,active,week4,2025-07-07
+040dc6f9-47d4-4866-9a40-11e37fa6341d,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-24 06:46:45.951,active,week2,2025-06-24
+041ea661-2ff2-4771-acd8-8fac345f192a,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 06:13:57.840,active,week3,2025-07-03
+04bd1bf4-5ce9-4ad7-a285-64569cbad738,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-25 15:33:34.585,active,week2,2025-06-25
+050054af-651c-4ed6-adc9-ff82e66e2fb9,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 00:47:08.997,active,week2,2025-06-26
+05e50c3c-da59-48aa-bac9-8bb1066f6992,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-18 03:34:56.672,active,week1,2025-06-18
+05fe936a-1cf6-4341-a4f5-afc6b98c7363,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 03:19:05.820,active,week1,2025-06-19
+0624dd69-2cce-4880-b848-e5a1c42b5f28,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-18 08:21:36.887,active,week1,2025-06-18
+0722d6f3-e14a-4cbe-beb2-80449aebc2e5,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 01:37:08.207,active,week1,2025-06-18
+079997a0-9b0b-4daf-9102-2a394c24b5d6,rms,user,individual_summary,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 05:57:01.476,active,week2,2025-06-25
+0858f1ff-3d81-44a3-9f38-8c450d95e944,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 14:14:57.289,active,week1,2025-06-18
+0890de48-d524-4202-a98d-c987c2764ffd,integrate_search,user,primer,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-30 02:00:38.353,active,week3,2025-06-30
+0927d4fd-7543-4a01-aafa-918113fc293e,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 09:33:07.878,active,week4,2025-07-10
+09910892-12c6-4397-afae-36dd8748c17a,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-10 05:48:45.716,active,week4,2025-07-10
+09aa7661-a38c-4f1d-8cfc-6b66b6437128,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-09 02:52:27.842,active,week4,2025-07-09
+0a865ba0-5d7e-4c08-8577-079e0aa9f403,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 12:52:39.629,active,week3,2025-07-03
+0a8c5aa7-5d60-4ace-a8ea-c673550fd014,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-10 03:48:46.382,active,week4,2025-07-10
+0ab64af2-912e-4fac-b64f-5020cdfedc8e,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 06:34:45.393,active,week2,2025-06-25
+0aec4da5-df1a-4306-85aa-786b3799bcae,rms,user,individual_summary,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-03 08:21:59.892,active,week3,2025-07-03
+0bdc1ea8-2763-4a6d-9571-ceea85362b57,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-18 03:44:19.153,active,week1,2025-06-18
+0bfd640a-8fd6-44f5-954d-a0ed560f8df9,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 15:27:03.057,active,week2,2025-06-24
+0cdcf3cd-bb58-4b5e-85f6-86e33a96ea47,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-24 04:02:49.158,active,week2,2025-06-24
+0d00d0dd-457b-4c9f-90c1-fe6a2e661591,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 01:57:58.624,active,week1,2025-06-18
+0de80b8f-2b9c-405e-90ec-fa71e182562a,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 03:26:41.844,active,week2,2025-06-26
+0e50b8b0-66f5-41df-83ff-27f4927fe471,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 01:53:05.320,active,week3,2025-07-02
+0efb5824-4025-42ca-aa2c-41918b5427e2,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-30 06:22:20.311,active,week3,2025-06-30
+0f068d09-e9db-462b-8101-513cd4dbdfa0,integrate_search,user,primer,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-30 03:48:12.359,active,week3,2025-06-30
+0f165388-c7fe-4333-8f0f-66189bba7584,integrate_search,user,normal,Elvis Fong,elvis@carretprivate.com,general,Carret Private,2025-06-25 18:31:01.016,active,week2,2025-06-25
+0f5ab362-2bcb-42f0-b018-b4d54bfcd805,integrate_search,user,call_summarize,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 10:51:50.424,active,week2,2025-06-27
+0fb32405-5a4f-409d-9d07-42314d73b48c,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 09:33:22.205,active,week4,2025-07-07
+103451a1-7c2b-4256-a07d-721ae19b9177,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 10:52:43.058,active,week2,2025-06-27
+10cf8c73-a025-41f7-a7b0-a63424feeb80,integrate_search,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,2025-07-04 07:33:46.367,active,week3,2025-07-04
+10e4c4d5-44cd-4f9f-91a1-1daa68b42f53,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 06:55:34.614,active,week2,2025-06-25
+1187760c-eb44-4e19-b8f8-20d2b0553baf,integrate_search,user,primer,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 09:46:50.823,active,week2,2025-06-26
+124163f5-997d-416e-9b34-7a506b6af345,reasoning_r1,user,deep_research,Amit  Singh,amit.singh@carretprivate.com,general,Carret Private,2025-06-26 07:44:36.184,active,week2,2025-06-26
+126e1bf2-a76b-4f6a-b0f6-c69ee462d876,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 04:53:24.572,active,week3,2025-07-04
+143b5ce1-2754-40f1-b276-18307ab16147,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-03 08:25:31.443,active,week3,2025-07-03
+15359cb9-40ff-4675-a7fb-44219a014b23,rms,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-06 03:31:25.212,active,week4,2025-07-06
+16ea350f-4fc3-40eb-b833-638fb1f23133,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 04:03:53.432,active,week1,2025-06-18
+178a9210-ba8c-4e37-b5cb-93613fdd4d5a,integrate_search,user,normal,Elvis Fong,elvis@carretprivate.com,general,Carret Private,2025-06-25 03:23:48.288,active,week2,2025-06-25
+17a90c24-9dc9-4865-a410-75a45d46b94c,integrate_search,user,structured_data,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-18 10:27:36.067,active,week1,2025-06-18
+17f5879f-6e9a-475f-ba6b-5932fdc231dd,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 08:05:15.301,active,week2,2025-06-26
+18501930-9e76-484d-8e14-acc87895ab1a,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 12:50:17.778,active,week3,2025-07-03
+186ae56a-4294-405b-aec4-5912bb0cc878,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 13:26:52.620,active,week3,2025-07-03
+18907b56-4aa5-4fc0-8d5c-92ae8ca7a39c,integrate_search,user,company_screener,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-20 08:31:50.086,active,week1,2025-06-20
+18961214-7c1e-400f-8ddb-169707e01c21,rms,user,normal,Amit  Singh,amit.singh@carretprivate.com,general,Carret Private,2025-06-27 03:51:25.063,active,week2,2025-06-27
+18a3b4c8-0aec-4f76-9525-087ae12926e2,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 08:45:15.800,active,week1,2025-06-18
+1959efe2-48a9-4735-8098-5bc911a199dd,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-10 06:09:31.404,active,week4,2025-07-10
+1978b829-07f0-4a56-988b-2a868e368c1b,reasoning_r1,user,deep_research,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 02:01:00.336,active,week2,2025-06-27
+19bb22bf-3035-4151-afa9-39aa1af69483,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 06:09:10.869,active,week3,2025-07-04
+19c184ae-6ff3-4bca-a0b8-3566b5a83ba8,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 09:34:38.379,active,week4,2025-07-07
+1a171ce7-58a3-4c43-80b5-3f3a6cd2ae0d,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 02:26:40.991,active,week4,2025-07-07
+1c16ea8e-e8ef-4617-ac90-cc48cb90f4bb,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 02:16:38.287,active,week1,2025-06-19
+1c27d688-3a12-43a7-9b7f-bb7e90291771,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 06:00:01.887,active,week1,2025-06-19
+1caa3cad-7adc-4822-9d72-10d082655250,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 01:34:11.420,active,week1,2025-06-18
+1cee9562-82c6-48af-9bdc-6977d9d1a538,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-09 03:13:11.752,active,week4,2025-07-09
+1e0314ea-572e-4f51-82b2-36b27f040faa,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-10 06:13:40.510,active,week4,2025-07-10
+1ee82d82-fc0b-49c9-8f79-7672ee823ea5,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 03:19:30.348,active,week2,2025-06-27
+1f288b9a-38fd-4827-a898-1672988bcb93,integrate_search,user,normal,Shagun Tyagi,shagun@carretprivate.com,general,Carret Private,2025-07-07 09:51:31.506,active,week4,2025-07-07
+206a3e66-dc8c-4cfe-b258-0b551c02ccb2,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-01 09:20:23.944,active,week3,2025-07-01
+20cab1b0-17b4-4ef1-ab11-a0ac72a5f176,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-29 04:55:36.022,active,week3,2025-06-29
+20fe0632-8506-471e-bc1d-0ecc0e2e3860,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 06:18:01.712,active,week2,2025-06-26
+226fd418-ed1d-480c-b7de-0492901c0ecf,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 08:33:51.242,active,week1,2025-06-18
+22cca24a-4944-418a-800e-560f6e8c2844,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 14:30:03.120,active,week3,2025-06-28
+22db8c0a-a1bb-4357-b96d-3cd3da7c2bc0,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-30 03:06:42.436,active,week3,2025-06-30
+23c0d02d-1ad1-4b51-a944-c4419fe6e197,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 08:04:24.878,active,week2,2025-06-27
+242a7ed1-25ec-4743-a793-69d4515f21d1,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 02:58:22.663,active,week2,2025-06-27
+244d784d-ad37-402d-bee8-ba7ede651dc6,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-29 06:36:53.559,active,week3,2025-06-29
+249fabe4-cdfb-4d5f-a1fb-c019fa1e0cd9,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-18 03:30:53.097,active,week1,2025-06-18
+25fffc16-1fe2-4cb6-9fb1-11d80cfa6026,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 06:29:29.944,active,week2,2025-06-25
+28d82a66-a7b6-44fa-85fb-01c945522eeb,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 05:08:52.885,active,week3,2025-07-04
+293c7e4a-c1dc-4ef6-96db-ed1d3086680d,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 02:33:59.237,active,week1,2025-06-19
+295112bd-7a3c-4f4c-941d-ec49d90e7937,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 01:37:55.217,active,week2,2025-06-26
+2b5d2c0c-de66-4b20-bd6f-bb0bbf18b0b6,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-30 03:33:05.780,active,week3,2025-06-30
+2c8e45b0-de07-4404-b8a3-661a2b9bb598,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 01:45:47.905,active,week1,2025-06-20
+2c93894a-58fe-4c89-8ad0-2769a14181b5,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 02:24:38.097,active,week1,2025-06-19
+2cc8a23d-3197-4f10-b6cd-517a224d4965,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 03:17:52.748,active,week2,2025-06-27
+2cf29fb3-a636-4504-a481-a29de13a0cdb,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-29 08:50:13.435,active,week3,2025-06-29
+2cfb6b89-1c40-4ab4-8cf3-717b72c41e7e,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 06:56:17.807,active,week1,2025-06-19
+2d915b21-047c-4ed5-8f78-2e398a7fb6d9,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-18 08:22:52.729,active,week1,2025-06-18
+2de55f83-a3b7-4310-852e-5ee45835158a,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 15:20:34.213,active,week3,2025-06-28
+2e59e848-ddb3-4954-9972-8e83e3eacb70,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 08:47:29.736,active,week3,2025-07-04
+2e6f95e0-011f-48cd-b0cb-6c6b8b54ff99,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 06:01:48.441,active,week3,2025-07-03
+2e904a43-aa19-4b23-ab64-2a910db7a4cb,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-25 04:05:36.536,active,week2,2025-06-25
+2f6311d8-6e86-413c-a140-745a4ff4007e,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-30 03:55:48.817,active,week3,2025-06-30
+2f93d1c8-f843-4b54-aa1c-bea8bdc20b7d,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 02:31:43.820,active,week4,2025-07-07
+2f9c9d94-32c1-4a7e-afdf-119b63e07e36,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 00:57:52.836,active,week1,2025-06-19
+2fb142e0-a75d-48f6-8446-8c55c8c557d9,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 10:45:49.582,active,week2,2025-06-27
+30eaa52c-40be-4459-a846-73388f64e1b6,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-25 08:00:45.815,active,week2,2025-06-25
+31b08946-f238-4cab-8dbc-b9ebcf009fc5,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-10 06:24:41.548,active,week4,2025-07-10
+34371aeb-ee55-437f-b722-4d91f2a5d991,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 07:58:37.760,active,week2,2025-06-27
+3503700b-3016-4d54-82a9-3a9d0e0b9b2d,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 09:33:30.209,active,week3,2025-07-03
+353a1e2c-7d4a-43a2-9673-1b0824b3293f,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 07:01:00.847,active,week2,2025-06-25
+35f8b01f-aceb-4b4e-ae9a-547a4913960f,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 08:25:40.145,active,week1,2025-06-20
+35fa525d-da9c-44ab-8126-680c1f75d2c7,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-27 00:50:33.094,active,week2,2025-06-27
+36052431-ebd1-4952-87bb-859a825b3ad2,reasoning_r1,user,deep_research,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-24 00:36:12.118,active,week2,2025-06-24
+3676b518-8ea9-43a5-8c6d-9dd98c13a08e,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-18 08:30:49.935,active,week1,2025-06-18
+37580b1c-34f0-47c6-99c7-7385074adbb0,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 08:48:05.931,active,week1,2025-06-18
+38b82bca-2b29-4630-8d91-8ec0c4aa46a4,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-10 06:07:10.609,active,week4,2025-07-10
+3913f402-50a7-4aee-8865-06d014aeb516,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 04:11:17.239,active,week3,2025-07-02
+39845a8f-28d0-43d4-8326-bfe4e348f0ee,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 07:13:32.389,active,week2,2025-06-24
+3aaf980f-fa69-441d-a5a1-cc7cce5a7bed,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 02:32:31.076,active,week4,2025-07-07
+3c086c48-b003-4a0a-bc06-1f5db38870e5,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 05:59:37.660,active,week1,2025-06-19
+3c59f087-12b0-4a54-9459-18066ba2722f,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 12:47:26.905,active,week3,2025-07-03
+3c97909a-cb72-4a20-a03d-eaf5f83811f7,integrate_search,user,ownership_data,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-18 10:23:14.527,active,week1,2025-06-18
+3cc681db-264c-4a16-9277-13fea46f9c68,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-26 13:42:00.022,active,week2,2025-06-26
+3cf9e17e-b2b7-450c-9d8f-e0c36580b50e,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 07:39:27.545,active,week2,2025-06-26
+3d64065e-a9db-43f6-af1c-c4bd39c6bcf2,reasoning_r1,user,deep_research,John Chu,john.chu@carretprivate.com,general,Carret Private,2025-06-18 01:09:02.795,active,week1,2025-06-18
+3e2aff6d-2a23-4821-abe8-08f9de0ee513,integrate_search,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,2025-07-04 07:40:27.082,active,week3,2025-07-04
+42055473-ca5c-4b9c-a4be-a696340fe617,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 08:51:34.699,active,week1,2025-06-20
+420e131a-2832-4795-be12-d349a90507cb,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 03:13:29.724,active,week2,2025-06-27
+4215cec4-18d4-46d1-be98-a22dcb16a5aa,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 12:39:41.844,active,week3,2025-07-03
+425d1c49-c3a5-473a-a6b1-9c4a6693c67c,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 00:55:35.334,active,week2,2025-06-25
+431672b8-bb09-4e0f-8fd2-1ebc001fbd01,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-23 05:12:26.059,active,week2,2025-06-23
+43a39632-ab44-4862-9ae8-b62343e8c2cd,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-20 03:03:15.193,active,week1,2025-06-20
+440bbc01-a893-4759-ad85-fca20d081f55,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 08:27:16.849,active,week4,2025-07-10
+443f4344-8a4d-4c3d-ab84-cf566083b904,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 02:08:31.512,active,week2,2025-06-26
+45fb3bca-23f3-4768-a24d-6780e84eaff6,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 08:18:50.815,active,week1,2025-06-20
+4610a43b-e9b3-46a6-b9d2-4336f8cb82a8,integrate_search,user,structured_data,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 05:54:43.048,active,week1,2025-06-19
+467133b2-af74-46e2-ab85-334ef2ff2ce6,reasoning_r1,user,deep_research,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 09:58:31.899,active,week2,2025-06-26
+46b359d9-5715-4e98-b68f-d3dc270ce85e,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 03:30:28.355,active,week3,2025-07-03
+48fa66c4-91c6-4ab2-8336-755db99f47e3,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 06:01:32.756,active,week2,2025-06-27
+4cf3543d-fe1c-42e8-8b43-f9d2436137d0,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 09:07:37.641,active,week4,2025-07-10
+4d9aa696-381c-41a9-888c-304f5a98c372,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-21 05:36:37.669,active,week2,2025-06-21
+4d9be537-0b77-4e20-9c33-7687e4d3e5fe,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 06:52:04.588,active,week4,2025-07-10
+4e0fa9d5-dd62-42f7-a3f7-4d584ebe2888,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 08:43:59.450,active,week1,2025-06-18
+4eb1f1d7-3fd5-4226-ad38-a99be1f183c2,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-19 10:15:25.837,active,week1,2025-06-19
+4ec94bdc-c97c-48d6-b253-e5f0448516fc,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-10 01:59:45.202,active,week4,2025-07-10
+4ed88fde-7b05-4d38-8674-00b99d5d122f,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 02:29:15.928,active,week1,2025-06-18
+4f6e8aa8-f722-49f4-ac0a-f9e4a45ff37c,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 16:23:43.685,active,week3,2025-07-02
+4fc3fa78-3d56-442b-be05-1248d7199060,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-02 05:51:16.001,active,week3,2025-07-02
+50191790-9e4d-46bd-91bc-889befa18037,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 08:35:12.782,active,week4,2025-07-10
+51476815-2be2-43e9-96dd-61763ba49003,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 02:06:27.381,active,week4,2025-07-07
+52301cca-c642-4d7c-a27d-066638fb1064,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-21 07:10:06.688,active,week2,2025-06-21
+52e56112-733b-45f2-981d-4edbdd8711c0,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-30 01:18:10.708,active,week3,2025-06-30
+534c0bea-e99e-4a0c-8013-67949473a5d3,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 01:01:16.431,active,week2,2025-06-26
+54000d27-2126-4443-beb1-aa8d41799b0f,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 02:40:51.467,active,week2,2025-06-25
+54c9b931-7ed0-4b55-9559-31265e448f8c,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 06:31:41.887,active,week1,2025-06-19
+54dcb236-1855-45e5-8bf0-e11f4379136b,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 13:39:43.232,active,week3,2025-07-02
+55939e30-13d8-4edd-8ca3-791e0e082cda,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-01 08:58:38.169,active,week3,2025-07-01
+55ae5b2c-8f71-47b9-9c7f-93592308aae1,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 09:20:07.200,active,week3,2025-07-03
+5620c2fc-76b8-4a1a-9a3b-c3a044b3d43d,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-30 07:07:04.933,active,week3,2025-06-30
+5643f42a-dc6a-4c98-9e05-2ed02b2766ab,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-09 02:45:53.105,active,week4,2025-07-09
+571bb5ab-f11a-49cd-833e-065f86bd943d,rms,user,individual_summary,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-03 08:21:59.917,active,week3,2025-07-03
+58c2eabb-c9df-43ec-be46-476bc65be2ca,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 02:19:44.221,active,week1,2025-06-19
+58d6deb2-0d77-4c67-8ce0-c5db7f9f8083,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 06:40:53.371,active,week3,2025-07-03
+5a21bc6f-7504-4134-9648-54d32a4b16c0,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-30 03:36:05.336,active,week3,2025-06-30
+5a3d24cb-1089-4a50-b21a-8d27ee098dc2,rms,user,devil_advocate,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 15:17:38.783,active,week3,2025-06-28
+5a7fbdaf-c5b3-4b17-a1bd-497cf8bdb38d,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 16:24:32.448,active,week3,2025-07-02
+5dc02aa7-b6cb-41fe-a0c4-bee88e4d8b9a,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 04:46:36.104,active,week3,2025-07-02
+5f565f9f-e30b-485e-9461-de06b35b6e77,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 02:37:53.010,active,week2,2025-06-26
+5fbb3564-63ee-429d-8de4-9347808d7cb8,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 02:34:34.964,active,week2,2025-06-26
+609157f5-602c-48ae-988f-70ee04da3c7e,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 05:37:34.926,active,week1,2025-06-19
+60ddb006-b6db-4b12-8c1a-4b90469cfdca,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 06:48:01.491,active,week4,2025-07-10
+60e7faf1-6b78-4668-b4dd-c4ecef841ffb,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 02:48:29.710,active,week2,2025-06-26
+617381d1-d205-4627-b89b-71cd357fb4ba,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 01:15:14.657,active,week3,2025-07-02
+61963f16-f0bd-4325-a4b0-623098b0bce0,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 07:53:16.795,active,week3,2025-07-04
+619e5f7a-5872-415d-ac04-d1534c6627d9,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 08:37:56.249,active,week1,2025-06-18
+629618be-736b-43cf-b308-63bb80ee7b1b,reasoning_r1,user,deep_research,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 06:21:01.733,active,week2,2025-06-26
+62bdf77e-9ef1-41ab-a73b-d30d1fbf4ebe,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 12:44:54.942,active,week1,2025-06-19
+6377cffa-e998-4413-9d23-d3c192dd070b,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-25 04:04:06.115,active,week2,2025-06-25
+65d243e7-6fd4-40df-82eb-d29b94429fee,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-18 08:23:08.063,active,week1,2025-06-18
+6762fc60-7c52-4a01-8a64-bab26f960382,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 01:57:13.592,active,week2,2025-06-27
+6768c270-f6a6-44ae-8fdb-92a993f6e4dd,integrate_search,user,pulse_check,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 14:49:05.427,active,week3,2025-06-28
+67c3eb31-c74f-42c3-b5bf-b5151f0458a8,reasoning_r1,user,deep_research,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-24 02:07:51.856,active,week2,2025-06-24
+67d63f52-0d2d-4418-87a7-4639362f2100,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 02:25:34.991,active,week4,2025-07-07
+67efffb2-d496-464e-b7c7-c1b881b765ce,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 09:17:46.870,active,week3,2025-07-03
+6837889a-99d5-4702-82ba-dc9ab2f30861,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 03:29:40.625,active,week1,2025-06-19
+68794f83-1807-44a1-8fae-cd3ea7e28866,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 04:53:45.994,active,week1,2025-06-18
+6a7f607c-7ba4-494c-a388-a4c60fda9ffb,integrate_search,user,primer,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 10:55:17.222,active,week2,2025-06-27
+6b5b321b-762e-4cff-ab27-28ebf7cc0d30,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 03:35:42.299,active,week2,2025-06-27
+6c01035d-a2bc-497b-aac6-5f30c065f5f2,rms,user,overall_summary,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-24 09:52:25.744,active,week2,2025-06-24
+6cb0661e-c634-4f1a-a7f0-6f6463f5fdb1,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 00:59:59.114,active,week1,2025-06-19
+6d1e93c8-203c-432c-aa77-505f15038fb3,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 08:47:19.674,active,week3,2025-07-03
+6d4f3a80-dd90-443f-a8e9-dc41ae5027f2,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 07:36:26.682,active,week2,2025-06-26
+6dd40053-ed5b-4823-9fed-69efb61fcdeb,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-30 03:02:34.608,active,week3,2025-06-30
+6f2f9e8d-d860-4862-8e6f-f98fafaa08ab,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 03:37:41.735,active,week4,2025-07-07
+6f97c9c0-9521-4877-b15c-4e6b84171f80,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 04:55:54.619,active,week4,2025-07-07
+7028e5da-949f-43e0-9017-c1d3e3d7f48e,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-25 09:19:33.163,active,week2,2025-06-25
+70316440-d10e-4822-8104-894a312508f8,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 01:15:33.654,active,week2,2025-06-27
+72032552-e738-48b9-8ba4-fecf0d60425d,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-25 09:04:16.073,active,week2,2025-06-25
+721d985e-00d0-4a24-b2e7-34f5f0e70e48,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 08:03:05.793,active,week2,2025-06-26
+731ebc1a-ccd8-44c9-a3ef-7d18ee3d28c2,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 07:49:11.315,active,week3,2025-07-04
+735cfc9b-fd9b-4cef-aa90-b7c8e2234ba7,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 02:28:45.434,active,week1,2025-06-19
+735dcc43-5d10-4596-9cc9-f375223c69ea,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 01:45:51.950,active,week1,2025-06-20
+737ace59-9f87-4863-b816-ae0edbca50ca,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-23 07:45:20.740,active,week2,2025-06-23
+74303513-a42f-4a83-bb82-c5cd8c6708bb,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-23 07:42:10.830,active,week2,2025-06-23
+749320ec-ab5b-4b53-a8da-28ee7e3c9daf,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-25 15:38:00.904,active,week2,2025-06-25
+75286034-9752-4866-8e99-990d136968e9,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 02:52:23.381,active,week2,2025-06-27
+7651ea25-6854-47f1-81f1-e84701544c80,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 06:16:44.108,active,week2,2025-06-26
+77c03e71-2322-4445-8726-02a1c335a39c,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 08:23:00.396,active,week4,2025-07-10
+782bdaf9-0d13-49c8-a601-3d1f8cfadc94,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-27 04:28:53.845,active,week2,2025-06-27
+7840256c-9564-4ce5-b2ad-b9bda6fc7e2a,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 07:21:13.364,active,week1,2025-06-20
+799c5457-5dce-4346-ba4f-dc8b93c32bea,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 03:23:21.622,active,week2,2025-06-24
+79cc677f-df1c-46b9-bffd-1bf87c8a1ccd,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-20 03:03:09.915,active,week1,2025-06-20
+7a04fbdc-6e3a-405a-9b83-ef5234fcdeac,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-09 03:01:28.790,active,week4,2025-07-09
+7a5d34d6-f18f-485b-8a85-96548b1c07b1,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 01:48:09.326,active,week1,2025-06-19
+7aa49bdc-0945-4fdf-9cc9-991c8765336e,rms,user,normal,Amit  Singh,amit.singh@carretprivate.com,general,Carret Private,2025-06-27 03:49:33.879,active,week2,2025-06-27
+7ae7dae0-6cfb-47b3-8895-b236dcfae9d0,integrate_search,user,company_screener,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-20 10:34:22.882,active,week1,2025-06-20
+7b4fc26b-fb4f-4560-ac76-1c65694b2024,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 02:22:34.616,active,week1,2025-06-19
+7b5aac87-6cdd-43d9-8eb3-4557f82f85f6,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 14:27:41.204,active,week3,2025-06-28
+7b64f2f6-5aca-4b54-8420-ca33f52aebd4,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 03:34:35.207,active,week2,2025-06-26
+7bb18a96-269d-4129-be20-f6483614a242,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-07-07 02:32:27.190,active,week4,2025-07-07
+7c2cc9e7-1477-48af-95d3-8306fd197512,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 16:33:10.998,active,week3,2025-07-02
+7dcbd54e-02a1-445d-bb71-e8169758769b,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 10:16:13.281,active,week2,2025-06-26
+7eb59d2f-27c8-4ff1-868f-f9f343a9bd0f,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 06:07:29.807,active,week3,2025-07-03
+7f1a4240-c71b-4a01-a6ab-d133fd41b9fe,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-24 06:46:00.545,active,week2,2025-06-24
+7f431570-5032-40bd-a14a-18bb40d5bb38,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 05:55:41.665,active,week2,2025-06-27
+801f6d6e-e74c-4300-82b3-2dc93a711daf,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 06:05:18.509,active,week1,2025-06-19
+8049041f-6597-4ef3-b12a-6e8ea1bf8157,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-25 01:34:42.789,active,week2,2025-06-25
+83011e9a-3bdd-47e9-989c-576c5bae9510,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-22 06:11:27.411,active,week2,2025-06-22
+831a019b-7333-445b-8efe-f8d83ffa3fd6,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 05:48:01.080,active,week3,2025-07-03
+836b34c4-00f4-471b-9089-c3321c753412,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-02 05:49:34.453,active,week3,2025-07-02
+8375389c-f5fa-474d-9385-8b9b52dc2697,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 08:39:16.549,active,week1,2025-06-18
+8440f592-0cd8-4caf-9d1e-2768adbea260,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 07:58:20.892,active,week3,2025-07-02
+8447f068-e95f-48c2-bf1e-cf9cce35e9e4,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 02:17:31.508,active,week1,2025-06-19
+84798670-428f-482e-9b74-fde0c971b2a2,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 16:07:44.619,active,week3,2025-07-02
+84ab461a-5f47-4af4-9e62-27df8fcd7fa1,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-18 08:29:46.726,active,week1,2025-06-18
+8678ad62-6572-4772-8154-2b4e61e8d18f,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 09:28:29.795,active,week1,2025-06-20
+8730c4b4-fcb8-4dd1-af06-b509091d51df,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-30 05:39:55.999,active,week3,2025-06-30
+873455d0-5226-4fcf-a14b-0f2314ad7f31,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 03:53:58.572,active,week4,2025-07-07
+88c24c93-3ad0-4d56-9324-17b1094ee11d,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 10:59:07.349,active,week2,2025-06-27
+88d5a66f-0da9-4040-925e-45fa2e5848df,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-26 13:48:54.494,active,week2,2025-06-26
+897b1bf3-fe62-49f5-a6f2-c2f14d66e0b4,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 01:54:54.218,active,week2,2025-06-27
+8982aab4-3017-45bd-8ccc-3864648d6bd6,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 00:59:26.195,active,week2,2025-06-27
+8aaf6ad8-2552-4cc0-9a8f-f721b39e4167,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 03:11:51.955,active,week2,2025-06-27
+8b0d98a9-a5a4-487e-83d1-79e985d60a8d,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 02:28:16.150,active,week4,2025-07-07
+8ba35c96-b2b7-4030-8d02-97eb4e59d301,rms,user,individual_summary,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 05:57:01.493,active,week2,2025-06-25
+8c9e9570-18e1-4ee2-8dcc-ce6e6ae647d3,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-30 02:15:26.950,active,week3,2025-06-30
+8d789232-1376-4700-8af0-5abb586dfb0a,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 05:33:02.363,active,week4,2025-07-07
+8df0bb72-0db8-4475-ac83-b18250f183ca,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 05:47:20.156,active,week2,2025-06-27
+8ead40ff-410f-495d-a41e-ed7d9fc1dd42,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 12:56:03.257,active,week3,2025-07-03
+8f501443-4d25-4e84-b24c-f55ee434bfd4,integrate_search,user,primer,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 05:55:47.072,active,week1,2025-06-19
+90c3397c-79df-46d6-8610-b921de19396a,integrate_search,user,primer,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 01:26:40.280,active,week1,2025-06-19
+90d48cca-cce3-404c-95d2-62aa1c0c992a,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-19 10:02:15.826,active,week1,2025-06-19
+9150e64b-116d-4fa8-8253-3602f1053d5a,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-25 00:33:14.288,active,week2,2025-06-25
+925537a3-abe5-4d36-8e8e-fbe330efafd2,integrate_search,user,primer,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 06:54:49.503,active,week4,2025-07-07
+93c7fbbb-fd57-4ec0-8875-492f7d2bc050,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 13:49:25.028,active,week3,2025-07-02
+948a7f91-0f97-4645-bf40-fed5a41a7d83,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 06:58:05.449,active,week4,2025-07-10
+966c1fb2-1400-47c5-a4c9-181753376026,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 00:57:01.356,active,week2,2025-06-26
+978d6934-2070-43c8-a362-ee0cd4e1ac18,rms,user,overall_summary,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 02:03:46.629,active,week4,2025-07-07
+98382bfb-f661-48d5-a946-c368dc5e3a91,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 07:07:05.803,active,week1,2025-06-19
+984f99ec-2a64-4fb8-a3ed-ede40d7673e0,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 04:35:47.582,active,week3,2025-07-02
+98d46d0e-379a-422a-84b5-cdc77fd36a4a,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 06:38:25.851,active,week3,2025-07-03
+98ddd294-5a85-46bd-9a47-2942d5f17e8d,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-30 06:15:21.403,active,week3,2025-06-30
+98de6ea7-ca82-4ec4-ab04-961382e47aa7,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 12:53:25.325,active,week3,2025-07-03
+9acf6185-0e8a-4a63-b295-1e4a3ff96481,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 14:37:51.225,active,week3,2025-06-28
+9b4f7d2a-59c7-4698-97d0-ace91fbba316,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 03:21:57.788,active,week3,2025-07-03
+9b9df884-e6cf-4e80-bb25-511407e2ef53,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-05 10:47:46.349,active,week4,2025-07-05
+9bb0af2a-b354-4481-9fa2-baebd325338e,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-09 07:48:19.764,active,week4,2025-07-09
+9cd58582-5d61-47be-ae1c-f44a84e61c8e,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-30 03:39:06.847,active,week3,2025-06-30
+9dfe2bf6-3d66-4ac1-852e-6aaa2a89b92f,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 07:17:06.786,active,week2,2025-06-24
+9e44aaf8-e560-49fe-a373-2a5c25626ca9,integrate_search,user,primer,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-08 07:31:27.563,active,week4,2025-07-08
+9f6feb93-3240-491f-9975-58a6414a08bd,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-25 03:49:16.692,active,week2,2025-06-25
+9ffb1851-d84c-402d-862b-7c425855aa53,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 16:09:47.870,active,week3,2025-07-02
+a24b7c9b-7df3-42da-bb6f-99ade642c2b8,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-25 00:43:40.921,active,week2,2025-06-25
+a3b7bfa8-9c3c-4585-b6e6-06762c0c507a,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 09:02:55.102,active,week4,2025-07-07
+a43fe739-bae6-4199-9b4e-1578082ccfba,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 08:10:35.036,active,week2,2025-06-26
+a46d3851-3093-494d-b2f9-d3cbfa374564,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 02:12:31.232,active,week1,2025-06-19
+a4c5ddae-5e87-45bf-bd54-b885ee59ad78,integrate_search,user,ownership_data,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 14:32:36.155,active,week3,2025-06-28
+a54a7136-17ff-41e3-b216-146d6c3ad595,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-10 06:37:56.676,active,week4,2025-07-10
+a60dc227-4170-4985-9e68-f67af4306cb5,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-02 05:46:59.399,active,week3,2025-07-02
+a6234f09-fcab-47d6-868a-086442bd7c3f,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 08:25:04.050,active,week3,2025-07-02
+a636a382-3704-4f79-8e2d-72351ce98a44,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-18 03:47:43.890,active,week1,2025-06-18
+a6eea61a-f226-4a85-8eab-2a74fefa0bae,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-30 02:07:27.270,active,week3,2025-06-30
+a76a942d-74be-4435-b6d2-e9cfb4264705,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-07 08:29:28.653,active,week4,2025-07-07
+a7c83781-0ed7-4759-942e-9cbab3756368,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-23 02:15:19.572,active,week2,2025-06-23
+a90b0720-8f7c-486f-a4f2-67380a7d74fe,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 05:43:41.482,active,week1,2025-06-18
+a9929127-ea88-4fe8-861f-b7df790f0caa,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 01:50:52.583,active,week1,2025-06-19
+aad376a9-3462-4808-a01f-420c45ba7a22,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-23 07:46:12.777,active,week2,2025-06-23
+acae16d4-e894-4cfc-919f-7412b284aec9,integrate_search,user,company_screener,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-19 01:19:30.148,active,week1,2025-06-19
+ad036e7a-e950-48da-b9a9-f523b4372b3c,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 06:37:44.061,active,week1,2025-06-19
+ad125d38-920a-47c7-89eb-7381701b260c,reasoning_r1,user,deep_research,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-24 04:03:49.472,active,week2,2025-06-24
+ad9394a9-4e4d-4e5a-8c88-e487b380b383,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 04:38:39.677,active,week3,2025-07-02
+ae9bb24c-b7e0-4521-b809-7275260deeac,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 07:30:10.776,active,week1,2025-06-20
+aea71b95-b479-4274-8070-7d3927358321,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 08:22:44.899,active,week1,2025-06-20
+af5f9833-7604-435e-a753-dafe03feeff9,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-18 10:25:16.398,active,week1,2025-06-18
+b01bd378-54d6-4908-8aea-cab62f8a9866,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-23 07:54:48.967,active,week2,2025-06-23
+b14c5fcb-9939-4c2f-803e-1c59e52118a1,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 08:01:30.577,active,week2,2025-06-26
+b1f3f259-19fb-4262-9288-5af709033919,integrate_search,user,normal,Elvis Fong,elvis@carretprivate.com,general,Carret Private,2025-06-19 02:41:03.979,active,week1,2025-06-19
+b2268a1a-a7a4-47f0-9f20-33a6f2600619,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-18 08:22:24.429,active,week1,2025-06-18
+b2757e6b-a283-475a-bee6-81cde6d6ea4c,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 03:48:51.141,active,week2,2025-06-24
+b317d97d-1200-49d9-bb3f-7dc76d56e06b,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-19 10:06:33.710,active,week1,2025-06-19
+b35f5a3d-7dd3-426d-9a6f-6f774d6df6d8,integrate_search,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,2025-07-04 09:48:58.081,active,week3,2025-07-04
+b3a09bc5-7827-4023-b9cd-a7bf75c7c860,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 09:21:04.756,active,week1,2025-06-18
+b3a80a13-08af-4ae5-80c6-4e668befa8de,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-08 07:39:04.266,active,week4,2025-07-08
+b4519ba5-bebf-4a55-9197-0f0d65a61dbd,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 06:41:26.566,active,week1,2025-06-19
+b4780f7f-6399-43ac-87ac-b75dd19cba18,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-20 08:29:52.668,active,week1,2025-06-20
+b4d2c1fb-95ba-4e34-82ce-83b206ca8257,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 01:05:13.390,active,week1,2025-06-19
+b524f9f1-f543-4234-a238-a37385498b86,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 06:22:55.398,active,week1,2025-06-19
+b5c2789d-4ad7-495a-81ce-ffa1829684ab,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 08:51:22.500,active,week1,2025-06-18
+b5cf83d9-895a-4939-abb2-4317380d6302,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 08:15:40.862,active,week2,2025-06-26
+b6d64558-0512-4ff2-a09f-c80654ca7476,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 03:42:13.694,active,week2,2025-06-24
+b74744c7-cef0-46a1-95ac-dc02bec3c5d9,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 03:55:32.488,active,week2,2025-06-27
+b7c193e6-007e-4a4b-84ff-13eb74ae63f1,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-29 11:18:56.101,active,week3,2025-06-29
+b8c9524c-bfab-4292-afe8-cb66096abab6,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-29 09:24:32.687,active,week3,2025-06-29
+b945d1cf-4151-48f0-adbd-60b40547b055,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 06:07:10.740,active,week2,2025-06-25
+ba58c20c-6563-4d2e-840b-bece8bafb43c,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 07:09:27.655,active,week2,2025-06-24
+bacdae84-d76a-422b-975d-4647576bc95a,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-18 09:19:04.553,active,week1,2025-06-18
+bbaddf80-30ae-4c1f-a855-e7ef19689871,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-02 04:56:27.175,active,week3,2025-07-02
+bc797155-9a7e-4a72-a3b5-448d7bea3384,integrate_search,user,call_summarize,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 15:01:23.122,active,week3,2025-06-28
+bd4736ff-c3fe-4894-a487-e1618f6101f6,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-03 03:26:06.411,active,week3,2025-07-03
+bda48136-b825-474f-bb92-ec6b04fb8e19,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 03:11:51.715,active,week2,2025-06-27
+c18f330b-442e-4a4a-8f33-0a934e0364ba,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 16:22:50.930,active,week3,2025-07-02
+c23389b6-069b-4dcb-b460-faef54ce3b27,integrate_search,user,normal,John Chu,john.chu@carretprivate.com,general,Carret Private,2025-06-18 01:10:10.073,active,week1,2025-06-18
+c35d988f-a740-4e02-88d9-d8d1905e2798,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-10 02:24:12.512,active,week4,2025-07-10
+c492636f-14c9-478a-8684-b5520fac5a30,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 15:38:08.132,active,week2,2025-06-24
+c57b1cee-1967-4ecb-83c7-99694b1d55da,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 06:04:48.722,active,week3,2025-07-03
+c59954cf-ddb0-476a-be08-0f8695ddd0ab,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 04:31:40.809,active,week3,2025-07-04
+c5cd4780-2893-49a3-98a6-29ec66f7f539,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-18 08:49:06.885,active,week1,2025-06-18
+c75c4a0a-46f2-4546-90dd-33c682b14990,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 01:01:23.117,active,week1,2025-06-19
+c89e8e89-6001-4195-8267-e83d0d9114da,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 06:36:09.425,active,week3,2025-07-03
+c8f7c258-5aca-496a-be89-2b282a0b9053,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 03:39:00.755,active,week2,2025-06-24
+c9cef63f-2339-4f1e-86d5-4062e3ca6bd2,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 01:26:38.603,active,week2,2025-06-27
+c9e0c32a-6faf-4616-9694-7efe3fe31b67,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 01:26:50.410,active,week3,2025-07-02
+ca6c77a9-ef7f-4de3-81ef-aedf2fcb1160,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 07:19:59.783,active,week2,2025-06-26
+caa534fb-7c46-4a1b-8f29-6c27c2392308,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 05:39:13.346,active,week3,2025-07-03
+cac6a6d8-7344-4a8d-a05b-7eabc347e335,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 07:03:10.144,active,week3,2025-07-04
+cc0c3377-2f46-4dd7-8aed-1bf64738873a,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-25 09:12:38.887,active,week2,2025-06-25
+cc3af847-f934-4837-9f5b-60dfa6efa9a3,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 01:49:48.468,active,week1,2025-06-19
+cc9a8b58-9810-4c69-9f40-1999e619f834,rms,user,overall_summary,Amit  Singh,amit.singh@carretprivate.com,general,Carret Private,2025-06-27 03:40:44.620,active,week2,2025-06-27
+cd5b0134-e71a-4817-a450-ab0da410a6d3,rms,user,overall_summary,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 15:11:30.393,active,week3,2025-06-28
+cddc1e24-418f-4f6d-bf44-7668dec4bb7e,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-09 03:06:37.808,active,week4,2025-07-09
+ce5fe006-fe96-4886-897a-e69d14466988,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,2025-06-30 03:28:10.294,active,week3,2025-06-30
+cebc9b10-e2c2-45db-b01c-f912bf121b58,rms,user,timeline,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 15:14:35.392,active,week3,2025-06-28
+d0b1bdfe-6ef2-4291-9be4-a1832ab8be8e,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 09:32:05.407,active,week3,2025-07-02
+d0f4fdaa-39bc-4eb2-b6fc-32e691c035c1,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-03 08:25:02.327,active,week3,2025-07-03
+d1acc774-d2b6-450b-937c-d578de203201,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 08:11:35.607,active,week2,2025-06-26
+d1e961c4-ff99-4bb6-9b67-10e0665dac1e,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-18 08:36:03.415,active,week1,2025-06-18
+d2ab8a4b-9ea2-4619-bdfe-c27db5908a4e,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-30 03:04:56.051,active,week3,2025-06-30
+d3105e87-a87a-4bdb-9fff-42a85b93a30d,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 07:40:31.159,active,week2,2025-06-26
+d3c9f13e-6536-4ea3-a9c4-774fd071a929,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-20 01:47:34.323,active,week1,2025-06-20
+d3f24c4f-e474-4f86-98b4-a14bc86a2362,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-26 07:47:41.492,active,week2,2025-06-26
+d407d7a0-127a-4628-8ef8-d5956cc3b6c7,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-26 13:47:16.537,active,week2,2025-06-26
+d43b106c-9ff1-4973-9cbf-1dc138418c40,rms,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-03 02:56:02.842,active,week3,2025-07-03
+d5aff21c-5347-4360-bc2e-dd896794f9f2,integrate_search,user,normal,Elvis Fong,elvis@carretprivate.com,general,Carret Private,2025-06-25 03:28:09.048,active,week2,2025-06-25
+d5e299d1-86a0-4662-aa94-47ec76c72c1b,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-09 08:41:53.229,active,week4,2025-07-09
+d6bbc3ca-723e-4466-86db-15f04a0afb52,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 08:22:18.534,active,week4,2025-07-10
+d7bd26a7-27f4-4903-98d6-71ebadaeb1d7,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 03:40:22.871,active,week2,2025-06-26
+d7bd35f7-13f2-41f1-870e-5eb232736265,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-20 01:48:09.502,active,week1,2025-06-20
+d7fd6dfe-c124-478c-a212-20d0d1ef90dc,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-20 01:58:06.832,active,week1,2025-06-20
+d8441bb3-0658-48b2-af7b-fa1f6e594190,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-18 08:37:28.787,active,week1,2025-06-18
+d8d83ac4-b7ce-47ca-b87b-82543830f64a,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 13:58:02.733,active,week3,2025-07-02
+db593a56-7510-4603-a650-23df522fe6f0,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 12:33:45.606,active,week3,2025-07-03
+dc457530-5221-4476-8dbe-b0d2b7575462,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-25 01:17:59.776,active,week2,2025-06-25
+dc69243b-0eed-4f9b-8892-7449a150ffc6,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-19 10:04:41.112,active,week1,2025-06-19
+dc9a4eb5-b223-4341-9d43-c7318c397282,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 04:47:19.319,active,week4,2025-07-07
+dd1252e4-82a5-471d-a048-876e2ee690c4,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 03:28:28.178,active,week1,2025-06-19
+ddb706af-be01-4312-ab3a-79a856352edb,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 03:34:43.677,active,week1,2025-06-19
+de99eaf7-7780-453f-8c63-802eba9e85e0,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 09:32:20.185,active,week4,2025-07-07
+dec22549-f6c8-4041-9505-86365493dd0c,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 06:24:02.807,active,week1,2025-06-19
+def85308-07f4-4fd1-b29c-7818330b909c,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-30 03:05:51.323,active,week3,2025-06-30
+e0322175-ec87-4dea-a793-084b3d594390,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-26 07:47:19.875,active,week2,2025-06-26
+e040076e-985c-47d6-b6dc-4adf68fdfb6a,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-24 03:47:49.485,active,week2,2025-06-24
+e10fe2fc-a253-4ef9-b58d-101bfa4b142c,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 02:29:13.698,active,week4,2025-07-07
+e254dbfa-ea41-4c21-a3a5-aadf3f856b7a,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-18 10:15:50.065,active,week1,2025-06-18
+e28e2d58-a058-44e8-98b4-017b3332783f,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-25 01:14:07.593,active,week2,2025-06-25
+e2cc14a0-51d5-4f18-b1a4-2c25f37de0c5,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 08:18:20.842,active,week2,2025-06-26
+e2e24469-9729-4e4e-859d-ad2801d3c812,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-03 09:23:36.013,active,week3,2025-07-03
+e38b7419-175d-431d-9ebd-e0ef17c990c0,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-03 03:34:26.083,active,week3,2025-07-03
+e4530ecb-42f7-429e-8bb2-46d67be94eef,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-25 01:24:57.203,active,week2,2025-06-25
+e597e859-7ab4-4c7c-9c1e-3d1a2dc80901,integrate_search,user,structured_data,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 14:35:58.646,active,week3,2025-06-28
+e61f57a2-ae47-46d2-a77e-dc80b883b3ec,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-30 03:00:19.596,active,week3,2025-06-30
+e6f4b2a3-23dd-4cac-8b31-474a59efb03d,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 09:26:11.408,active,week4,2025-07-10
+e759cbfb-fecf-45ee-a8b0-78c47c6b4806,reasoning_r1,user,deep_research,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-24 03:09:51.911,active,week2,2025-06-24
+e7eeddba-0786-4479-b510-2a9fe21c3113,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-25 04:14:32.860,active,week2,2025-06-25
+e7f125a9-26da-4502-9f4a-cbdf1c62f7b9,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-26 08:06:35.223,active,week2,2025-06-26
+e854b79b-f660-4ac3-83e4-7a607a52a217,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-04 08:50:58.326,active,week3,2025-07-04
+e9a45c15-8587-4854-949c-6aeda64fcdd5,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 15:48:22.255,active,week3,2025-07-02
+ea341060-ca5d-4b26-b4fa-38d6f0e955cd,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 06:42:44.296,active,week1,2025-06-19
+ea7cee60-228d-4e55-be3e-a7598f11f3c3,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-10 05:23:24.123,active,week4,2025-07-10
+eab8272b-bc5d-4f79-9883-185de4bea548,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-18 08:03:43.190,active,week1,2025-06-18
+ebb752b9-2072-4534-a87b-5afb8c3c293a,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-18 02:04:34.260,active,week1,2025-06-18
+ed383867-b82c-43e0-9182-9a19105fcc2a,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-30 02:50:15.762,active,week3,2025-06-30
+ee2a2db9-ae3f-4328-b629-660223fcce0a,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,2025-06-26 08:18:39.273,active,week2,2025-06-26
+ee300123-c12b-42e0-8c1b-f036a77ff5da,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-01 09:13:08.609,active,week3,2025-07-01
+f0e1d7c8-a949-4cd6-b892-519a5ff0cad0,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-25 15:44:28.649,active,week2,2025-06-25
+f1c8cd78-d604-4ec2-8a11-4c5a871a6faa,integrate_search,user,pulse_check,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-20 09:53:24.888,active,week1,2025-06-20
+f20943b6-00b5-4414-bbc9-fa407a82779f,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-25 09:24:46.535,active,week2,2025-06-25
+f242cf75-1622-4320-9153-db17ffd71291,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-09 08:39:35.662,active,week4,2025-07-09
+f2495615-4dc7-469c-841b-9729fc5ead7d,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 06:27:38.004,active,week2,2025-06-25
+f349891a-1be7-45cf-820b-d59c905d9534,integrate_search,user,call_summarize,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-27 11:05:21.314,active,week2,2025-06-27
+f48cbb5d-49d8-41f0-9519-dd52cfc3ae88,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-27 04:27:38.750,active,week2,2025-06-27
+f503729a-29b6-4822-8cb8-31bfa29df843,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-19 06:27:33.370,active,week1,2025-06-19
+f50381bd-fb80-498e-8dcf-aa19d6b73d6b,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 03:09:04.235,active,week4,2025-07-10
+f69ab6d8-2028-425a-8af5-3fa22ee08155,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-03 08:31:34.918,active,week3,2025-07-03
+f740d17c-3884-4d7b-bc71-245a2f23bd8f,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 15:57:45.387,active,week3,2025-07-02
+f761e582-2f96-49d3-a36c-8696755eb583,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 07:11:17.620,active,week1,2025-06-19
+f8cc8f73-9567-4314-b401-7d35842616e5,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-07 03:31:32.339,active,week4,2025-07-07
+f9a57432-0c60-4e6b-b8d4-9707feb07442,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-07-10 08:29:15.323,active,week4,2025-07-10
+f9e5e70c-1781-425f-90a7-c5c22bf63923,integrate_search,user,primer,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-07 06:57:43.503,active,week4,2025-07-07
+fa2b91ac-1d4d-498a-9bc2-d679a54b5a1e,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-07-02 13:52:27.405,active,week3,2025-07-02
+faaad3e6-dca8-4763-81f1-767120fb4649,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-06-28 14:24:00.795,active,week3,2025-06-28
+fb1ca212-14e5-4f68-a688-e7a1fa2cfaf0,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-19 06:39:49.239,active,week1,2025-06-19
+fc3fbdd5-6c8e-4577-b103-205042f70d7d,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,2025-06-26 03:30:13.033,active,week2,2025-06-26
+fc798b2a-ea46-4d0e-a735-fee2d9a3cc53,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-07-03 05:56:27.277,active,week3,2025-07-03
+fd3fc2c8-618e-4f03-8b78-cc5e7a1f7747,reasoning_r1,user,deep_research,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,2025-06-27 03:56:18.967,active,week2,2025-06-27
+fd89d133-30ab-4fa6-a9d0-cb9d96bab16f,integrate_search,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,2025-06-27 03:05:11.836,active,week2,2025-06-27
+ff730fcd-2023-4cee-bf53-158545a81418,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,2025-07-02 04:05:01.464,active,week3,2025-07-02
+fff903a0-3dd3-48bf-b7bb-d468af206dc4,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,2025-06-25 07:57:20.806,active,week2,2025-06-25
+,,user,catalysts,Alfred Yam,intern8@carretprivate.com,,Carret Private,2025-06-18 01:22:13.991,active,week1,2025-06-18
+,,user,catalysts,Cyrus Hung,cyrus.hung@carretprivate.com,,Carret Private,2025-06-26 03:27:20.831,active,week2,2025-06-26
+,,user,catalysts,Shagun Tyagi,shagun@carretprivate.com,,Carret Private,2025-07-07 09:47:03.272,active,week4,2025-07-07
+,,user,catalysts,Cyrus Hung,cyrus.hung@carretprivate.com,,Carret Private,2025-06-19 10:14:04.919,active,week1,2025-06-19
+,,user,catalysts,Shagun Tyagi,shagun@carretprivate.com,,Carret Private,2025-07-07 09:44:12.538,active,week4,2025-07-07
+,,user,catalysts,Alfred Yam,intern8@carretprivate.com,,Carret Private,2025-06-18 01:21:21.283,active,week1,2025-06-18
+,,user,catalysts,Dickie Wong,dickie.wong@carretprivate.com,,Carret Private,2025-06-19 06:25:40.790,active,week1,2025-06-19
+,,user,catalysts,Cyrus Hung,cyrus.hung@carretprivate.com,,Carret Private,2025-06-18 10:20:54.712,active,week1,2025-06-18
+,,user,catalysts,Alfred Yam,intern8@carretprivate.com,,Carret Private,2025-06-18 01:20:52.832,active,week1,2025-06-18
+,,user,catalysts,Alfred Yam,intern8@carretprivate.com,,Carret Private,2025-06-19 05:56:41.660,active,week1,2025-06-19
+,,user,catalysts,Alfred Yam,intern8@carretprivate.com,,Carret Private,2025-06-18 01:21:14.376,active,week1,2025-06-18
+,,user,catalysts,Cyrus Hung,cyrus.hung@carretprivate.com,,Carret Private,2025-06-20 09:54:47.430,active,week1,2025-06-20
+,,user,catalysts,Alfred Yam,intern8@carretprivate.com,,Carret Private,2025-06-26 03:51:58.786,active,week2,2025-06-26
+,,user,catalysts,Alfred Yam,intern8@carretprivate.com,,Carret Private,2025-06-18 01:21:58.475,active,week1,2025-06-18
+,,,,,inness@carretprivate.com,,Carret Private,,inactive,,
+,,,,,intern6@carretprivate.com,,Carret Private,,inactive,,
+028417a7-d0d0-4cc1-af12-8ef150d40bf9,integrate_search,user,normal,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-30 14:51:08.680,active,week3,2025-06-30
+0a71239b-f2a3-4300-a548-b412ded6521b,integrate_search,user,normal,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 14:03:20.428,active,week1,2025-06-15
+2fa98252-9504-4921-8d0a-a0b6fc2d5ce9,rms,user,individual_summary,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 19:29:21.565,active,week1,2025-06-15
+5c9ffd69-5e75-4e31-87d0-392027cac1d3,rms,user,individual_summary,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 19:29:21.531,active,week1,2025-06-15
+64922e87-a10d-45b9-b257-04a6874e73ab,reasoning_r1,user,deep_research,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-26 00:58:09.829,active,week2,2025-06-26
+7345e4e7-c289-4040-b542-616265e25ead,integrate_search,user,normal,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-14 12:37:56.043,active,week1,2025-06-14
+8d364fdd-4c6d-423b-ba71-36eb566088d8,integrate_search,user,normal,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 13:55:52.955,active,week1,2025-06-15
+8f9a8ca9-27ed-441e-85db-43abc4b21c14,integrate_search,user,normal,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 19:27:01.881,active,week1,2025-06-15
+982f85bf-d11f-405a-bc49-5f96804ed9e3,reasoning_r1,user,deep_research,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-30 14:57:33.083,active,week3,2025-06-30
+a947961a-32e5-4812-bf1e-67a7ab9946c5,rms,user,individual_summary,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 19:29:21.548,active,week1,2025-06-15
+aed75244-9bad-435b-ab84-113e442721da,rms,user,individual_summary,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 19:29:21.518,active,week1,2025-06-15
+b4808771-a756-4887-a887-516da2be5341,integrate_search,user,normal,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-16 21:41:57.670,active,week1,2025-06-16
+c23d4a09-eb58-40cc-acbb-508809fc067e,rms,user,individual_summary,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 19:29:21.557,active,week1,2025-06-15
+cb6026f4-315f-4325-a479-6f97bccd3e8f,reasoning_r1,user,deep_research,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-14 13:08:20.308,active,week1,2025-06-14
+d9d46e31-c7ce-40b7-9c7d-2029c1470ce1,integrate_search,user,ownership_data,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 19:19:26.021,active,week1,2025-06-15
+dc8f0463-20a2-4817-ae94-fc99c336484a,rms,user,individual_summary,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 19:29:21.539,active,week1,2025-06-15
+f78ee025-7a9d-4eba-a617-193370d367db,rms,user,normal,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 20:49:14.426,active,week1,2025-06-15
+faafc3c4-dde1-4d71-95df-3caa19e17c66,integrate_search,user,normal,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-15 19:09:21.888,active,week1,2025-06-15
+fd030df2-e5a0-4e70-8b0e-ca179f62584b,rms,user,normal,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,2025-06-16 16:35:51.475,active,week1,2025-06-16
+,,user,catalysts,Nitin Gupta,nitin@vedacapitalmanagement.com,,Veda Capital,2025-06-15 19:17:26.220,active,week1,2025-06-15
+,,user,catalysts,Nitin Gupta,nitin@vedacapitalmanagement.com,,Veda Capital,2025-06-15 19:16:07.356,active,week1,2025-06-15
+13ba53d7-62db-45b0-b92e-81a5519148cb,integrate_search,user,normal,Suhas Hari,suhas_hari@icicipruamc.com,general,ICICI Prudential,2025-06-29 10:17:31.942,active,week3,2025-06-29
+2617ac06-38d7-4ea8-a586-0fa29bf705c3,integrate_search,user,normal,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-07-01 04:58:39.412,active,week3,2025-07-01
+36bb2e78-fa4d-4420-9fa3-1e3e8d15b3eb,reasoning_r1,user,deep_research,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-07-01 06:19:16.556,active,week3,2025-07-01
+3aa0f8cf-d900-4eef-b0ae-3a2e81eb8515,reasoning_r1,user,deep_research,Samrat Choudhary,samrat_choudhary@icicipruamc.com,general,ICICI Prudential,2025-07-09 09:44:13.314,active,week4,2025-07-09
+455f1249-b5b3-4fae-be23-56de904ab21d,reasoning_r1,user,deep_research,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-07-01 06:11:08.770,active,week3,2025-07-01
+457fe1ad-4ef0-480c-911c-9938bdbb3ab5,reasoning_r1,user,deep_research,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-07-06 12:57:36.416,active,week4,2025-07-06
+4609d8f3-f0db-4e31-8460-d6094df7980b,integrate_search,user,normal,Suhas Hari,suhas_hari@icicipruamc.com,general,ICICI Prudential,2025-06-29 07:09:30.204,active,week3,2025-06-29
+4b0f1318-b668-41d5-9890-d88d49f30bcf,integrate_search,user,normal,Suhas Hari,suhas_hari@icicipruamc.com,general,ICICI Prudential,2025-06-29 10:19:27.567,active,week3,2025-06-29
+562cdbd4-706b-4780-aaba-424448b935f9,integrate_search,user,normal,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-06-30 04:13:08.618,active,week3,2025-06-30
+65a96d4b-1181-4bcd-b895-00cc07e808cb,integrate_search,user,primer,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-06-30 06:14:57.775,active,week3,2025-06-30
+728c7ab5-76ab-4d55-84c6-af220601da3e,integrate_search,user,normal,Suhas Hari,suhas_hari@icicipruamc.com,general,ICICI Prudential,2025-06-29 07:09:27.705,active,week3,2025-06-29
+7b83cb2a-a3e3-439d-8b4d-9885978dedf9,integrate_search,user,primer,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-06-30 06:18:37.831,active,week3,2025-06-30
+7fe201bc-68aa-4502-929b-7b1efd43ed97,integrate_search,user,normal,Suhas Hari,suhas_hari@icicipruamc.com,general,ICICI Prudential,2025-06-29 10:17:26.896,active,week3,2025-06-29
+822f56aa-644f-4dc7-84fe-16872384882b,reasoning_r1,user,deep_research,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-07-04 08:22:28.776,active,week3,2025-07-04
+87bbf78e-20e8-4237-89e5-ef38b5c0d036,reasoning_r1,user,deep_research,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-07-01 06:20:37.152,active,week3,2025-07-01
+9748bc4b-63ea-4b2f-965b-a955c39e239a,integrate_search,user,normal,Samrat Choudhary,samrat_choudhary@icicipruamc.com,general,ICICI Prudential,2025-07-09 09:40:42.204,active,week4,2025-07-09
+a3562bf8-acb7-4aca-9855-7af9e6b07185,reasoning_r1,user,deep_research,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-07-06 12:49:01.213,active,week4,2025-07-06
+bf457a82-5bf1-4d36-a45b-99f6d6798974,reasoning_r1,user,deep_research,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-06-30 07:52:35.671,active,week3,2025-06-30
+d70a5d47-1391-4134-ba0b-1ec642da17df,reasoning_r1,user,deep_research,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,2025-07-01 04:19:51.639,active,week3,2025-07-01
+e9658210-121e-4e6d-9852-1ef2127f053f,integrate_search,user,normal,Suhas Hari,suhas_hari@icicipruamc.com,general,ICICI Prudential,2025-06-29 10:27:26.790,active,week3,2025-06-29
+f6d4c385-5e7a-4467-b631-aba467f0aa5d,integrate_search,user,normal,Suhas Hari,suhas_hari@icicipruamc.com,general,ICICI Prudential,2025-06-29 07:13:30.698,active,week3,2025-06-29
+04e92ce7-e92d-4bd3-86bc-19717b2d85c6,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:42:05.506,active,week3,2025-06-30
+069d4b88-08ad-4a2f-9146-c0f65691cbdb,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 23:43:01.071,active,week3,2025-06-30
+109435fb-e477-4e57-a113-9eb3700fd898,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:11:16.768,active,week3,2025-06-30
+124c7cd6-6ff3-4139-b61a-afc7728c582c,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-01 23:27:14.386,active,week3,2025-07-01
+14646e11-535d-494e-90c0-a78d6bc3244b,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 23:19:50.370,active,week3,2025-06-30
+166bd3a5-10c8-4283-9192-3c32952bd047,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-08 22:52:25.519,active,week4,2025-07-08
+17310f52-6b49-4c11-8b2c-580e34b61fe1,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:43:49.410,active,week3,2025-06-30
+1b9a243e-662f-4e0b-9e92-b074866ccba3,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:48:03.326,active,week3,2025-06-30
+2375f970-bc5f-4bdc-be92-074a355e07e3,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 00:41:05.965,active,week4,2025-07-09
+26866530-14c7-4498-b457-fea91d9c1385,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 21:48:16.028,active,week4,2025-07-09
+3300a164-bf20-4b8a-a139-dbc1547a939b,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 01:30:01.690,active,week4,2025-07-09
+3357c323-9c46-45f0-8688-577712ddfe26,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 21:36:35.663,active,week3,2025-06-30
+46f89169-fb6a-4624-aac8-ec6dd7a23b50,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-02 22:24:02.155,active,week3,2025-07-02
+625f7d7c-f61f-4245-8652-0e4518e3daef,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 00:30:33.193,active,week4,2025-07-09
+6dd5d500-bf0c-4937-96fc-2f60d9226128,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-10 00:17:42.447,active,week4,2025-07-10
+70261ebf-4d7f-4486-a312-47a69c755b7a,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 01:22:39.970,active,week4,2025-07-09
+720f9c6b-e0f8-4427-86ac-7b65156b8b50,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:56:51.441,active,week3,2025-06-30
+7d5b5006-a031-49af-9352-0d54ef1284a8,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 21:45:25.795,active,week4,2025-07-09
+84f758b7-501f-4ae1-9ae2-e39d50daf9f0,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:49:27.311,active,week3,2025-06-30
+8fe320a9-32f6-4f01-b4cd-307f1430fdfe,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 16:59:38.966,active,week3,2025-06-30
+96cd12e4-623c-46f6-981f-5aea183d8a8e,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-02 20:55:35.032,active,week3,2025-07-02
+a12be7d5-497f-4940-a05e-da6e58773cf3,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-03 21:18:47.806,active,week3,2025-07-03
+ac7be776-408a-4137-8cbb-ad53823173b5,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-02 22:10:20.420,active,week3,2025-07-02
+ac9360ad-88fa-4f20-a7f0-98ff8b55fdc2,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-02 16:29:33.329,active,week3,2025-07-02
+ae721913-9a99-4064-a583-9e5bf501a835,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-03 00:15:27.329,active,week3,2025-07-03
+b95fffc8-361a-472e-b01c-df6efa17081a,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:21:55.813,active,week3,2025-06-30
+bd66ae3c-989d-47e3-8384-3613721b6ee3,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-02 22:22:05.454,active,week3,2025-07-02
+bd691230-2ab5-40e0-beb1-5c84eeac8c11,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 00:27:23.844,active,week4,2025-07-09
+c61e5bf9-11c3-4434-8a10-e2ae16060074,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-01 23:53:19.654,active,week3,2025-07-01
+c87c1696-87f4-4b3d-b29b-62f56b5b720b,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-08 16:15:46.255,active,week4,2025-07-08
+cce714db-f8e1-4dda-8691-35887c2f7a45,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 00:35:24.175,active,week4,2025-07-09
+d6b4dd23-b4a8-4ebf-8809-59c6dfea8658,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:50:59.914,active,week3,2025-06-30
+e41fabbc-64d1-4a66-95a9-280a447cdf8b,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 01:39:44.946,active,week4,2025-07-09
+ea7e5ffa-a9f9-43b0-a411-23be0506d614,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:16:52.536,active,week3,2025-06-30
+ee90fa25-478e-45fd-b250-c271be759fc5,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-09 00:43:21.735,active,week4,2025-07-09
+f1506d8b-7cda-4cd6-9038-c302ec01f752,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-06-30 22:54:22.760,active,week3,2025-06-30
+f511af5b-fc4a-4018-9dad-033779f37947,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-02 22:13:42.556,active,week3,2025-07-02
+fbf90c15-b20b-4afd-94da-0e4969848913,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,2025-07-02 22:11:42.700,active,week3,2025-07-02
+,,,,EJ Ying,yejayying@jmcopperbeech.com,,J&M Copper Beech Ventures,,inactive,,
+04f893ae-1057-4b89-9bc8-b79b060411b0,integrate_search,user,call_summarize,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-26 14:36:26.464,active,week2,2025-06-26
+05e662a7-461a-43ee-a812-8f6854e1fce4,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-26 14:47:54.886,active,week2,2025-06-26
+0607e3fb-6f58-465d-9b48-1436769e208d,integrate_search,user,normal,Mac Levine,mlevine@dendurcap.com,general,Dendur Capital,2025-06-26 14:09:22.466,active,week2,2025-06-26
+061d44a8-e19a-4126-8518-30bb06cc34d8,integrate_search,user,call_summarize,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-26 14:21:08.996,active,week2,2025-06-26
+09e60283-abf5-4b37-bb4f-75bc52b5a683,integrate_search,user,normal,Benjamin Kaminsky,bkaminsky@dendurcap.com,general,Dendur Capital,2025-07-09 19:00:59.517,active,week4,2025-07-09
+09ed9fd6-a08b-4d39-bd48-bb47a18692b3,integrate_search,user,normal,Michael LoPiccolo,mlopiccolo@dendurcap.com,general,Dendur Capital,2025-06-24 12:23:22.090,active,week2,2025-06-24
+0cc84f05-abfd-47ec-9ff5-98cd69ff56cd,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-30 19:52:52.025,active,week3,2025-06-30
+102b0bff-1d5f-4d8f-a7b0-a03d92d22293,integrate_search,user,normal,Michael LoPiccolo,mlopiccolo@dendurcap.com,general,Dendur Capital,2025-07-07 15:20:54.994,active,week4,2025-07-07
+1be401d7-4264-4d59-ab63-226dce17471c,reasoning_r1,user,deep_research,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-07-07 19:48:55.817,active,week4,2025-07-07
+1ce85bff-e726-4e5b-a67f-90d807132485,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-07-01 18:25:39.055,active,week3,2025-07-01
+26dc35a5-22b7-4e0e-a82d-2a5b3074b9a8,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-26 14:53:00.849,active,week2,2025-06-26
+300c16c5-3742-4365-900b-3d75af4a9f9a,integrate_search,user,normal,Mac Levine,mlevine@dendurcap.com,general,Dendur Capital,2025-06-26 14:05:18.511,active,week2,2025-06-26
+3157e6ac-6935-471f-9849-e72030a403d3,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-26 14:03:30.904,active,week2,2025-06-26
+3483f0e5-ceaa-45e8-af2d-5ab87b5bcc14,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-26 14:52:19.909,active,week2,2025-06-26
+35335d60-4020-4979-b0a6-f031e48a9857,rms,user,timeline,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-26 17:48:08.719,active,week2,2025-06-26
+369c235d-9993-4ff0-b427-79c8c33f3136,reasoning_r1,user,deep_research,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-07-02 17:14:53.204,active,week3,2025-07-02
+3b83e597-7292-4428-b12e-c5089d8db244,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-26 14:40:03.943,active,week2,2025-06-26
+3dc44242-ca4f-40a5-b74c-04eeefaff09e,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-07-01 18:37:00.335,active,week3,2025-07-01
+40c45d80-055b-4f85-8f28-448bc51a34f0,integrate_search,user,normal,Benjamin Kaminsky,bkaminsky@dendurcap.com,general,Dendur Capital,2025-07-09 18:55:09.417,active,week4,2025-07-09
+488f7d54-d91d-43f4-bc90-f15271c57834,rms,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-26 20:40:07.227,active,week2,2025-06-26
+4df886b3-a5b5-4610-a09d-eb458a3cee3c,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-26 14:36:48.601,active,week2,2025-06-26
+55772d94-a57c-4a86-973f-a125496ccbfb,reasoning_r1,user,deep_research,Michael LoPiccolo,mlopiccolo@dendurcap.com,general,Dendur Capital,2025-06-30 16:56:50.126,active,week3,2025-06-30
+56f3a3f2-2293-4084-99fc-80abcd3ede04,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-26 14:28:16.669,active,week2,2025-06-26
+61be8806-0924-4627-bf04-1f711c8b5af7,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-27 19:48:49.430,active,week2,2025-06-27
+6378ff6c-f564-4e6e-b784-8215ce8c969b,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-26 14:06:14.533,active,week2,2025-06-26
+65f490cc-57cd-4ede-a9dc-9c776cadf647,integrate_search,user,primer,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-26 14:23:43.842,active,week2,2025-06-26
+6cd719a0-9563-47c3-8947-b3274315d5bd,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-30 16:33:48.795,active,week3,2025-06-30
+70d66105-58c9-4a99-91ba-63668d2d01f9,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-26 21:06:09.418,active,week2,2025-06-26
+7a5bf161-6e92-4efe-8077-02b403c285e3,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-07-01 15:13:38.962,active,week3,2025-07-01
+8020b5f0-2364-4144-ae2b-8821bf055759,integrate_search,user,normal,Mac Levine,mlevine@dendurcap.com,general,Dendur Capital,2025-06-24 14:03:13.403,active,week2,2025-06-24
+84fa4a06-4096-4f95-b1d9-1721065890c9,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-27 19:47:21.405,active,week2,2025-06-27
+88ac4264-31d7-4fca-b7ba-a6cc5a82588d,integrate_search,user,company_screener,Michael LoPiccolo,mlopiccolo@dendurcap.com,general,Dendur Capital,2025-06-24 12:32:37.236,active,week2,2025-06-24
+8b37555f-d44f-4348-87aa-e54ceb539893,integrate_search,user,normal,Benjamin Kaminsky,bkaminsky@dendurcap.com,general,Dendur Capital,2025-06-27 20:22:00.973,active,week2,2025-06-27
+8c98849d-3d3b-4a01-b4d1-7b5b7d53fcec,reasoning_r1,user,deep_research,Michael LoPiccolo,mlopiccolo@dendurcap.com,general,Dendur Capital,2025-06-30 16:35:59.519,active,week3,2025-06-30
+9291b64d-c567-4eaa-b11e-1f5b3844a995,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-26 21:10:38.921,active,week2,2025-06-26
+96641814-234d-4e80-8a6e-f496f7c8fd8e,integrate_search,user,normal,Michael LoPiccolo,mlopiccolo@dendurcap.com,general,Dendur Capital,2025-07-08 14:34:54.992,active,week4,2025-07-08
+96c40a43-1cc2-4bef-a23b-682756b7850d,reasoning_r1,user,deep_research,Mac Levine,mlevine@dendurcap.com,general,Dendur Capital,2025-06-30 18:34:39.674,active,week3,2025-06-30
+9deb7d10-fd79-48c4-8438-eb8006bb0ddc,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-07-01 17:06:17.056,active,week3,2025-07-01
+a00531a5-e5cf-4cb1-b9f8-415d649b2085,integrate_search,user,normal,Benjamin Kaminsky,bkaminsky@dendurcap.com,general,Dendur Capital,2025-06-29 16:27:12.580,active,week3,2025-06-29
+af35dceb-7b4a-49a0-a3e9-160fe8c535b4,reasoning_r1,user,deep_research,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-07-07 18:55:09.306,active,week4,2025-07-07
+bcd13c5a-1b09-4748-9195-1f0fc78a1ab1,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-27 14:55:25.353,active,week2,2025-06-27
+c2fb965b-8432-4e6f-9f8f-262f642bc81a,reasoning_r1,user,deep_research,Michael LoPiccolo,mlopiccolo@dendurcap.com,general,Dendur Capital,2025-06-26 14:10:32.596,active,week2,2025-06-26
+d146b00c-afa2-4d4d-9d5a-ed6307c9474b,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-26 14:51:29.487,active,week2,2025-06-26
+d8037726-bfbe-4910-b25b-914fa6b8b7a6,reasoning_r1,user,deep_research,Mac Levine,mlevine@dendurcap.com,general,Dendur Capital,2025-06-26 14:09:06.905,active,week2,2025-06-26
+d8401b18-a9b7-4b3d-b0f7-0a6e50ce4b60,integrate_search,user,normal,Benjamin Kaminsky,bkaminsky@dendurcap.com,general,Dendur Capital,2025-07-09 19:17:53.910,active,week4,2025-07-09
+de8a97de-5e0a-4a97-95dc-e3f23096ee65,integrate_search,user,call_summarize,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-26 14:30:02.782,active,week2,2025-06-26
+e0ec9554-0a3b-4b68-947d-efee594e31c7,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-07-02 15:12:09.880,active,week3,2025-07-02
+e3e1e1f1-7bae-4ff4-b273-e5bbd8dd612f,integrate_search,user,normal,Mac Levine,mlevine@dendurcap.com,general,Dendur Capital,2025-06-23 19:39:29.456,active,week2,2025-06-23
+e573ac24-5c72-4e33-ab5a-f075d50c9609,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-27 19:44:33.158,active,week2,2025-06-27
+ebe75eb5-ee06-44cb-82bb-a27a8603c924,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-30 16:32:23.009,active,week3,2025-06-30
+ed60edf6-fdb5-4466-993b-a0f9d0d32ae1,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-26 14:39:51.251,active,week2,2025-06-26
+f0fad942-f891-4137-8891-fe112d536d41,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-07-01 18:48:48.522,active,week3,2025-07-01
+f7110cbe-b126-4891-bd48-e7371f379b2a,integrate_search,user,normal,Benjamin Kaminsky,bkaminsky@dendurcap.com,general,Dendur Capital,2025-06-29 16:34:45.590,active,week3,2025-06-29
+f80285d7-b5cd-4f45-8f0a-84bac9af8ce2,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-30 19:28:25.490,active,week3,2025-06-30
+f8839655-f291-4eda-8bc2-cb0df01fd433,integrate_search,user,normal,Matthew Vandivort,mvandivort@dendurcap.com,general,Dendur Capital,2025-06-27 19:46:39.470,active,week2,2025-06-27
+fe8fbb98-c8ed-475b-be46-0bc9826e31d7,integrate_search,user,normal,Benjamin Kaminsky,bkaminsky@dendurcap.com,general,Dendur Capital,2025-06-29 16:27:20.593,active,week3,2025-06-29
+ff474453-bdd1-4b6e-a959-c662ebb223e6,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,2025-06-30 15:16:39.653,active,week3,2025-06-30
+,,,,Mike Anastasio,manastasio@dendurcap.com,,Dendur Capital,,inactive,,
+1159bfb6-969d-4d8e-b01f-dac0cbdb9813,integrate_search,user,normal,Matt Rosenberg,matt@rockspringscapital.com,general,Rock Springs Capital,2025-07-03 17:15:22.896,active,week3,2025-07-03
+12fd819a-9049-426b-9d88-408c4741bc4b,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 22:51:09.613,active,week4,2025-07-09
+365b1b50-618e-4c40-aa18-3e715639da04,integrate_search,user,normal,Matt Rosenberg,matt@rockspringscapital.com,general,Rock Springs Capital,2025-07-03 17:14:02.816,active,week3,2025-07-03
+434fd5d9-8dbd-4cda-b54b-1d322989e04c,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-07 18:16:18.234,active,week4,2025-07-07
+4b230161-8dfb-491c-a26d-f9e025676ccd,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-07 16:09:42.658,active,week4,2025-07-07
+567112ab-d465-47dd-9747-eb98ff69b807,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-07 16:08:19.615,active,week4,2025-07-07
+7576fcd1-f40b-4e73-ab8a-2b77dda21672,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-07 16:11:58.872,active,week4,2025-07-07
+7b972a52-d364-4f6d-89dc-d4a52e28bacc,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 23:02:24.774,active,week4,2025-07-09
+7c3697d5-d9b2-4a25-831d-259af514e117,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-07 15:57:50.964,active,week4,2025-07-07
+85302606-1e33-412c-a093-d0b46aeb70e0,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-03 15:45:20.058,active,week3,2025-07-03
+8802c7de-64e5-4736-a090-d90e70b82eb0,integrate_search,user,normal,Scott Schafer,scott@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 11:18:45.259,active,week4,2025-07-09
+8b8d83a6-0e1a-4c50-b57c-cdc3784c414a,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 23:20:23.574,active,week4,2025-07-09
+933187f4-0e73-45b9-83f8-7a07e08d276b,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 22:58:47.981,active,week4,2025-07-09
+a5033253-c954-4ec0-8b0b-9a50026d3b9c,reasoning_r1,user,deep_research,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 23:36:39.200,active,week4,2025-07-09
+b8d3884d-37c1-4aaa-9c97-f0eed53550d0,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 22:46:26.332,active,week4,2025-07-09
+c31de493-225a-48db-b42f-5b31ab7c074f,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-03 15:52:36.734,active,week3,2025-07-03
+c3d41102-9ae6-43a5-9a23-f543b8f2c334,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-03 16:01:16.117,active,week3,2025-07-03
+c3d6b640-3f3d-43ee-92b1-ab059b3787d5,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-03 15:50:42.758,active,week3,2025-07-03
+c80c546e-7ab7-4ba0-aca3-867b76c11be2,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-03 15:47:48.808,active,week3,2025-07-03
+c8da6e02-1453-4931-9729-d14ccc621824,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 22:52:59.089,active,week4,2025-07-09
+d92549cd-2f54-4e51-9467-be1d7298b936,integrate_search,user,normal,Scott Schafer,scott@rockspringscapital.com,general,Rock Springs Capital,2025-07-08 17:02:10.275,active,week4,2025-07-08
+dfc91ed8-4cd8-4b7b-b77a-ff9b8227ab4a,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 22:47:56.687,active,week4,2025-07-09
+e1603492-5ad6-44c2-8e56-0bdc6d455597,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-07 18:22:24.248,active,week4,2025-07-07
+edb76233-b4fc-4103-b999-e2924f374765,integrate_search,user,normal,Scott Schafer,scott@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 11:45:07.446,active,week4,2025-07-09
+fa13c9f4-5a74-4b7d-a6e3-ecc6bbc52f7a,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,2025-07-09 23:24:20.890,active,week4,2025-07-09
+fbfa311b-0da9-45fb-8863-9fd7de68bc5a,integrate_search,user,normal,Allison Horenberg,allison@rockspringscapital.com,general,Rock Springs Capital,2025-07-07 16:13:44.162,active,week4,2025-07-07
+,,,,Veric Tan,veric@rockspringscapital.com,,Rock Springs Capital,,inactive,,
+,,,,Temitope Akande,temi@rockspringscapital.com,,Rock Springs Capital,,inactive,,
+,,,,Nnamdi Etoh,nnamdi@rockspringscapital.com,,Rock Springs Capital,,inactive,,
+,,,,,dave@rockspringscapital.com,,Rock Springs Capital,,inactive,,
