@@ -105,6 +105,35 @@ with col6:
         unsafe_allow_html=True
     )
 
+# Total usage 시계열 차트
+st.markdown("---")
+st.subheader("📅 Total Usage Over Time (All Functions)")
+
+df_total_daily = df_active.copy()
+df_total_daily["date"] = df_total_daily["created_at"].dt.date
+df_total_daily = df_total_daily.groupby("date").size().reset_index(name="count")
+df_total_daily["date"] = pd.to_datetime(df_total_daily["date"])
+
+# bin 수 조절 (기간 길이에 따라)
+num_days = (df_total_daily["date"].max() - df_total_daily["date"].min()).days
+if num_days <= 14:
+    maxbins = 7
+elif num_days <= 30:
+    maxbins = 10
+elif num_days <= 60:
+    maxbins = 20
+else:
+    maxbins = 40
+
+chart_total = alt.Chart(df_total_daily).mark_line(point=True).encode(
+    x=alt.X("date:T", bin=alt.BinParams(maxbins=maxbins), title="Date"),
+    y=alt.Y("count:Q", title="Total Event Count"),
+    tooltip=["date:T", "count:Q"]
+).properties(width=900, height=300)
+
+st.altair_chart(chart_total, use_container_width=True)
+
+
 # 함수 및 주간 시계열
 st.markdown("---")
 st.subheader("📈 Weekly Function Usage Trends")
