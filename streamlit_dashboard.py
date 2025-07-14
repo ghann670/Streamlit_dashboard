@@ -315,53 +315,69 @@ with right2:
 # 👥 Function Usage by User (Stacked by Week)
 st.subheader("👥 Function Usage by User (Stacked by Week)")
 
-# 전체 유저-기능-주차별 집계
-df_user_stack_all = df_org.groupby(['week_bucket', 'user_name', 'agent_type']).size().reset_index(name='count')
+# 📅 주차 선택
+week_options_user = sorted(df_org['week_bucket'].dropna().unique(), reverse=True)
+selected_week_user = st.selectbox("Select Week", week_options_user, key="user_week_select")
+
+# ✅ 선택된 주차만 필터링
+df_user_week = df_org[df_org['week_bucket'] == selected_week_user]
+
+# 전체 유저-기능 집계 (선택 주차 기준)
+df_user_stack = df_user_week.groupby(['user_name', 'agent_type']).size().reset_index(name='count')
 
 # Top 10 유저만 포함
-top_users = df_user_stack_all.groupby('user_name')['count'].sum().nlargest(10).index.tolist()
-df_user_stack_all = df_user_stack_all[df_user_stack_all['user_name'].isin(top_users)]
+top_users = df_user_stack.groupby('user_name')['count'].sum().nlargest(10).index.tolist()
+df_user_stack = df_user_stack[df_user_stack['user_name'].isin(top_users)]
 
-# 피벗 및 melt
-df_user_pivot = df_user_stack_all.pivot_table(
-    index=['week_bucket', 'user_name'],
-    columns='agent_type',
-    values='count',
-    fill_value=0
-).reset_index()
-
-df_user_melted = df_user_pivot.melt(
-    id_vars=['week_bucket', 'user_name'],
-    var_name='agent_type',
-    value_name='count'
+# 기능 정렬 기준 정의 (많이 쓴 순)
+sorted_func_order = (
+    df_user_stack.groupby('agent_type')['count']
+    .sum().sort_values(ascending=False).index.tolist()
+)
+df_user_stack['agent_type'] = pd.Categorical(
+    df_user_stack['agent_type'],
+    categories=sorted_func_order,
+    ordered=True
 )
 
-# 기능 정렬 기준 정의
-sorted_func_order = df_user_stack_all.groupby('agent_type')['count'].sum().sort_values(ascending=False).index.tolist()
-df_user_melted['agent_type'] = pd.Categorical(df_user_melted['agent_type'], categories=sorted_func_order, ordered=True)
-
-# 시각화
+# ✅ Plotly 시각화
 left, right = st.columns([7, 5])
 with left:
-    chart = alt.Chart(df_user_melted).mark_bar().encode(
-        x=alt.X('user_name:N', title='User', axis=alt.Axis(labelAngle=0)),
-        y=alt.Y('count:Q', title='Usage Count', stack='zero'),
-        color=alt.Color('agent_type:N', title='Function', sort=sorted_func_order),
-        column=alt.Column('week_bucket:N', title='Week')
-    ).properties(height=300, width=150)
+    df_user_stack = df_user_stack.sort_values(['user_name', 'agent_type'])
 
-    st.altair_chart(chart, use_container_width=True)
+    fig = px.bar(
+        df_user_stack,
+        x="user_name",
+        y="count",
+        color="agent_type",
+        category_orders={
+            "agent_type": sorted_func_order,
+            "user_name": top_users
+        },
+        color_discrete_sequence=px.colors.qualitative.Set1,
+        labels={"user_name": "User", "count": "Usage Count", "agent_type": "Function"},
+    )
+    fig.update_layout(
+        barmode="stack",
+        xaxis_title="User",
+        yaxis_title="Usage Count",
+        legend_title="Function",
+        height=350,
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
 
 with right:
-    df_table = df_user_stack_all.pivot_table(
+    # 📊 테이블 집계
+    df_user_table = df_user_stack.pivot_table(
         index='user_name',
         columns='agent_type',
         values='count',
         aggfunc='sum',
         fill_value=0
     )
-    df_table['Total'] = df_table.sum(axis=1)
-    df_table = df_table.sort_values('Total', ascending=False)
-    df_table = df_table[['Total'] + [col for col in df_table.columns if col != 'Total']]
+    df_user_table['Total'] = df_user_table.sum(axis=1)
+    df_user_table = df_user_table.sort_values('Total', ascending=False)
+    df_user_table = df_user_table[['Total'] + [col for col in df_user_table.columns if col != 'Total']]
 
-    st.dataframe(df_table.astype(int), use_container_width=True)
+    st.dataframe(df_user_table.astype(int), use_container_width=True)
