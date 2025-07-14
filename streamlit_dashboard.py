@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import altair as alt
 
 # Load dataset
 df_all = pd.read_csv("df_all.csv", parse_dates=["created_at"])
