@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import altair as alt
+import plotly.express as px
 
 # Load dataset
 df_all = pd.read_csv("df_all.csv", parse_dates=["created_at"])
@@ -29,12 +29,11 @@ df_all['agent_type'] = df_all['function_mode'].str.split(":").str[0]
 
 # 절감 시간 매핑
 time_map = {"deep_research": 40, "pulse_check": 30}
-
 df_all["saved_minutes"] = df_all["agent_type"].map(time_map).fillna(30)
 
 # Streamlit UI
 st.set_page_config(page_title="Usage Summary Dashboard", layout="wide")
-st.title("\U0001F680 Usage Summary Dashboard")
+st.title("🚀 Usage Summary Dashboard")
 
 # 조직 선택 필터
 org_list = df_all['organization'].dropna().unique()
@@ -72,10 +71,7 @@ else:
 
 # Inactive Users 계산
 inactive_emails = df_org[~df_org['user_email'].isin(df_active['user_email'])]['user_email'].dropna().unique()
-if len(inactive_emails) > 0:
-    inactive_display = ", ".join(inactive_emails)
-else:
-    inactive_display = "—"
+inactive_display = ", ".join(inactive_emails) if len(inactive_emails) > 0 else "—"
 
 # Layout – Metrics
 col1, col2, col3 = st.columns(3)
@@ -105,40 +101,30 @@ with col6:
         unsafe_allow_html=True
     )
 
-# Total usage 시계열 차트
+# Total usage 시계열 차트 (Plotly로 변경)
 st.markdown("---")
 st.subheader("📅 Total Usage Over Time (All Functions)")
 
-# 1️⃣ 날짜별 전체 사용량 집계
+# 날짜별 전체 사용량 집계
 df_active_org = df_active.copy().sort_values("created_at")
 df_active_org["count"] = 1
 df_total_daily = df_active_org.groupby(df_active_org["created_at"].dt.date).size().reset_index(name="count")
 df_total_daily["created_at"] = pd.to_datetime(df_total_daily["created_at"])
 
-# ✅ 2️⃣ 날짜 라벨 생성 (예: 7/11)
-df_total_daily["date_label"] = df_total_daily["created_at"].dt.strftime("%-m/%d")  # macOS/Linux
-# 윈도우에서는 "%#m/%d" 사용 필요
+# 날짜 레이블 (예: "7/14")
+df_total_daily["date_label"] = df_total_daily["created_at"].dt.strftime("%-m/%d")
 
-# 3️⃣ 날짜 수에 따라 x축 bin 수 결정 (선택사항)
-num_days = (df_total_daily["created_at"].max() - df_total_daily["created_at"].min()).days
-if num_days <= 14:
-    maxbins = 7
-elif num_days <= 30:
-    maxbins = 10
-elif num_days <= 60:
-    maxbins = 20
-else:
-    maxbins = 40
+# Plotly 라인차트
+fig1 = px.line(
+    df_total_daily,
+    x="date_label",
+    y="count",
+    markers=True,
+    labels={"date_label": "Date", "count": "Total Event Count"},
+)
+fig1.update_layout(height=300, width=900, xaxis_tickangle=0)
+st.plotly_chart(fig1, use_container_width=True)
 
-# 4️⃣ 차트 생성 (날짜 레이블 사용)
-chart_total = alt.Chart(df_total_daily).mark_line(point=True).encode(
-    x=alt.X('date_label:N', title='Date', axis=alt.Axis(labelAngle=0)),
-    y=alt.Y('count:Q', title='Total Event Count'),
-    tooltip=['created_at:T', 'count']
-).properties(width=900, height=300)
-
-# 5️⃣ 차트 출력
-st.altair_chart(chart_total, use_container_width=True)
 
 # ✅ New Section: 유저별 라인차트 추가
 st.markdown("### 👥 Users' Daily Usage")
