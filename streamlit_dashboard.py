@@ -152,7 +152,7 @@ df_user_daily.rename(columns={"user_name": "user"}, inplace=True)
 # ✅ 유저별 total usage 수 기준 정렬
 user_total_counts = df_user_daily.groupby("user")["count"].sum()
 sorted_users = user_total_counts.sort_values(ascending=False).index.tolist()
-default_users = sorted_users[:5]  # 상위 5명 자동 선택
+default_users = sorted_users[:3]  # 상위 5명 자동 선택
 
 # ✅ 멀티셀렉트 (전체 유저 포함, 정렬된 순서, 상위 5명 기본 선택)
 selected_users = st.multiselect(
@@ -254,14 +254,15 @@ df_day = df_day.sort_values('agent_type')
 
 left2, right2 = st.columns([6, 6])
 with left2:
-    chart_day = alt.Chart(df_day).mark_line(point=True).encode(
+    chart_day = alt.Chart(df_day).mark_bar().encode(
         x=alt.X('day_label:N', title='Date', axis=alt.Axis(labelAngle=0)),
-        y=alt.Y('count:Q', title='Event Count'),
+        y=alt.Y('count:Q', title='Event Count', stack='zero'),
         color=alt.Color('agent_type:N', title='Function', sort=sorted_day_order),
-        tooltip=['agent_type', 'count']
+        tooltip=['agent_type:N', 'count:Q']
     ).properties(width=600, height=300)
 
     st.altair_chart(chart_day, use_container_width=True)
+
 
 with right2:
     st.dataframe(df_day_table.astype(int), use_container_width=True)
