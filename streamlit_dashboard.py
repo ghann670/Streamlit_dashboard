@@ -252,12 +252,16 @@ sorted_day_order = df_day_table.drop("Total").index.tolist()
 df_day['agent_type'] = pd.Categorical(df_day['agent_type'], categories=sorted_day_order, ordered=True)
 df_day = df_day.sort_values('agent_type')
 
+
+# ✅ 기능별 전체 사용량 기준 정렬 순서
+agent_order_by_volume = df_day.groupby('agent_type')['count'].sum().sort_values(ascending=False).index.tolist()
+
 left2, right2 = st.columns([6, 6])
 with left2:
     chart_day = alt.Chart(df_day).mark_bar().encode(
         x=alt.X('day_label:N', title='Date', axis=alt.Axis(labelAngle=0)),
         y=alt.Y('count:Q', title='Event Count', stack='zero'),
-        color=alt.Color('agent_type:N', title='Function', sort=sorted_day_order),
+        color=alt.Color('agent_type:N', title='Function', sort=agent_order_by_volume),
         tooltip=['agent_type:N', 'count:Q']
     ).properties(width=600, height=300)
 
@@ -267,32 +271,49 @@ with left2:
 with right2:
     st.dataframe(df_day_table.astype(int), use_container_width=True)
 
-# 사용자별 주차 기능 사용량
-st.subheader("👤 Function Usage by User & Week")
 
+# 👤 사용자별 주차 기능 사용량 (스택바)
+st.subheader("📊 Function Usage by User & Week")
+
+# 📅 주차 선택
 selected_week_user = st.selectbox("Select Week", week_options, index=0, key="user_select_week")
 df_week_user = df_org[df_org['week_bucket'] == selected_week_user]
-user_list = df_week_user['user_name'].dropna().unique()
-selected_user = st.selectbox("Select User", sorted(user_list), key="user_select_user")
 
-df_user_week = df_week_user[df_week_user['user_name'] == selected_user]
+# ✅ 집계: 유저-기능별 count
+df_user_actual = df_week_user.groupby(['user_name', 'agent_type']).size().reset_index(name='count')
 
-if df_user_week.empty:
-    st.warning("No usage data available for the selected user in this week.")
-else:
-    df_user_func_bar = df_user_week.groupby('agent_type').size().reset_index(name='count').sort_values(by='count', ascending=False)
+# 📊 피벗 테이블: 행은 유저, 열은 기능
+df_pivot = df_user_actual.pivot_table(
+    index='user_name',
+    columns='agent_type',
+    values='count',
+    aggfunc='sum',
+    fill_value=0
+)
 
-    left3, right3 = st.columns([6, 6])
-    with left3:
-        user_func_chart = alt.Chart(df_user_func_bar).mark_bar().encode(
-            x=alt.X('agent_type:N', title="Function", sort='-y', axis=alt.Axis(labelAngle=0)),
-            y=alt.Y('count:Q', title="Usage Count"),
-            color=alt.Color('agent_type:N', legend=None),
-            tooltip=['agent_type', 'count']
-        ).properties(width=600, height=400, title=f"{selected_user}'s Usage in {selected_week_user}")
+# 🔝 Top 10 유저 선택 (전체 사용량 기준)
+top_users = df_pivot.sum(axis=1).nlargest(10).index
+df_pivot = df_pivot.loc[top_users]
 
-        st.altair_chart(user_func_chart, use_container_width=True)
+# 📈 시각화를 위한 melt
+df_melted = df_pivot.reset_index().melt(id_vars='user_name', var_name='agent_type', value_name='count')
 
-    with right3:
-        df_user_table = df_user_func_bar.set_index('agent_type')
-        st.dataframe(df_user_table, use_container_width=True)
+# 🎨 Altair 스택 바 차트
+left, right = st.columns([6, 6])
+with left:
+    user_stack_chart = alt.Chart(df_melted).mark_bar().encode(
+        x=alt.X('user_name:N', title='User', sort=list(top_users)),
+        y=alt.Y('count:Q', title='Usage Count'),
+        color=alt.Color('agent_type:N', title='Function'),
+        tooltip=['user_name', 'agent_type', 'count']
+    ).properties(width=600, height=400, title=f"Top Users' Function Usage in {selected_week_user}")
+
+    st.altair_chart(user_stack_chart, use_container_width=True)
+
+# 📋 오른쪽: 테이블 표시
+with right:
+    df_table_display = df_pivot.copy()
+    df_table_display['Total'] = df_table_display.sum(axis=1)
+    df_table_display = df_table_display.sort_values('Total', ascending=False)
+    st.dataframe(df_table_display.astype(int), use_container_width=True)
+
