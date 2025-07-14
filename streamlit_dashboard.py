@@ -141,7 +141,7 @@ chart_total = alt.Chart(df_total_daily).mark_line(point=True).encode(
 st.altair_chart(chart_total, use_container_width=True)
 
 # ✅ New Section: 유저별 라인차트 추가
-st.markdown("### 👥 Top Users' Daily Usage")
+st.markdown("### 👥 Users' Daily Usage")
 
 # 유저별 일별 사용량 집계
 df_user_daily = df_active_org.groupby([df_active_org["created_at"].dt.date, "user_name"]).size().reset_index(name="count")
@@ -149,16 +149,22 @@ df_user_daily["created_at"] = pd.to_datetime(df_user_daily["created_at"])
 df_user_daily["date_label"] = df_user_daily["created_at"].dt.strftime("%-m/%d")
 df_user_daily.rename(columns={"user_name": "user"}, inplace=True)
 
-# 상위 유저 추출 (10명 기준)
-top_user_list = df_user_daily['user'].value_counts().nlargest(10).index.tolist()
+# ✅ 유저별 total usage 수 기준 정렬
+user_total_counts = df_user_daily.groupby("user")["count"].sum()
+sorted_users = user_total_counts.sort_values(ascending=False).index.tolist()
+default_users = sorted_users[:5]  # 상위 5명 자동 선택
 
-# 멀티셀렉트로 유저 선택
-selected_users = st.multiselect("Select users to display", top_user_list, default=top_user_list[:5])
+# ✅ 멀티셀렉트 (전체 유저 포함, 정렬된 순서, 상위 5명 기본 선택)
+selected_users = st.multiselect(
+    "Select users to display",
+    options=sorted_users,
+    default=default_users
+)
 
-# 필터링된 유저 데이터
-df_user_filtered = df_user_daily[df_user_daily['user'].isin(selected_users)]
+# ✅ 필터링된 유저 데이터
+df_user_filtered = df_user_daily[df_user_daily["user"].isin(selected_users)]
 
-# 라인차트 시각화
+# ✅ 라인차트 시각화
 if df_user_filtered.empty:
     st.info("No data for selected users.")
 else:
