@@ -140,7 +140,36 @@ chart_total = alt.Chart(df_total_daily).mark_line(point=True).encode(
 # 5️⃣ 차트 출력
 st.altair_chart(chart_total, use_container_width=True)
 
+# ✅ New Section: 유저별 라인차트 추가
+st.markdown("### 👥 Top Users' Daily Usage")
 
+# 유저별 일별 사용량 집계
+df_user_daily = df_active_org.groupby([df_active_org["created_at"].dt.date, "user_name"]).size().reset_index(name="count")
+df_user_daily["created_at"] = pd.to_datetime(df_user_daily["created_at"])
+df_user_daily["date_label"] = df_user_daily["created_at"].dt.strftime("%-m/%d")
+df_user_daily.rename(columns={"user_name": "user"}, inplace=True)
+
+# 상위 유저 추출 (10명 기준)
+top_user_list = df_user_daily['user'].value_counts().nlargest(10).index.tolist()
+
+# 멀티셀렉트로 유저 선택
+selected_users = st.multiselect("Select users to display", top_user_list, default=top_user_list[:5])
+
+# 필터링된 유저 데이터
+df_user_filtered = df_user_daily[df_user_daily['user'].isin(selected_users)]
+
+# 라인차트 시각화
+if df_user_filtered.empty:
+    st.info("No data for selected users.")
+else:
+    chart_users = alt.Chart(df_user_filtered).mark_line(point=True).encode(
+        x=alt.X("date_label:N", title="Date", axis=alt.Axis(labelAngle=0)),
+        y=alt.Y("count:Q", title="Event Count"),
+        color=alt.Color("user:N", title="User"),
+        tooltip=["user", "count"]
+    ).properties(width=900, height=300)
+
+    st.altair_chart(chart_users, use_container_width=True)
 
 
 # 함수 및 주간 시계열
