@@ -222,7 +222,7 @@ with left:
 with right:
     st.dataframe(df_week_table.astype(int), use_container_width=True)
 
-# Daily usage 시계열
+# 📊 Daily Function Usage for a Selected Week
 st.subheader("📊 Daily Function Usage for a Selected Week")
 
 week_options = sorted(df_all['week_bucket'].dropna().unique(), reverse=True)
@@ -230,58 +230,59 @@ selected_week = st.selectbox("Select Week", week_options, key="daily_select_week
 week_start, week_end = week_ranges[selected_week]
 week_dates = pd.date_range(week_start, week_end).date
 
-# 일별 데이터 처리
+# 데이터 필터링
 df_week = df_org[df_org['created_at'].dt.date.isin(week_dates)]
 agent_types = df_week['agent_type'].unique()
 all_combinations = pd.MultiIndex.from_product([week_dates, agent_types], names=['day_bucket', 'agent_type']).to_frame(index=False)
+
+# 집계
 df_day = df_week.groupby(['day_bucket', 'agent_type']).size().reset_index(name='count')
 df_day = pd.merge(all_combinations, df_day, on=['day_bucket', 'agent_type'], how='left')
 df_day['count'] = df_day['count'].fillna(0).astype(int)
 
-# ✅ 날짜 레이블 포맷 변경
+# 날짜 포맷 변경
 df_day['day_label'] = pd.to_datetime(df_day['day_bucket']).dt.strftime('%m-%d')
 
-# 📊 피벗 테이블 (간결한 날짜 사용)
+# 피벗 테이블
 df_day_table = df_day.pivot_table(index='agent_type', columns='day_label', values='count', fill_value=0, aggfunc='sum')
 df_day_table['Total'] = df_day_table.sum(axis=1)
 df_day_table = df_day_table.sort_values('Total', ascending=False)
 df_day_table = df_day_table[['Total'] + [col for col in df_day_table.columns if col != 'Total']]
 df_day_table.loc['Total'] = df_day_table.sum(numeric_only=True)
 
+# 정렬 순서 지정
 sorted_day_order = df_day_table.drop("Total").index.tolist()
 df_day['agent_type'] = pd.Categorical(df_day['agent_type'], categories=sorted_day_order, ordered=True)
 df_day = df_day.sort_values('agent_type')
 
-
-# ✅ 기능별 전체 사용량 기준 정렬 순서
-agent_order_by_volume = df_day.groupby('agent_type')['count'].sum().sort_values(ascending=False).index.tolist()
-
+# 차트 및 테이블 렌더링
 left2, right2 = st.columns([6, 6])
 with left2:
     chart_day = alt.Chart(df_day).mark_bar().encode(
         x=alt.X('day_label:N', title='Date', axis=alt.Axis(labelAngle=0)),
         y=alt.Y('count:Q', title='Event Count', stack='zero'),
-        color=alt.Color('agent_type:N', title='Function', sort=agent_order_by_volume),
+        color=alt.Color('agent_type:N', title='Function', sort=sorted_day_order),
         tooltip=['agent_type:N', 'count:Q']
     ).properties(width=600, height=300)
 
     st.altair_chart(chart_day, use_container_width=True)
 
-
 with right2:
     st.dataframe(df_day_table.astype(int), use_container_width=True)
 
+# ──────────────────────────────────────────────
 
+# 👥 Function Usage by User (Stacked by Week)
 st.subheader("👥 Function Usage by User (Stacked by Week)")
 
-# 🔄 유저-기능-주차별 집계
+# 전체 유저-기능-주차별 집계
 df_user_stack_all = df_org.groupby(['week_bucket', 'user_name', 'agent_type']).size().reset_index(name='count')
 
-# 🎯 Top 10 유저만 추출 (총 사용량 기준) - 필요 시 주석 해제
+# Top 10 유저만 포함
 top_users = df_user_stack_all.groupby('user_name')['count'].sum().nlargest(10).index.tolist()
 df_user_stack_all = df_user_stack_all[df_user_stack_all['user_name'].isin(top_users)]
 
-# 🔁 피벗 후 다시 melt (스택 바 형식)
+# 피벗 및 melt
 df_user_pivot = df_user_stack_all.pivot_table(
     index=['week_bucket', 'user_name'],
     columns='agent_type',
@@ -295,21 +296,23 @@ df_user_melted = df_user_pivot.melt(
     value_name='count'
 )
 
-# ⬅️ 차트와 ➡️ 테이블 layout
-left, right = st.columns([7, 5])
+# 기능 정렬 기준 정의
+sorted_func_order = df_user_stack_all.groupby('agent_type')['count'].sum().sort_values(ascending=False).index.tolist()
+df_user_melted['agent_type'] = pd.Categorical(df_user_melted['agent_type'], categories=sorted_func_order, ordered=True)
 
+# 시각화
+left, right = st.columns([7, 5])
 with left:
     chart = alt.Chart(df_user_melted).mark_bar().encode(
         x=alt.X('user_name:N', title='User', axis=alt.Axis(labelAngle=0)),
         y=alt.Y('count:Q', title='Usage Count', stack='zero'),
-        color=alt.Color('agent_type:N', title='Function'),
+        color=alt.Color('agent_type:N', title='Function', sort=sorted_func_order),
         column=alt.Column('week_bucket:N', title='Week')
     ).properties(height=300, width=150)
 
     st.altair_chart(chart, use_container_width=True)
 
 with right:
-    # 📊 집계 테이블 준비
     df_table = df_user_stack_all.pivot_table(
         index='user_name',
         columns='agent_type',
@@ -322,4 +325,3 @@ with right:
     df_table = df_table[['Total'] + [col for col in df_table.columns if col != 'Total']]
 
     st.dataframe(df_table.astype(int), use_container_width=True)
-
