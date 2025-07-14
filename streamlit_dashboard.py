@@ -272,17 +272,28 @@ df_day['agent_type'] = pd.Categorical(
 )
 df_day = df_day.sort_values(['day_label', 'agent_type'])
 
-# 📈 Altair 차트 + 📋 테이블
+# 📈 Plotly 차트 + 📋 테이블
 left2, right2 = st.columns([6, 6])
 with left2:
-    chart_day = alt.Chart(df_day).mark_bar().encode(
-        x=alt.X('day_label:N', title='Date', axis=alt.Axis(labelAngle=0)),
-        y=alt.Y('count:Q', title='Event Count', stack='zero'),
-        color=alt.Color('agent_type:N', title='Function', sort=agent_order_for_stack),
-        tooltip=['agent_type:N', 'count:Q']
-    ).properties(width=600, height=300)
-
-    st.altair_chart(chart_day, use_container_width=True)
+    # 📊 Plotly stacked bar chart
+    fig_day = px.bar(
+        df_day,
+        x="day_label",
+        y="count",
+        color="agent_type",
+        category_orders={"agent_type": agent_order_for_stack},
+        color_discrete_sequence=px.colors.qualitative.Set1,
+        labels={"day_label": "Date", "count": "Event Count", "agent_type": "Function"},
+    )
+    fig_day.update_layout(
+        barmode="stack",
+        width=600,
+        height=300,
+        xaxis_title="Date",
+        yaxis_title="Event Count",
+        legend_title="Function",
+    )
+    st.plotly_chart(fig_day, use_container_width=True)
 
 with right2:
     # 📊 집계 테이블 준비
