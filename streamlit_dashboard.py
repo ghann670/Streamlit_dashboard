@@ -272,48 +272,54 @@ with right2:
     st.dataframe(df_day_table.astype(int), use_container_width=True)
 
 
-# 👤 사용자별 주차 기능 사용량 (스택바)
-st.subheader("📊 Function Usage by User & Week")
+st.subheader("👥 Function Usage by User (Stacked by Week)")
 
-# 📅 주차 선택
-selected_week_user = st.selectbox("Select Week", week_options, index=0, key="user_select_week")
-df_week_user = df_org[df_org['week_bucket'] == selected_week_user]
+# 🔄 유저-기능-주차별 집계
+df_user_stack_all = df_org.groupby(['week_bucket', 'user_name', 'agent_type']).size().reset_index(name='count')
 
-# ✅ 집계: 유저-기능별 count
-df_user_actual = df_week_user.groupby(['user_name', 'agent_type']).size().reset_index(name='count')
+# 🎯 Top 10 유저만 추출 (총 사용량 기준) - 필요 시 주석 해제
+top_users = df_user_stack_all.groupby('user_name')['count'].sum().nlargest(10).index.tolist()
+df_user_stack_all = df_user_stack_all[df_user_stack_all['user_name'].isin(top_users)]
 
-# 📊 피벗 테이블: 행은 유저, 열은 기능
-df_pivot = df_user_actual.pivot_table(
-    index='user_name',
+# 🔁 피벗 후 다시 melt (스택 바 형식)
+df_user_pivot = df_user_stack_all.pivot_table(
+    index=['week_bucket', 'user_name'],
     columns='agent_type',
     values='count',
-    aggfunc='sum',
     fill_value=0
+).reset_index()
+
+df_user_melted = df_user_pivot.melt(
+    id_vars=['week_bucket', 'user_name'],
+    var_name='agent_type',
+    value_name='count'
 )
 
-# 🔝 Top 10 유저 선택 (전체 사용량 기준)
-top_users = df_pivot.sum(axis=1).nlargest(10).index
-df_pivot = df_pivot.loc[top_users]
+# ⬅️ 차트와 ➡️ 테이블 layout
+left, right = st.columns([7, 5])
 
-# 📈 시각화를 위한 melt
-df_melted = df_pivot.reset_index().melt(id_vars='user_name', var_name='agent_type', value_name='count')
-
-# 🎨 Altair 스택 바 차트
-left, right = st.columns([6, 6])
 with left:
-    user_stack_chart = alt.Chart(df_melted).mark_bar().encode(
-        x=alt.X('user_name:N', title='User', sort=list(top_users)),
-        y=alt.Y('count:Q', title='Usage Count'),
+    chart = alt.Chart(df_user_melted).mark_bar().encode(
+        x=alt.X('user_name:N', title='User', axis=alt.Axis(labelAngle=0)),
+        y=alt.Y('count:Q', title='Usage Count', stack='zero'),
         color=alt.Color('agent_type:N', title='Function'),
-        tooltip=['user_name', 'agent_type', 'count']
-    ).properties(width=600, height=400, title=f"Top Users' Function Usage in {selected_week_user}")
+        column=alt.Column('week_bucket:N', title='Week')
+    ).properties(height=300, width=150)
 
-    st.altair_chart(user_stack_chart, use_container_width=True)
+    st.altair_chart(chart, use_container_width=True)
 
-# 📋 오른쪽: 테이블 표시
 with right:
-    df_table_display = df_pivot.copy()
-    df_table_display['Total'] = df_table_display.sum(axis=1)
-    df_table_display = df_table_display.sort_values('Total', ascending=False)
-    st.dataframe(df_table_display.astype(int), use_container_width=True)
+    # 📊 집계 테이블 준비
+    df_table = df_user_stack_all.pivot_table(
+        index='user_name',
+        columns='agent_type',
+        values='count',
+        aggfunc='sum',
+        fill_value=0
+    )
+    df_table['Total'] = df_table.sum(axis=1)
+    df_table = df_table.sort_values('Total', ascending=False)
+    df_table = df_table[['Total'] + [col for col in df_table.columns if col != 'Total']]
+
+    st.dataframe(df_table.astype(int), use_container_width=True)
 
