@@ -35,9 +35,20 @@ df_all["saved_minutes"] = df_all["agent_type"].map(time_map).fillna(30)
 st.set_page_config(page_title="Usage Summary Dashboard", layout="wide")
 st.title("\U0001F680 Usage Summary Dashboard")
 
-# 조직 선택 필터
-org_list = df_all['organization'].dropna().unique()
-selected_org = st.selectbox("Select Organization", sorted(org_list))
+# 조직별 active 이벤트 수 기준으로 정렬된 리스트 만들기
+org_event_counts = (
+    df_all[df_all['status'] == 'active']
+    .groupby('organization')
+    .size()
+    .sort_values(ascending=False)
+)
+
+# NaN 제거된 조직명 리스트
+org_list_sorted = org_event_counts.index.tolist()
+
+# 🎯 ✅ 기존 selectbox를 대체
+selected_org = st.selectbox("Select Organization", org_list_sorted)
+
 
 # 조직별 데이터 필터링
 df_org = df_all[df_all['organization'] == selected_org]
