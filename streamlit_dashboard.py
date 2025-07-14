@@ -222,55 +222,74 @@ with left:
 with right:
     st.dataframe(df_week_table.astype(int), use_container_width=True)
 
-# 📊 Daily Function Usage for a Selected Week
+
+
+# 📊 Daily usage 시계열
 st.subheader("📊 Daily Function Usage for a Selected Week")
 
+# 🔘 주차 선택
 week_options = sorted(df_all['week_bucket'].dropna().unique(), reverse=True)
 selected_week = st.selectbox("Select Week", week_options, key="daily_select_week")
 week_start, week_end = week_ranges[selected_week]
 week_dates = pd.date_range(week_start, week_end).date
 
-# 데이터 필터링
+# 📅 일별 데이터 필터링
 df_week = df_org[df_org['created_at'].dt.date.isin(week_dates)]
+
+# 🧱 누락 조합 채우기
 agent_types = df_week['agent_type'].unique()
 all_combinations = pd.MultiIndex.from_product([week_dates, agent_types], names=['day_bucket', 'agent_type']).to_frame(index=False)
 
-# 집계
 df_day = df_week.groupby(['day_bucket', 'agent_type']).size().reset_index(name='count')
 df_day = pd.merge(all_combinations, df_day, on=['day_bucket', 'agent_type'], how='left')
 df_day['count'] = df_day['count'].fillna(0).astype(int)
 
-# 날짜 포맷 변경
+# ✅ 날짜 라벨 포맷 변경
 df_day['day_label'] = pd.to_datetime(df_day['day_bucket']).dt.strftime('%m-%d')
 
-# 피벗 테이블
-df_day_table = df_day.pivot_table(index='agent_type', columns='day_label', values='count', fill_value=0, aggfunc='sum')
-df_day_table['Total'] = df_day_table.sum(axis=1)
-df_day_table = df_day_table.sort_values('Total', ascending=False)
-df_day_table = df_day_table[['Total'] + [col for col in df_day_table.columns if col != 'Total']]
-df_day_table.loc['Total'] = df_day_table.sum(numeric_only=True)
+# 📊 기능별 전체 사용량 기준 정렬 순서 (가장 많이 사용한 기능이 아래)
+agent_order_by_volume = (
+    df_day.groupby('agent_type')['count']
+    .sum()
+    .sort_values(ascending=False)
+    .index.tolist()
+)
 
-# 정렬 순서 지정
-sorted_day_order = df_day_table.drop("Total").index.tolist()
-df_day['agent_type'] = pd.Categorical(df_day['agent_type'], categories=sorted_day_order, ordered=True)
-df_day = df_day.sort_values('agent_type')
+df_day['agent_type'] = pd.Categorical(
+    df_day['agent_type'],
+    categories=agent_order_by_volume,
+    ordered=True
+)
+df_day = df_day.sort_values(['day_label', 'agent_type'])
 
-# 차트 및 테이블 렌더링
+# 📈 Altair 스택 바 차트
 left2, right2 = st.columns([6, 6])
 with left2:
     chart_day = alt.Chart(df_day).mark_bar().encode(
         x=alt.X('day_label:N', title='Date', axis=alt.Axis(labelAngle=0)),
         y=alt.Y('count:Q', title='Event Count', stack='zero'),
-        color=alt.Color('agent_type:N', title='Function', sort=sorted_day_order),
+        color=alt.Color('agent_type:N', title='Function', sort=agent_order_by_volume),
         tooltip=['agent_type:N', 'count:Q']
     ).properties(width=600, height=300)
 
     st.altair_chart(chart_day, use_container_width=True)
 
+# 📋 오른쪽 테이블
 with right2:
+    df_day_table = df_day.pivot_table(
+        index='agent_type',
+        columns='day_label',
+        values='count',
+        fill_value=0,
+        aggfunc='sum'
+    )
+    df_day_table['Total'] = df_day_table.sum(axis=1)
+    df_day_table = df_day_table.sort_values('Total', ascending=False)
+    df_day_table = df_day_table[['Total'] + [col for col in df_day_table.columns if col != 'Total']]
+    df_day_table.loc['Total'] = df_day_table.sum(numeric_only=True)
+
     st.dataframe(df_day_table.astype(int), use_container_width=True)
 
-# ──────────────────────────────────────────────
 
 # 👥 Function Usage by User (Stacked by Week)
 st.subheader("👥 Function Usage by User (Stacked by Week)")
