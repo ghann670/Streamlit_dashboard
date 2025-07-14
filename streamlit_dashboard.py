@@ -322,31 +322,40 @@ selected_week_user = st.selectbox("Select Week", week_options_user, key="user_we
 # ✅ 선택된 주차만 필터링
 df_user_week = df_org[df_org['week_bucket'] == selected_week_user]
 
-# 전체 유저-기능 집계 (선택 주차 기준)
-df_user_stack = df_user_week.groupby(['user_name', 'agent_type']).size().reset_index(name='count')
+# 전체 유저-기능 집계
+df_user_stack_full = df_user_week.groupby(['user_name', 'agent_type']).size().reset_index(name='count')
 
-# Top 10 유저만 포함
-top_users = df_user_stack.groupby('user_name')['count'].sum().nlargest(10).index.tolist()
-df_user_stack = df_user_stack[df_user_stack['user_name'].isin(top_users)]
-
-# 기능 정렬 기준 정의 (많이 쓴 순)
+# 👉 기능 정렬 기준 정의 (많이 쓴 순)
 sorted_func_order = (
-    df_user_stack.groupby('agent_type')['count']
+    df_user_stack_full.groupby('agent_type')['count']
     .sum().sort_values(ascending=False).index.tolist()
 )
-df_user_stack['agent_type'] = pd.Categorical(
-    df_user_stack['agent_type'],
+
+# ✅ 왼쪽: 차트용 - top 10 유저만 필터링
+top_users = (
+    df_user_stack_full.groupby('user_name')['count']
+    .sum().nlargest(10).index.tolist()
+)
+df_user_stack_chart = df_user_stack_full[df_user_stack_full['user_name'].isin(top_users)].copy()
+df_user_stack_chart['agent_type'] = pd.Categorical(
+    df_user_stack_chart['agent_type'],
+    categories=sorted_func_order,
+    ordered=True
+)
+df_user_stack_chart = df_user_stack_chart.sort_values(['user_name', 'agent_type'])
+
+# ✅ 오른쪽: 테이블용 - 전체 유저 포함
+df_user_stack_full['agent_type'] = pd.Categorical(
+    df_user_stack_full['agent_type'],
     categories=sorted_func_order,
     ordered=True
 )
 
-# ✅ Plotly 시각화
+# 📊 시각화
 left, right = st.columns([7, 5])
 with left:
-    df_user_stack = df_user_stack.sort_values(['user_name', 'agent_type'])
-
     fig = px.bar(
-        df_user_stack,
+        df_user_stack_chart,
         x="user_name",
         y="count",
         color="agent_type",
@@ -364,12 +373,10 @@ with left:
         legend_title="Function",
         height=350,
     )
-
     st.plotly_chart(fig, use_container_width=True)
 
 with right:
-    # 📊 테이블 집계
-    df_user_table = df_user_stack.pivot_table(
+    df_user_table = df_user_stack_full.pivot_table(
         index='user_name',
         columns='agent_type',
         values='count',
