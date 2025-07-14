@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import altair as alt
 
 # Load dataset
 df_all = pd.read_csv("df_all.csv", parse_dates=["created_at"])
@@ -34,7 +33,7 @@ df_all["saved_minutes"] = df_all["agent_type"].map(time_map).fillna(30)
 
 # Streamlit UI
 st.set_page_config(page_title="Usage Summary Dashboard", layout="wide")
-st.title("🚀 Usage Summary Dashboard")
+st.title("\U0001F680 Usage Summary Dashboard")
 
 # 조직 선택 필터
 org_list = df_all['organization'].dropna().unique()
@@ -102,20 +101,21 @@ with col6:
         unsafe_allow_html=True
     )
 
-# Total usage 시계열 차트 (Plotly로 변경)
+# Total usage 시계열 차트
 st.markdown("---")
 st.subheader("📅 Total Usage Over Time (All Functions)")
 
-# 날짜별 전체 사용량 집계
+# 1️⃣ 날짜별 전체 사용량 집계
 df_active_org = df_active.copy().sort_values("created_at")
 df_active_org["count"] = 1
 df_total_daily = df_active_org.groupby(df_active_org["created_at"].dt.date).size().reset_index(name="count")
 df_total_daily["created_at"] = pd.to_datetime(df_total_daily["created_at"])
 
-# 날짜 레이블 (예: "7/14")
-df_total_daily["date_label"] = df_total_daily["created_at"].dt.strftime("%-m/%d")
+# ✅ 2️⃣ 날짜 라벨 생성 (예: 7/11)
+df_total_daily["date_label"] = df_total_daily["created_at"].dt.strftime("%-m/%d")  # macOS/Linux
+# 윈도우는 "%#m/%d"
 
-# Plotly 라인차트
+# ✅ Plotly 시계열 차트 (y축 상단 여유 포함)
 fig1 = px.line(
     df_total_daily,
     x="date_label",
@@ -123,8 +123,14 @@ fig1 = px.line(
     markers=True,
     labels={"date_label": "Date", "count": "Total Event Count"},
 )
-fig1.update_layout(height=300, width=900, xaxis_tickangle=0)
+fig1.update_layout(height=300, width=900)
+
+# ✅ y축 범위 자동보다 조금 더 크게 설정
+max_count = df_total_daily["count"].max()
+fig1.update_yaxes(range=[0, max_count + 10])
+
 st.plotly_chart(fig1, use_container_width=True)
+
 
 
 # ✅ New Section: 유저별 라인차트 추가
