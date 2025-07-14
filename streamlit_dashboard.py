@@ -227,55 +227,60 @@ with right:
 # 📊 Daily usage 시계열
 st.subheader("📊 Daily Function Usage for a Selected Week")
 
-# 🔘 주차 선택
+# 📅 주차 선택
 week_options = sorted(df_all['week_bucket'].dropna().unique(), reverse=True)
 selected_week = st.selectbox("Select Week", week_options, key="daily_select_week")
 week_start, week_end = week_ranges[selected_week]
 week_dates = pd.date_range(week_start, week_end).date
 
-# 📅 일별 데이터 필터링
+# 📆 선택된 주간 데이터 필터링
 df_week = df_org[df_org['created_at'].dt.date.isin(week_dates)]
 
-# 🧱 누락 조합 채우기
+# 📊 일별-기능별 집계
 agent_types = df_week['agent_type'].unique()
-all_combinations = pd.MultiIndex.from_product([week_dates, agent_types], names=['day_bucket', 'agent_type']).to_frame(index=False)
+all_combinations = pd.MultiIndex.from_product(
+    [week_dates, agent_types],
+    names=['day_bucket', 'agent_type']
+).to_frame(index=False)
 
 df_day = df_week.groupby(['day_bucket', 'agent_type']).size().reset_index(name='count')
 df_day = pd.merge(all_combinations, df_day, on=['day_bucket', 'agent_type'], how='left')
 df_day['count'] = df_day['count'].fillna(0).astype(int)
 
-# ✅ 날짜 라벨 포맷 변경
+# ✅ 날짜 레이블 포맷 변경
 df_day['day_label'] = pd.to_datetime(df_day['day_bucket']).dt.strftime('%m-%d')
 
-# 📊 기능별 전체 사용량 기준 정렬 순서 (가장 많이 사용한 기능이 아래)
+# 📊 기능별 정렬 기준 계산 (많이 쓴 순서 → 아래층부터 쌓임)
 agent_order_by_volume = (
     df_day.groupby('agent_type')['count']
     .sum()
     .sort_values(ascending=False)
     .index.tolist()
 )
+agent_order_for_stack = list(reversed(agent_order_by_volume))  # 역순으로 쌓기
 
+# 🔁 정렬 순서 적용
 df_day['agent_type'] = pd.Categorical(
     df_day['agent_type'],
-    categories=agent_order_by_volume,
+    categories=agent_order_for_stack,
     ordered=True
 )
 df_day = df_day.sort_values(['day_label', 'agent_type'])
 
-# 📈 Altair 스택 바 차트
+# 📈 Altair 차트 + 📋 테이블
 left2, right2 = st.columns([6, 6])
 with left2:
     chart_day = alt.Chart(df_day).mark_bar().encode(
         x=alt.X('day_label:N', title='Date', axis=alt.Axis(labelAngle=0)),
         y=alt.Y('count:Q', title='Event Count', stack='zero'),
-        color=alt.Color('agent_type:N', title='Function', sort=agent_order_by_volume),
+        color=alt.Color('agent_type:N', title='Function', sort=agent_order_for_stack),
         tooltip=['agent_type:N', 'count:Q']
     ).properties(width=600, height=300)
 
     st.altair_chart(chart_day, use_container_width=True)
 
-# 📋 오른쪽 테이블
 with right2:
+    # 📊 집계 테이블 준비
     df_day_table = df_day.pivot_table(
         index='agent_type',
         columns='day_label',
