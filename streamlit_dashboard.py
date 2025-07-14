@@ -183,29 +183,20 @@ else:
     st.altair_chart(chart_users, use_container_width=True)
 
 
-# 📈 Weekly Function Usage Trends
+# 함수 및 주간 시계열
 st.markdown("---")
 st.subheader("📈 Weekly Function Usage Trends")
 
-# 📅 주차 선택 드롭다운
-week_options = sorted(list(week_ranges.keys()), reverse=True)
-selected_week = st.selectbox("Select Week", week_options, key="weekly_func_trend")
-
-# 📊 전체 데이터 집계
 df_chart = df_org.groupby(['week_bucket', 'agent_type']).size().reset_index(name='count')
 
-# 누락된 조합 보완
+# 누락된 week_bucket, agent_type 조합 채워넣기
 all_weeks = list(week_ranges.keys())
 all_agents = df_chart['agent_type'].unique()
-all_combinations = pd.MultiIndex.from_product(
-    [all_weeks, all_agents],
-    names=['week_bucket', 'agent_type']
-).to_frame(index=False)
-
+all_combinations = pd.MultiIndex.from_product([all_weeks, all_agents], names=['week_bucket', 'agent_type']).to_frame(index=False)
 df_chart = pd.merge(all_combinations, df_chart, on=['week_bucket', 'agent_type'], how='left')
 df_chart['count'] = df_chart['count'].fillna(0).astype(int)
 
-# 🧮 테이블 집계용 피벗
+# Pivot Table
 df_week_table = df_chart.pivot_table(
     index='agent_type',
     columns='week_bucket',
@@ -218,36 +209,21 @@ df_week_table = df_week_table.sort_values('Total', ascending=False)
 df_week_table = df_week_table[['Total'] + [col for col in df_week_table.columns if col != 'Total']]
 df_week_table.loc['Total'] = df_week_table.sum(numeric_only=True)
 
-# 📊 시각화용 정렬
 sorted_agent_order = df_week_table.drop("Total").index.tolist()
 df_chart['agent_type'] = pd.Categorical(df_chart['agent_type'], categories=sorted_agent_order, ordered=True)
 df_chart = df_chart.sort_values('agent_type')
 
-# 📅 선택한 주차 데이터만 필터링
-df_chart_filtered = df_chart[df_chart['week_bucket'] == selected_week]
-
-# 📈 Plotly 라인차트
 left, right = st.columns([6, 6])
 with left:
-    fig = px.line(
-        df_chart_filtered,
-        x='agent_type',
-        y='count',
-        markers=True,
-        labels={'count': 'Event Count', 'agent_type': 'Function'},
-        title=f"{selected_week} Function Usage",
-    )
-    fig.update_traces(line_shape="linear")
-    fig.update_layout(
-        width=600,
-        height=300,
-        xaxis_title="Function",
-        yaxis_title="Event Count",
-        legend_title="",
-    )
-    st.plotly_chart(fig, use_container_width=True)
+    chart_week = alt.Chart(df_chart).mark_line(point=True).encode(
+        x=alt.X('week_bucket:N', title='Week', axis=alt.Axis(labelAngle=0)),
+        y=alt.Y('count:Q', title='Event Count'),
+        color=alt.Color('agent_type:N', title='Function', sort=sorted_agent_order),
+        tooltip=['agent_type', 'count']
+    ).properties(width=600, height=300)
 
-# 📋 테이블은 전체 주차 기준 유지
+    st.altair_chart(chart_week, use_container_width=True)
+
 with right:
     st.dataframe(df_week_table.astype(int), use_container_width=True)
 
