@@ -9,7 +9,7 @@ df_all = pd.read_csv("df_all.csv", parse_dates=["created_at"])
 # 기준 날짜: 오늘 날짜 정오 기준
 now = pd.Timestamp.now().normalize() + pd.Timedelta(hours=12)
 
-# 각 주차 범위 설정: 7일씩 고정
+# 각 주차 범위 설정
 week_ranges = {
     'week4': (now - pd.Timedelta(days=6), now),
     'week3': (now - pd.Timedelta(days=13), now - pd.Timedelta(days=7)),
@@ -17,13 +17,14 @@ week_ranges = {
     'week1': (now - pd.Timedelta(days=27), now - pd.Timedelta(days=21)),
 }
 
-# 각 row에 대해 week_bucket 할당
+# 주차 버킷 할당 함수
 def assign_week_bucket(date):
     for week, (start, end) in week_ranges.items():
         if start <= date <= end:
             return week
     return None
 
+# 전처리
 df_all['week_bucket'] = df_all['created_at'].apply(assign_week_bucket)
 df_all['day_bucket'] = df_all['created_at'].dt.date
 df_all['agent_type'] = df_all['function_mode'].str.split(":").str[0]
@@ -32,30 +33,27 @@ df_all['agent_type'] = df_all['function_mode'].str.split(":").str[0]
 time_map = {"deep_research": 40, "pulse_check": 30}
 df_all["saved_minutes"] = df_all["agent_type"].map(time_map).fillna(30)
 
-# Streamlit UI
+# UI 설정
 st.set_page_config(page_title="Usage Summary Dashboard", layout="wide")
 st.title("\U0001F680 Usage Summary Dashboard")
 
-# 조직별 active 이벤트 수 기준으로 정렬된 리스트 만들기
+# 조직 리스트 추출
 org_event_counts = (
     df_all[df_all['status'] == 'active']
     .groupby('organization')
     .size()
     .sort_values(ascending=False)
 )
-
-# NaN 제거된 조직명 리스트
 org_list_sorted = org_event_counts.index.tolist()
 
-# 🎯 ✅ 기존 selectbox를 대체
+# 조직 선택
 selected_org = st.selectbox("Select Organization", org_list_sorted)
 
-
-# 조직별 데이터 필터링
+# 데이터 필터링
 df_org = df_all[df_all['organization'] == selected_org]
 df_active = df_org[df_org['status'] == 'active']
 
-# 빅넘버 계산
+# Metric 계산
 total_events = df_active.shape[0]
 total_users = df_org['user_email'].nunique()
 active_users = df_active['user_email'].nunique()
@@ -69,10 +67,10 @@ if not df_active['user_name'].dropna().empty:
 else:
     top_user_display = "N/A"
 
-# 평균 사용자당 사용량
+# 평균 이벤트
 avg_events = round(total_events / active_users, 1) if active_users > 0 else 0
 
-# 주당 절감 시간 계산
+# 절감 시간
 used_weeks = df_org["week_bucket"].dropna().nunique()
 if used_weeks >= 1 and active_users > 0:
     total_saved_minutes = df_active["saved_minutes"].sum()
@@ -81,22 +79,30 @@ if used_weeks >= 1 and active_users > 0:
 else:
     saved_display = "—"
 
-# invited_not_joined / joined_no_usage 유저 이메일 목록 추출
+# ✅ Invited & No-Usage Users 추출
 invited_emails = df_org[df_org['status'] == 'invited_not_joined']['user_email'].dropna().unique()
 joined_no_usage_emails = df_org[df_org['status'] == 'joined_no_usage']['user_email'].dropna().unique()
 
 invited_display = ", ".join(invited_emails) if len(invited_emails) > 0 else "—"
 joined_display = ", ".join(joined_no_usage_emails) if len(joined_no_usage_emails) > 0 else "—"
 
-# 레이아웃: 2개 컬럼에 각각 보여주기
-col6, col7 = st.columns(2)
+# Layout – Metrics
+col1, col2, col3 = st.columns(3)
+col1.metric("All Events", total_events)
+col2.metric("Active / Total Users", active_ratio)
+col3.metric("Top User", top_user_display)
 
+col4, col5, col6 = st.columns(3)
+col4.metric("Avg. Events per Active User", avg_events)
+col5.metric("Avg. Time Saved / User / Week", saved_display)
+
+# ✅ 6번 metric → 두 개로 나눠 표현
 with col6:
     st.markdown("**Invited but Not Joined**")
     st.markdown(
         f"""
         <div style='
-            max-height: 80px;
+            max-height: 60px;
             overflow-y: auto;
             font-size: 13px;
             border: 1px solid #ccc;
@@ -110,12 +116,11 @@ with col6:
         unsafe_allow_html=True
     )
 
-with col7:
     st.markdown("**Joined but No Usage**")
     st.markdown(
         f"""
         <div style='
-            max-height: 80px;
+            max-height: 60px;
             overflow-y: auto;
             font-size: 13px;
             border: 1px solid #ccc;
@@ -128,6 +133,7 @@ with col7:
         """,
         unsafe_allow_html=True
     )
+
 
 
 # Total usage 시계열 차트
