@@ -81,21 +81,18 @@ if used_weeks >= 1 and active_users > 0:
 else:
     saved_display = "—"
 
-# Inactive Users 계산
-inactive_emails = df_org[~df_org['user_email'].isin(df_active['user_email'])]['user_email'].dropna().unique()
-inactive_display = ", ".join(inactive_emails) if len(inactive_emails) > 0 else "—"
+# invited_not_joined / joined_no_usage 유저 이메일 목록 추출
+invited_emails = df_org[df_org['status'] == 'invited_not_joined']['user_email'].dropna().unique()
+joined_no_usage_emails = df_org[df_org['status'] == 'joined_no_usage']['user_email'].dropna().unique()
 
-# Layout – Metrics
-col1, col2, col3 = st.columns(3)
-col1.metric("All Events", total_events)
-col2.metric("Active / Total Users", active_ratio)
-col3.metric("Top User", top_user_display)
+invited_display = ", ".join(invited_emails) if len(invited_emails) > 0 else "—"
+joined_display = ", ".join(joined_no_usage_emails) if len(joined_no_usage_emails) > 0 else "—"
 
-col4, col5, col6 = st.columns(3)
-col4.metric("Avg. Events per Active User", avg_events)
-col5.metric("Avg. Time Saved / User / Week", saved_display)
+# 레이아웃: 2개 컬럼에 각각 보여주기
+col6, col7 = st.columns(2)
+
 with col6:
-    st.markdown("**Inactive Users**")
+    st.markdown("**Invited but Not Joined**")
     st.markdown(
         f"""
         <div style='
@@ -105,13 +102,33 @@ with col6:
             border: 1px solid #ccc;
             padding: 6px;
             border-radius: 5px;
-            background-color: #f9f9f9;
+            background-color: #fffaf5;
         '>
-            {inactive_display}
+            {invited_display}
         </div>
         """,
         unsafe_allow_html=True
     )
+
+with col7:
+    st.markdown("**Joined but No Usage**")
+    st.markdown(
+        f"""
+        <div style='
+            max-height: 80px;
+            overflow-y: auto;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            padding: 6px;
+            border-radius: 5px;
+            background-color: #f5faff;
+        '>
+            {joined_display}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 
 # Total usage 시계열 차트
 st.markdown("---")
