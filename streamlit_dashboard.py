@@ -145,14 +145,14 @@ st.plotly_chart(fig1, use_container_width=True)
 
 
 
-import streamlit as st
-import altair as alt
-
 # ✅ New Section: 유저별 라인차트 추가
 st.markdown("### 👥 Users' Daily Usage")
 
 # 유저별 일별 사용량 집계
-df_user_daily = df_active_org.groupby([df_active_org["created_at"].dt.date, "user_name"]).size().reset_index(name="count")
+df_user_daily = df_active_org.groupby(
+    [df_active_org["created_at"].dt.date, "user_name"]
+).size().reset_index(name="count")
+
 df_user_daily["created_at"] = pd.to_datetime(df_user_daily["created_at"])
 df_user_daily["date_label"] = df_user_daily["created_at"].dt.strftime("%-m/%d")
 df_user_daily.rename(columns={"user_name": "user"}, inplace=True)
@@ -160,9 +160,9 @@ df_user_daily.rename(columns={"user_name": "user"}, inplace=True)
 # ✅ 유저별 total usage 수 기준 정렬
 user_total_counts = df_user_daily.groupby("user")["count"].sum()
 sorted_users = user_total_counts.sort_values(ascending=False).index.tolist()
-default_users = sorted_users[:3]  # 상위 3명 자동 선택
+default_users = sorted_users[:3]  # 상위 3명 기본 선택
 
-# ✅ 세션 상태에 저장 (버튼 클릭 시 multiselect 값 갱신용)
+# ✅ 세션 상태에 선택 유저 목록 저장
 if "selected_users" not in st.session_state:
     st.session_state.selected_users = default_users
 
@@ -175,7 +175,7 @@ with col2:
     if st.button("❌ 전체 해제"):
         st.session_state.selected_users = []
 
-# ✅ 멀티셀렉트 UI (세션 상태 반영)
+# ✅ 멀티셀렉트 (세션 상태로 동기화)
 selected_users = st.multiselect(
     "Select users to display",
     options=sorted_users,
