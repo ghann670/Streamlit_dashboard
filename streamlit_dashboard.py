@@ -145,6 +145,9 @@ st.plotly_chart(fig1, use_container_width=True)
 
 
 
+import streamlit as st
+import altair as alt
+
 # ✅ New Section: 유저별 라인차트 추가
 st.markdown("### 👥 Users' Daily Usage")
 
@@ -157,13 +160,27 @@ df_user_daily.rename(columns={"user_name": "user"}, inplace=True)
 # ✅ 유저별 total usage 수 기준 정렬
 user_total_counts = df_user_daily.groupby("user")["count"].sum()
 sorted_users = user_total_counts.sort_values(ascending=False).index.tolist()
-default_users = sorted_users[:3]  # 상위 5명 자동 선택
+default_users = sorted_users[:3]  # 상위 3명 자동 선택
 
-# ✅ 멀티셀렉트 (전체 유저 포함, 정렬된 순서, 상위 5명 기본 선택)
+# ✅ 세션 상태에 저장 (버튼 클릭 시 multiselect 값 갱신용)
+if "selected_users" not in st.session_state:
+    st.session_state.selected_users = default_users
+
+# ✅ 전체 선택 / 해제 버튼
+col1, col2 = st.columns([1, 1])
+with col1:
+    if st.button("✅ 전체 선택"):
+        st.session_state.selected_users = sorted_users
+with col2:
+    if st.button("❌ 전체 해제"):
+        st.session_state.selected_users = []
+
+# ✅ 멀티셀렉트 UI (세션 상태 반영)
 selected_users = st.multiselect(
     "Select users to display",
     options=sorted_users,
-    default=default_users
+    default=st.session_state.selected_users,
+    key="selected_users"
 )
 
 # ✅ 필터링된 유저 데이터
@@ -181,6 +198,7 @@ else:
     ).properties(width=900, height=300)
 
     st.altair_chart(chart_users, use_container_width=True)
+
 
 
 # 함수 및 주간 시계열
