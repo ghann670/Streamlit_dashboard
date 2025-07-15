@@ -198,11 +198,13 @@ with col2:
     if st.button("❌ 전체 해제"):
         st.session_state.selected_users = []
 
-# ✅ 멀티셀렉트 (세션 상태로 동기화)
+# ✅ 멀티셀렉트 (세션 상태로 동기화, 유효성 보정)
+valid_default_users = [user for user in st.session_state.selected_users if user in sorted_users]
+
 selected_users = st.multiselect(
     "Select users to display",
     options=sorted_users,
-    default=st.session_state.selected_users,
+    default=valid_default_users,
     key="selected_users"
 )
 
@@ -221,6 +223,7 @@ else:
     ).properties(width=900, height=300)
 
     st.altair_chart(chart_users, use_container_width=True)
+
 
 
 
