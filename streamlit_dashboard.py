@@ -4,7 +4,7 @@ import plotly.express as px
 import altair as alt
 
 
-
+st.set_page_config(page_title="Main Dashboard", page_icon="🚀")
 
 
 # Load dataset

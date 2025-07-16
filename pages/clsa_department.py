@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(page_title="CLSA", page_icon="📈")  # ✅ 여기만 바꾸면 사이드바 메뉴명 바뀜
+
+
+
 # 데이터 로딩 및 전처리
 df_all = pd.read_csv("df_all.csv", parse_dates=["created_at"])
 df_clsa = df_all[df_all["organization"] == "CLSA"].copy()
