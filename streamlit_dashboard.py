@@ -3,11 +3,6 @@ import pandas as pd
 import plotly.express as px
 import altair as alt
 
-# 페이지 가장 위에 추가
-with st.expander("🔍 CLSA 부서별 분석 보기"):
-    st.markdown("👉 [CLSA Department Dashboard](./CLSA_Dashboard) 로 이동하려면 좌측 상단의 사이드바에서 해당 페이지를 선택하세요.")
-    st.markdown("또는 아래 버튼을 클릭하세요.")
-    st.button("🔄 사이드바에서 CLSA 페이지 선택")
 
 
 
