@@ -19,36 +19,36 @@ df_clsa['saved_minutes'] = df_clsa['agent_type'].map({
 st.set_page_config(page_title="CLSA Usage Dashboard", layout="wide")
 st.title("🏢 CLSA Department Usage Dashboard")
 
-# ✅ division 리스트로 수정
-divisions = sorted(df_clsa['division'].dropna().unique())
-selected_div = st.selectbox("Select Division", divisions)
+# 부서 리스트
+departments = sorted(df_clsa['department'].dropna().unique())
+selected_dept = st.selectbox("Select Department", departments)
 
-# ✅ division 기준 필터링
-df_div = df_clsa[df_clsa['division'] == selected_div]
+df_dept = df_clsa[df_clsa['department'] == selected_dept]
 
-# Summary
-st.markdown("### 🔢 Division Summary")
+
+st.markdown("### 🔢 Department Summary")
 
 col1, col2, col3 = st.columns(3)
-col1.metric("Total Events", df_div.shape[0])
-col2.metric("Active Users", df_div['user_email'].nunique())
-col3.metric("Avg Saved Time", f"{df_div['saved_minutes'].mean():.1f} min")
+col1.metric("Total Events", df_dept.shape[0])
+col2.metric("Active Users", df_dept['user_email'].nunique())
+col3.metric("Avg Saved Time", f"{df_dept['saved_minutes'].mean():.1f} min")
 
-# 📈 Daily chart
-df_daily = df_div.groupby(df_div["created_at"].dt.date).size().reset_index(name="count")
+
+df_daily = df_dept.groupby(df_dept["created_at"].dt.date).size().reset_index(name="count")
+
 fig = px.line(
     df_daily,
     x="created_at",
     y="count",
-    title="📅 Daily Event Count in Division",
+    title="📅 Daily Event Count in Department",
     labels={"created_at": "Date", "count": "Events"},
     markers=True
 )
 st.plotly_chart(fig, use_container_width=True)
 
-# 📊 Weekly usage by function
-df_div['week'] = df_div['created_at'].dt.to_period("W").astype(str)
-df_week_func = df_div.groupby(['week', 'agent_type']).size().reset_index(name='count')
+
+df_dept['week'] = df_dept['created_at'].dt.to_period("W").astype(str)
+df_week_func = df_dept.groupby(['week', 'agent_type']).size().reset_index(name='count')
 
 chart = alt.Chart(df_week_func).mark_line(point=True).encode(
     x='week:N',
@@ -59,8 +59,8 @@ chart = alt.Chart(df_week_func).mark_line(point=True).encode(
 
 st.altair_chart(chart, use_container_width=True)
 
-# 👤 Top users
-df_user = df_div.groupby('user_name').size().reset_index(name='count')
+
+df_user = df_dept.groupby('user_name').size().reset_index(name='count')
 df_user = df_user.sort_values('count', ascending=False).head(10)
 
 bar = px.bar(
