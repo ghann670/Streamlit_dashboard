@@ -7,17 +7,22 @@ import plotly.express as px
 st.set_page_config(page_title="CLSA Usage Dashboard", layout="wide")
 st.title("📊 CLSA Department Dashboard")
 
-# ✅ 데이터 불러오기 및 필터링
+# ✅ 데이터 불러오기
 df_all = pd.read_csv("df_all.csv", parse_dates=["created_at"])
 df_clsa = df_all[df_all['organization'] == 'CLSA'].copy()
 
-# ✅ 날짜 기준 파생 컬럼
+# ✅ 파생 컬럼
 df_clsa['day_bucket'] = df_clsa['created_at'].dt.date
-df_clsa['week_bucket'] = pd.to_datetime(df_clsa['created_at']).dt.to_period('W').astype(str)
+df_clsa['week_bucket'] = df_clsa['created_at'].dt.to_period('W').astype(str)
 df_clsa['agent_type'] = df_clsa['function_mode'].str.split(":").str[0]
 df_clsa['saved_minutes'] = df_clsa['agent_type'].map({
     "deep_research": 40, "pulse_check": 30
 }).fillna(30)
+
+# ✅ division 필터
+divisions = sorted(df_clsa['division'].dropna().unique())
+selected_div = st.selectbox("Select Division", divisions)
+df_div = df_clsa[df_clsa['division'] == selected_div].copy()
 
 # ✅ 사용자의 현재 날짜 기준 주차 범위 생성
 now = pd.Timestamp.now().normalize() + pd.Timedelta(hours=12)
@@ -87,7 +92,7 @@ else:
 # ✅ 일별 전체 사용량 피벗 테이블
 df_total_daily = df_week.groupby(df_week['created_at'].dt.date).size().reset_index(name="count")
 df_total_daily["day_label"] = df_total_daily["created_at"].dt.strftime("%-m/%d")
-df_total_daily.set_index("day_label", inplace=True)
+df_total_daily.set_index("day_label", inplace=True)g
 
 # 📌 주차 내 모든 날짜 채워넣기
 all_labels = pd.Series(week_dates).dt.strftime("%-m/%d").tolist()
