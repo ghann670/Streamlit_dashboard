@@ -3,6 +3,10 @@ import pandas as pd
 import altair as alt
 import plotly.express as px
 
+# ✅ 데이터 불러오기 및 필터링
+df_all = pd.read_csv("df_all.csv", parse_dates=["created_at"])
+df_clsa = df_all[df_all['organization'] == 'CLSA'].copy()
+
 
 st.markdown("---")
 st.subheader("👥 Users' Daily Usage")
