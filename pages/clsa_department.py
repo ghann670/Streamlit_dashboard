@@ -92,7 +92,7 @@ else:
 # ✅ 일별 전체 사용량 피벗 테이블
 df_total_daily = df_week.groupby(df_week['created_at'].dt.date).size().reset_index(name="count")
 df_total_daily["day_label"] = df_total_daily["created_at"].dt.strftime("%-m/%d")
-df_total_daily.set_index("day_label", inplace=True)g
+df_total_daily.set_index("day_label", inplace=True)
 
 # 📌 주차 내 모든 날짜 채워넣기
 all_labels = pd.Series(week_dates).dt.strftime("%-m/%d").tolist()
