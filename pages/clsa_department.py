@@ -7,6 +7,9 @@ import plotly.express as px
 st.markdown("---")
 st.subheader("👥 Users' Daily Usage")
 
+# 기준 날짜: 오늘 날짜 정오 기준
+now = pd.Timestamp.now().normalize() + pd.Timedelta(hours=12)
+
 # ✅ 최근 4주 기준 주차 선택
 week_ranges = {
     'week4': (now - pd.Timedelta(days=6), now),
