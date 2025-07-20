@@ -4,7 +4,7 @@ import plotly.express as px
 import altair as alt
 
 
-st.set_page_config(page_title="Main Dashboard", page_icon="🚀")
+st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
 
 
 # Load dataset
@@ -38,7 +38,6 @@ time_map = {"deep_research": 40, "pulse_check": 30}
 df_all["saved_minutes"] = df_all["agent_type"].map(time_map).fillna(30)
 
 # UI 설정
-st.set_page_config(page_title="Usage Summary Dashboard", layout="wide")
 st.title("\U0001F680 Usage Summary Dashboard")
 
 # 조직 리스트 추출

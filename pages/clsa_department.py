@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="CLSA", page_icon="📈")  # ✅ 여기만 바꾸면 사이드바 메뉴명 바뀜
+st.set_page_config(page_title="CLSA", page_icon="��", layout="wide")
 
 
 
@@ -34,7 +34,6 @@ def assign_week(date):
 df_clsa["week"] = df_clsa["created_at"].apply(assign_week)
 
 # ✅ division 선택
-st.set_page_config(page_title="CLSA Function Summary", layout="wide")
 st.title("🏢 CLSA Function Usage Summary")
 
 divisions = sorted(df_clsa["division"].dropna().unique())
