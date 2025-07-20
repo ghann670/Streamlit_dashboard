@@ -11,11 +11,6 @@ st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
 df_all = pd.read_csv("df_all.csv")
 df_all['created_at'] = pd.to_datetime(df_all['created_at'])
 
-# Debug information
-st.write("Debug - Columns in df_all:", df_all.columns.tolist())
-st.write("Debug - Data types:", df_all.dtypes)
-st.write("Debug - Sample data:", df_all.head(2))
-
 # 기준 날짜: 오늘 날짜 정오 기준
 now = pd.Timestamp.now().normalize() + pd.Timedelta(hours=12)
 
