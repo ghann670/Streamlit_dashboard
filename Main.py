@@ -13,9 +13,12 @@ columns = ['id', 'selected_model', 'sender', 'function_mode', 'user_name',
            'created_at', 'status', 'division', 'earnings', 'briefing']
            
 df_all = pd.read_csv("df_all.csv", 
-                    parse_dates=["created_at"],
                     names=columns,
                     skiprows=1)  # 헤더 건너뛰기
+
+# created_at 컬럼만 datetime으로 변환
+df_all['created_at'] = pd.to_datetime(df_all['created_at'])
+
 st.write("Debug - df_all columns:", list(df_all.columns))  # 임시 디버깅 코드
 
 # 기준 날짜: 오늘 날짜 정오 기준
