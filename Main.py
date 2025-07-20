@@ -482,14 +482,20 @@ left_col, right_col = st.columns([3, 2])  # 히스토그램이 더 넓게
 
 with left_col:
     # earnings/briefing 사용자 수 표시
+    st.write("Debug - Unique earnings values:", df_all['earnings'].unique())
+    st.write("Debug - Unique briefing values:", df_all['briefing'].unique())
+    
     earnings_users = len(df_all[df_all['earnings'] == 'onboarded']['user_email'].unique())
     briefing_users = len(df_all[df_all['briefing'] == 'onboarded']['user_email'].unique())
     
+    st.write("Debug - earnings_users:", earnings_users)
+    st.write("Debug - briefing_users:", briefing_users)
+    
     col1, col2 = st.columns(2)
     with col1:
-        st.metric("Earnings Manager Users", earnings_users)
+        st.metric("Earnings Users", earnings_users)
     with col2:
-        st.metric("Briefing Agent Users", briefing_users)
+        st.metric("Briefing Users", briefing_users)
     
     # 히스토그램
     fig2 = px.histogram(
