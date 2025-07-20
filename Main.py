@@ -104,7 +104,6 @@ col2.metric("Active / Total Users", active_ratio)
 col3.metric("Top User", top_user_display)
 
 col4, col5, col6 = st.columns(3)
-# earnings/briefing 사용자 수
 earnings_users = df_all[df_all['earnings'] == 'onboarded']['user_email'].nunique()
 briefing_users = df_all[df_all['briefing'] == 'onboarded']['user_email'].nunique()
 col4.metric("Earnings Users", earnings_users)
@@ -114,43 +113,43 @@ col6.metric("Avg. Events per Active User", avg_events)
 col7, col8, col9 = st.columns(3)
 col7.metric("Avg. Time Saved / User / Week", saved_display)
 
-# ✅ 6번 metric → 두 개로 나눠 표현
-with col6:
-    st.markdown("**Invited but Not Joined**")
-    st.markdown(
-        f"""
-        <div style='
-            max-height: 60px;
-            overflow-y: auto;
-            font-size: 13px;
-            border: 1px solid #ccc;
-            padding: 6px;
-            border-radius: 5px;
-            background-color: #fffaf5;
-        '>
-            {invited_display}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+# Invited & No-Usage Users 표시
+st.markdown("### 👥 User Status")
+st.markdown("**Invited but Not Joined**")
+st.markdown(
+    f"""
+    <div style='
+        max-height: 60px;
+        overflow-y: auto;
+        font-size: 13px;
+        border: 1px solid #ccc;
+        padding: 6px;
+        border-radius: 5px;
+        background-color: #fffaf5;
+    '>
+        {invited_display}
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
-    st.markdown("**Joined but No Usage**")
-    st.markdown(
-        f"""
-        <div style='
-            max-height: 60px;
-            overflow-y: auto;
-            font-size: 13px;
-            border: 1px solid #ccc;
-            padding: 6px;
-            border-radius: 5px;
-            background-color: #f5faff;
-        '>
-            {joined_display}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+st.markdown("**Joined but No Usage**")
+st.markdown(
+    f"""
+    <div style='
+        max-height: 60px;
+        overflow-y: auto;
+        font-size: 13px;
+        border: 1px solid #ccc;
+        padding: 6px;
+        border-radius: 5px;
+        background-color: #f5faff;
+    '>
+        {joined_display}
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 
 
