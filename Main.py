@@ -521,4 +521,4 @@ with right_col:
     ]).reset_index()
     func_stats.columns = ['Function', 'Mean (sec)', 'Median (sec)', 'Count']
     func_stats = func_stats.sort_values('Count', ascending=False)  # Count 기준 내림차순
-    st.dataframe(func_stats.round(2), use_container_width=True)
+    st.dataframe(func_stats.round(2), use_container_width=True, hide_index=True)  # hide_index=True 추가
