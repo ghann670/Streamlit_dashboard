@@ -481,16 +481,6 @@ st.plotly_chart(fig1, use_container_width=True)
 left_col, right_col = st.columns([3, 2])  # 히스토그램이 더 넓게
 
 with left_col:
-    # earnings/briefing 사용자 수 표시
-    earnings_users = len(df_all[df_all['earnings'] == 'onboarded']['user_email'].unique())
-    briefing_users = len(df_all[df_all['briefing'] == 'onboarded']['user_email'].unique())
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.metric("Earnings Users", earnings_users)
-    with col2:
-        st.metric("Briefing Users", briefing_users)
-    
     # 히스토그램
     fig2 = px.histogram(
         df_time,
