@@ -516,21 +516,11 @@ with right_col:
 
 # 추가 필터 옵션
 st.markdown("### 🔍 Detailed Analysis")
-col1, col2 = st.columns(2)
 
-with col1:
-    # 함수별 응답 시간
-    func_stats = df_time.groupby('agent_type')['time_to_first_byte'].agg([
-        'mean', 'median', 'count'
-    ]).reset_index()
-    func_stats.columns = ['Function', 'Mean (ms)', 'Median (ms)', 'Count']
-    st.dataframe(func_stats.round(2), use_container_width=True)
-
-with col2:
-    # 시간대별 응답 시간
-    df_time['hour'] = df_time['created_at'].dt.hour
-    hour_stats = df_time.groupby('hour')['time_to_first_byte'].mean().reset_index()
-    fig3 = px.line(hour_stats, x='hour', y='time_to_first_byte',
-               title='Average Response Time by Hour',
-               labels={'time_to_first_byte': 'Avg Response Time (seconds)', 'hour': 'Hour of Day'})
-    st.plotly_chart(fig3, use_container_width=True)
+# 함수별 응답 시간 (Count 기준 내림차순 정렬)
+func_stats = df_time.groupby('agent_type')['time_to_first_byte'].agg([
+    'mean', 'median', 'count'
+]).reset_index()
+func_stats.columns = ['Function', 'Mean (sec)', 'Median (sec)', 'Count']
+func_stats = func_stats.sort_values('Count', ascending=False)  # Count 기준 내림차순
+st.dataframe(func_stats.round(2), use_container_width=True)
