@@ -106,7 +106,7 @@ col3.metric("Top User", top_user_display)
 col4, col5, col6 = st.columns(3)
 earnings_users = df_all[df_all['earnings'] == 'onboarded']['user_email'].nunique()
 briefing_users = df_all[df_all['briefing'] == 'onboarded']['user_email'].nunique()
-col4.metric("Onboarded Users", f"Earnings: {earnings_users} / Briefing: {briefing_users}")
+col4.metric("Earnings/Briefing Users", f"{earnings_users}/{briefing_users}")
 col5.metric("Avg. Events per Active User", avg_events)
 col6.metric("Avg. Time Saved / User / Week", saved_display)
 
