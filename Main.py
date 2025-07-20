@@ -467,25 +467,13 @@ with col3:
 left_col, right_col = st.columns(2)
 
 with left_col:
-    # 시계열 그래프
+    # 시계열 그래프 (신뢰구간 없이)
     df_time['date'] = df_time['created_at'].dt.date
-    daily_stats = df_time.groupby('date').agg({
-        'time_to_first_byte': ['mean', 'std', 'count']
-    }).reset_index()
-    daily_stats.columns = ['date', 'mean', 'std', 'count']
+    daily_stats = df_time.groupby('date')['time_to_first_byte'].mean().reset_index()
     
-    # 신뢰구간 계산 (충분한 데이터가 있는 경우만)
-    daily_stats['ci'] = daily_stats.apply(
-        lambda row: row['std'] * 1.96 / np.sqrt(row['count']) if row['count'] > 1 else 0,
-        axis=1
-    )
-    daily_stats['lower'] = daily_stats['mean'] - daily_stats['ci']
-    daily_stats['upper'] = daily_stats['mean'] + daily_stats['ci']
-
-    fig1 = px.line(daily_stats, x='date', y='mean',
-                   error_y='ci',
+    fig1 = px.line(daily_stats, x='date', y='time_to_first_byte',
                    title='Daily Average Response Time',
-                   labels={'mean': 'Response Time (ms)', 'date': 'Date'})
+                   labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date'})
     
     fig1.update_layout(
         height=400,
