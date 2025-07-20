@@ -100,15 +100,8 @@ col2.metric("Active / Total Users", active_ratio)
 col3.metric("Top User", top_user_display)
 
 col4, col5, col6 = st.columns(3)
-# earnings/briefing 사용자 수
-earnings_users = len(df_all[df_all['earnings'].fillna('') == 'onboarded']['user_email'].unique())
-briefing_users = len(df_all[df_all['briefing'].fillna('') == 'onboarded']['user_email'].unique())
-col4.metric("Earnings Users", earnings_users)
-col5.metric("Briefing Users", briefing_users)
-col6.metric("Avg. Events per Active User", avg_events)
-
-col7, col8, col9 = st.columns(3)
-col7.metric("Avg. Time Saved / User / Week", saved_display)
+col4.metric("Avg. Events per Active User", avg_events)
+col5.metric("Avg. Time Saved / User / Week", saved_display)
 
 # ✅ 6번 metric → 두 개로 나눠 표현
 with col6:
