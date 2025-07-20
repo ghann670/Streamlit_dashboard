@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import altair as alt
+import numpy as np
 
 
 st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
@@ -436,3 +437,99 @@ with right:
     df_user_table = df_user_table[['Total'] + [col for col in df_user_table.columns if col != 'Total']]
 
     st.dataframe(df_user_table.astype(int), use_container_width=True)
+
+
+# 📊 Response Time Analysis
+st.markdown("---")
+st.subheader("📈 AI Response Time Analysis")
+
+# 데이터 전처리
+df_time = df_all.copy()
+# 이상치 처리
+df_time.loc[df_time['time_to_first_byte'] <= 0, 'time_to_first_byte'] = None
+df_time.loc[df_time['time_to_first_byte'] > 300000, 'time_to_first_byte'] = None  # 5분 초과 제거
+
+# 기본 통계량 표시
+col1, col2, col3 = st.columns(3)
+with col1:
+    median_time = df_time['time_to_first_byte'].median()
+    st.metric("Median Response Time", f"{median_time:.0f} ms")
+with col2:
+    mean_time = df_time['time_to_first_byte'].mean()
+    st.metric("Average Response Time", f"{mean_time:.0f} ms")
+with col3:
+    p95_time = df_time['time_to_first_byte'].quantile(0.95)
+    st.metric("95th Percentile", f"{p95_time:.0f} ms")
+
+# 시계열과 히스토그램을 위한 컬럼
+left_col, right_col = st.columns(2)
+
+with left_col:
+    # 시계열 그래프
+    df_time['date'] = df_time['created_at'].dt.date
+    daily_stats = df_time.groupby('date').agg({
+        'time_to_first_byte': ['mean', 'std', 'count']
+    }).reset_index()
+    daily_stats.columns = ['date', 'mean', 'std', 'count']
+    
+    # 신뢰구간 계산 (충분한 데이터가 있는 경우만)
+    daily_stats['ci'] = daily_stats.apply(
+        lambda row: row['std'] * 1.96 / np.sqrt(row['count']) if row['count'] > 1 else 0,
+        axis=1
+    )
+    daily_stats['lower'] = daily_stats['mean'] - daily_stats['ci']
+    daily_stats['upper'] = daily_stats['mean'] + daily_stats['ci']
+
+    fig1 = px.line(daily_stats, x='date', y='mean',
+                   error_y='ci',
+                   title='Daily Average Response Time',
+                   labels={'mean': 'Response Time (ms)', 'date': 'Date'})
+    
+    fig1.update_layout(
+        height=400,
+        hovermode='x unified'
+    )
+    st.plotly_chart(fig1, use_container_width=True)
+
+with right_col:
+    # 히스토그램
+    fig2 = px.histogram(
+        df_time,
+        x='time_to_first_byte',
+        nbins=50,
+        title='Distribution of Response Times',
+        labels={'time_to_first_byte': 'Response Time (ms)', 'count': 'Number of Requests'}
+    )
+    
+    # 중앙값과 평균값 표시선 추가
+    fig2.add_vline(x=median_time, line_dash="dash", line_color="red",
+                   annotation_text=f"Median: {median_time:.0f}ms")
+    fig2.add_vline(x=mean_time, line_dash="dash", line_color="green",
+                   annotation_text=f"Mean: {mean_time:.0f}ms")
+    
+    fig2.update_layout(
+        height=400,
+        bargap=0.1
+    )
+    st.plotly_chart(fig2, use_container_width=True)
+
+# 추가 필터 옵션
+st.markdown("### 🔍 Detailed Analysis")
+col1, col2 = st.columns(2)
+
+with col1:
+    # 함수별 응답 시간
+    func_stats = df_time.groupby('agent_type')['time_to_first_byte'].agg([
+        'mean', 'median', 'count'
+    ]).reset_index()
+    func_stats.columns = ['Function', 'Mean (ms)', 'Median (ms)', 'Count']
+    st.dataframe(func_stats.round(2), use_container_width=True)
+
+with col2:
+    # 시간대별 응답 시간
+    df_time['hour'] = df_time['created_at'].dt.hour
+    hour_stats = df_time.groupby('hour')['time_to_first_byte'].mean().reset_index()
+    fig3 = px.line(hour_stats, x='hour', y='time_to_first_byte',
+                   title='Average Response Time by Hour',
+                   labels={'time_to_first_byte': 'Avg Response Time (ms)', 'hour': 'Hour of Day'})
+    st.plotly_chart(fig3, use_container_width=True)
