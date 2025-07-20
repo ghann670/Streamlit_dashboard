@@ -8,7 +8,9 @@ st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
 
 
 # Load dataset
-df_all = pd.read_csv("df_all.csv", parse_dates=["created_at"])
+df_all = pd.read_csv("df_all.csv", 
+                    parse_dates=["created_at"],
+                    dtype={'earnings': str, 'briefing': str})
 
 # 기준 날짜: 오늘 날짜 정오 기준
 now = pd.Timestamp.now().normalize() + pd.Timedelta(hours=12)
