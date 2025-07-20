@@ -463,25 +463,24 @@ with col3:
     p95_time = df_time['time_to_first_byte'].quantile(0.95)
     st.metric("95th Percentile", f"{p95_time:.1f} sec")
 
-# 시계열과 히스토그램을 위한 컬럼
-left_col, right_col = st.columns(2)
+# 시계열 그래프 (전체 너비)
+df_time['date'] = df_time['created_at'].dt.date
+daily_stats = df_time.groupby('date')['time_to_first_byte'].median().reset_index()
+
+fig1 = px.line(daily_stats, x='date', y='time_to_first_byte',
+               title='Daily Median Response Time',
+               labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date'})
+
+fig1.update_layout(
+    height=400,
+    hovermode='x unified'
+)
+st.plotly_chart(fig1, use_container_width=True)
+
+# 두 번째 줄: 히스토그램과 도표
+left_col, right_col = st.columns([3, 2])  # 히스토그램이 더 넓게
 
 with left_col:
-    # 시계열 그래프 (신뢰구간 없이)
-    df_time['date'] = df_time['created_at'].dt.date
-    daily_stats = df_time.groupby('date')['time_to_first_byte'].mean().reset_index()
-    
-    fig1 = px.line(daily_stats, x='date', y='time_to_first_byte',
-                   title='Daily Average Response Time',
-                   labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date'})
-    
-    fig1.update_layout(
-        height=400,
-        hovermode='x unified'
-    )
-    st.plotly_chart(fig1, use_container_width=True)
-
-with right_col:
     # 히스토그램
     fig2 = px.histogram(
         df_time,
@@ -491,7 +490,7 @@ with right_col:
         labels={'time_to_first_byte': 'Response Time (seconds)', 'count': 'Number of Requests'}
     )
     
-    # 중앙값과 평균값 표시선 추가 (더 잘 보이게 수정)
+    # 중앙값과 평균값 표시선 추가
     fig2.add_vline(
         x=median_time,
         line=dict(color="red", width=2, dash="dash"),
@@ -514,13 +513,12 @@ with right_col:
     )
     st.plotly_chart(fig2, use_container_width=True)
 
-# 추가 필터 옵션
-st.markdown("### 🔍 Detailed Analysis")
-
-# 함수별 응답 시간 (Count 기준 내림차순 정렬)
-func_stats = df_time.groupby('agent_type')['time_to_first_byte'].agg([
-    'mean', 'median', 'count'
-]).reset_index()
-func_stats.columns = ['Function', 'Mean (sec)', 'Median (sec)', 'Count']
-func_stats = func_stats.sort_values('Count', ascending=False)  # Count 기준 내림차순
-st.dataframe(func_stats.round(2), use_container_width=True)
+with right_col:
+    # 함수별 응답 시간 (Count 기준 내림차순 정렬)
+    st.markdown("### 🔍 Response Time by Function")
+    func_stats = df_time.groupby('agent_type')['time_to_first_byte'].agg([
+        'mean', 'median', 'count'
+    ]).reset_index()
+    func_stats.columns = ['Function', 'Mean (sec)', 'Median (sec)', 'Count']
+    func_stats = func_stats.sort_values('Count', ascending=False)  # Count 기준 내림차순
+    st.dataframe(func_stats.round(2), use_container_width=True)
