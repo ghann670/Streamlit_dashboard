@@ -13,7 +13,9 @@ df_all = pd.read_csv("df_all.csv")
 # Debug information
 st.write("Available columns:", df_all.columns.tolist())
 st.write("Data types:", df_all.dtypes)
-st.write("Sample data:", df_all[['earnings', 'briefing']].head())
+
+# Convert created_at to datetime
+df_all['created_at'] = pd.to_datetime(df_all['created_at'])
 
 # 기준 날짜: 오늘 날짜 정오 기준
 now = pd.Timestamp.now().normalize() + pd.Timedelta(hours=12)
@@ -28,6 +30,8 @@ week_ranges = {
 
 # 주차 버킷 할당 함수
 def assign_week_bucket(date):
+    if pd.isna(date):
+        return None
     for week, (start, end) in week_ranges.items():
         if start <= date <= end:
             return week
