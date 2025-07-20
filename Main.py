@@ -8,9 +8,11 @@ st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
 
 
 # Load dataset
-df_all = pd.read_csv("df_all.csv", 
-                    parse_dates=["created_at"],
-                    dtype={'earnings': str, 'briefing': str})
+df_all = pd.read_csv("df_all.csv", parse_dates=["created_at"])
+
+# Print columns for debugging
+print("Available columns:", df_all.columns.tolist())
+print("Sample earnings values:", df_all['earnings'].value_counts().to_dict())
 
 # 기준 날짜: 오늘 날짜 정오 기준
 now = pd.Timestamp.now().normalize() + pd.Timedelta(hours=12)
@@ -99,8 +101,8 @@ col3.metric("Top User", top_user_display)
 
 col4, col5, col6 = st.columns(3)
 # earnings/briefing 사용자 수
-earnings_users = df_all[df_all['earnings'] == 'onboarded']['user_email'].nunique()
-briefing_users = df_all[df_all['briefing'] == 'onboarded']['user_email'].nunique()
+earnings_users = len(df_all[df_all['earnings'].fillna('') == 'onboarded']['user_email'].unique())
+briefing_users = len(df_all[df_all['briefing'].fillna('') == 'onboarded']['user_email'].unique())
 col4.metric("Earnings Users", earnings_users)
 col5.metric("Briefing Users", briefing_users)
 col6.metric("Avg. Events per Active User", avg_events)
