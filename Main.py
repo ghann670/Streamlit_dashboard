@@ -102,9 +102,14 @@ col3.metric("Top User", top_user_display)
 # 두 번째 줄 메트릭
 col4, col5, col6 = st.columns(3)
 
-# earnings/briefing 사용자 수
-earnings_users = df_all[df_all['earnings'].notna()]['user_email'].nunique()
-briefing_users = df_all[df_all['briefing'].notna()]['user_email'].nunique()
+# earnings/briefing 사용자 수 (컬럼 존재 여부 확인)
+earnings_users = 0
+briefing_users = 0
+if 'earnings' in df_all.columns:
+    earnings_users = df_all[df_all['earnings'] == 'onboarded']['user_email'].nunique()
+if 'briefing' in df_all.columns:
+    briefing_users = df_all[df_all['briefing'] == 'onboarded']['user_email'].nunique()
+
 col4.metric("Earnings Users", earnings_users)
 col5.metric("Briefing Users", briefing_users)
 col6.metric("Avg. Events per Active User", avg_events)
