@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import altair as alt
-import numpy as np
 
 
 st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
@@ -449,17 +448,20 @@ df_time = df_all.copy()
 df_time.loc[df_time['time_to_first_byte'] <= 0, 'time_to_first_byte'] = None
 df_time.loc[df_time['time_to_first_byte'] > 300000, 'time_to_first_byte'] = None  # 5분 초과 제거
 
+# ms를 초로 변환
+df_time['time_to_first_byte'] = df_time['time_to_first_byte'] / 1000
+
 # 기본 통계량 표시
 col1, col2, col3 = st.columns(3)
 with col1:
     median_time = df_time['time_to_first_byte'].median()
-    st.metric("Median Response Time", f"{median_time:.0f} ms")
+    st.metric("Median Response Time", f"{median_time:.1f} sec")
 with col2:
     mean_time = df_time['time_to_first_byte'].mean()
-    st.metric("Average Response Time", f"{mean_time:.0f} ms")
+    st.metric("Average Response Time", f"{mean_time:.1f} sec")
 with col3:
     p95_time = df_time['time_to_first_byte'].quantile(0.95)
-    st.metric("95th Percentile", f"{p95_time:.0f} ms")
+    st.metric("95th Percentile", f"{p95_time:.1f} sec")
 
 # 시계열과 히스토그램을 위한 컬럼
 left_col, right_col = st.columns(2)
@@ -498,18 +500,29 @@ with right_col:
         x='time_to_first_byte',
         nbins=50,
         title='Distribution of Response Times',
-        labels={'time_to_first_byte': 'Response Time (ms)', 'count': 'Number of Requests'}
+        labels={'time_to_first_byte': 'Response Time (seconds)', 'count': 'Number of Requests'}
     )
     
-    # 중앙값과 평균값 표시선 추가
-    fig2.add_vline(x=median_time, line_dash="dash", line_color="red",
-                   annotation_text=f"Median: {median_time:.0f}ms")
-    fig2.add_vline(x=mean_time, line_dash="dash", line_color="green",
-                   annotation_text=f"Mean: {mean_time:.0f}ms")
+    # 중앙값과 평균값 표시선 추가 (더 잘 보이게 수정)
+    fig2.add_vline(
+        x=median_time,
+        line=dict(color="red", width=2, dash="dash"),
+        annotation_text=f"Median: {median_time:.1f}s",
+        annotation_position="top",
+        annotation=dict(font=dict(color="red"))
+    )
+    fig2.add_vline(
+        x=mean_time,
+        line=dict(color="green", width=2, dash="dash"),
+        annotation_text=f"Mean: {mean_time:.1f}s",
+        annotation_position="bottom",
+        annotation=dict(font=dict(color="green"))
+    )
     
     fig2.update_layout(
         height=400,
-        bargap=0.1
+        bargap=0.1,
+        showlegend=True
     )
     st.plotly_chart(fig2, use_container_width=True)
 
@@ -530,6 +543,6 @@ with col2:
     df_time['hour'] = df_time['created_at'].dt.hour
     hour_stats = df_time.groupby('hour')['time_to_first_byte'].mean().reset_index()
     fig3 = px.line(hour_stats, x='hour', y='time_to_first_byte',
-                   title='Average Response Time by Hour',
-                   labels={'time_to_first_byte': 'Avg Response Time (ms)', 'hour': 'Hour of Day'})
+               title='Average Response Time by Hour',
+               labels={'time_to_first_byte': 'Avg Response Time (seconds)', 'hour': 'Hour of Day'})
     st.plotly_chart(fig3, use_container_width=True)
