@@ -8,8 +8,10 @@ st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
 
 
 # Load dataset
-df_all = pd.read_csv("df_all.csv")
-df_all['created_at'] = pd.to_datetime(df_all['created_at'])
+df_all = pd.read_csv("df_all.csv", dtype={'earnings': str, 'briefing': str})
+
+# Debug information
+st.write("Debug - Sample created_at values:", df_all['created_at'].head())
 
 # 기준 날짜: 오늘 날짜 정오 기준
 now = pd.Timestamp.now().normalize() + pd.Timedelta(hours=12)
