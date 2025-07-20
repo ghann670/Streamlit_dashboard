@@ -10,9 +10,6 @@ st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
 # Load dataset
 df_all = pd.read_csv("df_all.csv")
 
-# Debug information
-st.write("Available columns:", df_all.columns.tolist())
-st.write("Data types:", df_all.dtypes)
 
 # Convert created_at to datetime
 df_all['created_at'] = pd.to_datetime(df_all['created_at'])
