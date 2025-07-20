@@ -8,10 +8,14 @@ st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
 
 
 # Load dataset
+columns = ['id', 'selected_model', 'sender', 'function_mode', 'user_name', 
+           'user_email', 'user_group', 'organization', 'time_to_first_byte',
+           'created_at', 'status', 'division', 'earnings', 'briefing']
+           
 df_all = pd.read_csv("df_all.csv", 
                     parse_dates=["created_at"],
-                    usecols=lambda x: True,  # 모든 컬럼을 명시적으로 읽기
-                    encoding='utf-8')  # 인코딩 명시
+                    names=columns,
+                    skiprows=1)  # 헤더 건너뛰기
 st.write("Debug - df_all columns:", list(df_all.columns))  # 임시 디버깅 코드
 
 # 기준 날짜: 오늘 날짜 정오 기준
