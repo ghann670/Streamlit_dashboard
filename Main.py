@@ -106,12 +106,9 @@ col3.metric("Top User", top_user_display)
 col4, col5, col6 = st.columns(3)
 earnings_users = df_all[df_all['earnings'] == 'onboarded']['user_email'].nunique()
 briefing_users = df_all[df_all['briefing'] == 'onboarded']['user_email'].nunique()
-col4.metric("Earnings Users", earnings_users)
-col5.metric("Briefing Users", briefing_users)
-col6.metric("Avg. Events per Active User", avg_events)
-
-col7, col8, col9 = st.columns(3)
-col7.metric("Avg. Time Saved / User / Week", saved_display)
+col4.metric("Onboarded Users", f"Earnings: {earnings_users} / Briefing: {briefing_users}")
+col5.metric("Avg. Events per Active User", avg_events)
+col6.metric("Avg. Time Saved / User / Week", saved_display)
 
 # Invited & No-Usage Users 표시
 st.markdown("### 👥 User Status")
