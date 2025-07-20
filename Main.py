@@ -70,6 +70,10 @@ if not df_active['user_name'].dropna().empty:
 else:
     top_user_display = "N/A"
 
+# earnings/briefing 사용자 수
+earnings_users = df_all[df_all['earnings'].notna()]['user_email'].nunique()
+briefing_users = df_all[df_all['briefing'].notna()]['user_email'].nunique()
+
 # 평균 이벤트
 avg_events = round(total_events / active_users, 1) if active_users > 0 else 0
 
@@ -95,9 +99,19 @@ col1.metric("All Events", total_events)
 col2.metric("Active / Total Users", active_ratio)
 col3.metric("Top User", top_user_display)
 
+# 두 번째 줄 메트릭
 col4, col5, col6 = st.columns(3)
-col4.metric("Avg. Events per Active User", avg_events)
-col5.metric("Avg. Time Saved / User / Week", saved_display)
+
+# earnings/briefing 사용자 수
+earnings_users = df_all[df_all['earnings'].notna()]['user_email'].nunique()
+briefing_users = df_all[df_all['briefing'].notna()]['user_email'].nunique()
+col4.metric("Earnings Users", earnings_users)
+col5.metric("Briefing Users", briefing_users)
+col6.metric("Avg. Events per Active User", avg_events)
+
+# 세 번째 줄 메트릭
+col7, col8, col9 = st.columns(3)
+col7.metric("Avg. Time Saved / User / Week", saved_display)
 
 # ✅ 6번 metric → 두 개로 나눠 표현
 with col6:
