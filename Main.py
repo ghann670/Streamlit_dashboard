@@ -509,6 +509,11 @@ usage_count = df_week.pivot_table(
 response_time.loc['Total'] = response_time.mean()
 usage_count.loc['Total'] = usage_count.sum()
 
+# 두 데이터를 결합하여 'count / median' 형식의 문자열로 만들기
+combined_data = pd.DataFrame()
+for col in response_time.columns:
+    combined_data[col] = usage_count[col].astype(str) + ' / ' + response_time[col].astype(str) + 's'
+
 # 레이아웃 설정
 left, right = st.columns([6, 4])
 
@@ -528,18 +533,11 @@ with left:
 
 with right:
     st.markdown("### Last 7 Days Response Time")
-    st.markdown("*Median response time (seconds)*")
+    st.markdown("*Format: count / median response time*")
     st.dataframe(
-        response_time,
+        combined_data,
         use_container_width=True,
-        height=200
-    )
-    
-    st.markdown("*Usage count*")
-    st.dataframe(
-        usage_count,
-        use_container_width=True,
-        height=200
+        height=400
     )
 
 # 두 번째 줄: 히스토그램과 도표
