@@ -473,9 +473,6 @@ with col3:
     p95_time = df_time['time_to_first_byte'].quantile(0.95)
     st.metric("95th Percentile", f"{p95_time:.1f} sec")
 
-# 시계열 그래프와 최근 7일 도표
-st.markdown("---")
-st.subheader("📈 Response Time Analysis")
 
 # 시계열 데이터 준비
 df_time['date'] = df_time['created_at'].dt.date
