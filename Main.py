@@ -485,66 +485,19 @@ daily_stats = df_time.groupby('date')['time_to_first_byte'].median().reset_index
 start_date = pd.Timestamp('2025-04-01').date()
 daily_stats = daily_stats[daily_stats['date'] >= start_date]
 
-# 최근 7일 데이터 준비
-one_week_ago = now - pd.Timedelta(days=7)
-df_week = df_time[df_time['created_at'] >= one_week_ago].copy()
-df_week['date_str'] = df_week['created_at'].dt.strftime('%m-%d')
-
-# 함수별 일별 중앙값과 카운트 계산
-df_week['date_str'] = df_week['created_at'].dt.strftime('%m-%d')
-
-# MultiIndex로 피벗 테이블 생성
-pivot_data = pd.pivot_table(
-    df_week,
-    values='time_to_first_byte',
-    index='function_mode',
-    columns=['date_str', 'metric'],
-    aggfunc={
-        'time_to_first_byte': {
-            'count': 'count',
-            'median': 'median'
-        }
-    }
-).round(2)
-
-# 컬럼 인덱스 재구성
-new_columns = []
-for date in df_week['date_str'].unique():
-    new_columns.extend([(date, 'count'), (date, 'median')])
-pivot_data = pivot_data.reindex(columns=new_columns)
-
-# Total 행 추가
-total_row = pd.Series(index=pivot_data.columns)
-for date in df_week['date_str'].unique():
-    total_row[(date, 'count')] = pivot_data[(date, 'count')].sum()
-    total_row[(date, 'median')] = pivot_data[(date, 'median')].mean().round(2)
-pivot_data.loc['Total'] = total_row
-
-# 레이아웃 설정
-left, right = st.columns([6, 4])
-
-with left:
-    fig1 = px.line(
-        daily_stats, 
-        x='date', 
-        y='time_to_first_byte',
-        title='Daily Median Response Time',
-        labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date'}
-    )
-    fig1.update_layout(
-        height=400,
-        hovermode='x unified'
-    )
-    st.plotly_chart(fig1, use_container_width=True)
-
-with right:
-    st.markdown("### Last 7 Days Response Time")
-    st.markdown("*count: number of events, median: response time in seconds*")
-    st.dataframe(
-        pivot_data,
-        use_container_width=True,
-        height=400
-    )
+# 라인 차트
+fig1 = px.line(
+    daily_stats, 
+    x='date', 
+    y='time_to_first_byte',
+    title='Daily Median Response Time',
+    labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date'}
+)
+fig1.update_layout(
+    height=400,
+    hovermode='x unified'
+)
+st.plotly_chart(fig1, use_container_width=True)
 
 # 두 번째 줄: 히스토그램과 도표
 left_col, right_col = st.columns([3, 2])  # 히스토그램이 더 넓게
