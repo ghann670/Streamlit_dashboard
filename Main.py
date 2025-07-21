@@ -472,19 +472,52 @@ with col3:
     p95_time = df_time['time_to_first_byte'].quantile(0.95)
     st.metric("95th Percentile", f"{p95_time:.1f} sec")
 
-# 시계열 그래프 (전체 너비)
+# 시계열 그래프와 최근 7일 도표
+st.markdown("---")
+st.subheader("📈 Response Time Analysis")
+
+# 시계열 데이터 준비
 df_time['date'] = df_time['created_at'].dt.date
 daily_stats = df_time.groupby('date')['time_to_first_byte'].median().reset_index()
 
-fig1 = px.line(daily_stats, x='date', y='time_to_first_byte',
-               title='Daily Median Response Time',
-               labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date'})
+# 최근 7일 데이터 준비
+one_week_ago = now - pd.Timedelta(days=7)
+df_week = df_time[df_time['created_at'] >= one_week_ago].copy()
+df_week['date_str'] = df_week['created_at'].dt.strftime('%m-%d')
 
-fig1.update_layout(
-    height=400,
-    hovermode='x unified'
-)
-st.plotly_chart(fig1, use_container_width=True)
+# 함수별 일별 중앙값 계산
+heatmap_data = df_week.pivot_table(
+    values='time_to_first_byte',
+    index='function_mode',
+    columns='date_str',
+    aggfunc='median'
+).round(1)
+
+# 레이아웃 설정
+left, right = st.columns([6, 4])
+
+with left:
+    fig1 = px.line(
+        daily_stats, 
+        x='date', 
+        y='time_to_first_byte',
+        title='Daily Median Response Time',
+        labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date'}
+    )
+    fig1.update_layout(
+        height=400,
+        hovermode='x unified'
+    )
+    st.plotly_chart(fig1, use_container_width=True)
+
+with right:
+    st.markdown("### Last 7 Days Response Time")
+    st.markdown("*Median values by function (seconds)*")
+    st.dataframe(
+        heatmap_data.style.background_gradient(cmap='YlOrRd', axis=None),
+        use_container_width=True,
+        height=400
+    )
 
 # 두 번째 줄: 히스토그램과 도표
 left_col, right_col = st.columns([3, 2])  # 히스토그램이 더 넓게
