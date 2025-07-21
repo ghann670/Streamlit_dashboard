@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import altair as alt
+import matplotlib.pyplot as plt
 
 
 st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
