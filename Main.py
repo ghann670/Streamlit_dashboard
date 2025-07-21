@@ -490,13 +490,24 @@ one_week_ago = now - pd.Timedelta(days=7)
 df_week = df_time[df_time['created_at'] >= one_week_ago].copy()
 df_week['date_str'] = df_week['created_at'].dt.strftime('%m-%d')
 
-# 함수별 일별 중앙값 계산
-heatmap_data = df_week.pivot_table(
+# 함수별 일별 중앙값과 카운트 계산
+response_time = df_week.pivot_table(
     values='time_to_first_byte',
     index='function_mode',
     columns='date_str',
     aggfunc='median'
-).round(1)
+).round(2)
+
+usage_count = df_week.pivot_table(
+    values='time_to_first_byte',
+    index='function_mode',
+    columns='date_str',
+    aggfunc='count'
+).fillna(0).astype(int)
+
+# 각 날짜별 전체 합계 추가
+response_time.loc['Total'] = response_time.mean()
+usage_count.loc['Total'] = usage_count.sum()
 
 # 레이아웃 설정
 left, right = st.columns([6, 4])
@@ -517,11 +528,18 @@ with left:
 
 with right:
     st.markdown("### Last 7 Days Response Time")
-    st.markdown("*Median values by function (seconds)*")
+    st.markdown("*Median response time (seconds)*")
     st.dataframe(
-        heatmap_data.style.background_gradient(cmap='YlOrRd', axis=None),
+        response_time,
         use_container_width=True,
-        height=400
+        height=200
+    )
+    
+    st.markdown("*Usage count*")
+    st.dataframe(
+        usage_count,
+        use_container_width=True,
+        height=200
     )
 
 # 두 번째 줄: 히스토그램과 도표
