@@ -491,28 +491,34 @@ df_week = df_time[df_time['created_at'] >= one_week_ago].copy()
 df_week['date_str'] = df_week['created_at'].dt.strftime('%m-%d')
 
 # 함수별 일별 중앙값과 카운트 계산
-response_time = df_week.pivot_table(
+df_week['date_str'] = df_week['created_at'].dt.strftime('%m-%d')
+
+# MultiIndex로 피벗 테이블 생성
+pivot_data = pd.pivot_table(
+    df_week,
     values='time_to_first_byte',
     index='function_mode',
-    columns='date_str',
-    aggfunc='median'
+    columns=['date_str', 'metric'],
+    aggfunc={
+        'time_to_first_byte': {
+            'count': 'count',
+            'median': 'median'
+        }
+    }
 ).round(2)
 
-usage_count = df_week.pivot_table(
-    values='time_to_first_byte',
-    index='function_mode',
-    columns='date_str',
-    aggfunc='count'
-).fillna(0).astype(int)
+# 컬럼 인덱스 재구성
+new_columns = []
+for date in df_week['date_str'].unique():
+    new_columns.extend([(date, 'count'), (date, 'median')])
+pivot_data = pivot_data.reindex(columns=new_columns)
 
-# 각 날짜별 전체 합계 추가
-response_time.loc['Total'] = response_time.mean()
-usage_count.loc['Total'] = usage_count.sum()
-
-# 두 데이터를 결합하여 'count / median' 형식의 문자열로 만들기
-combined_data = pd.DataFrame()
-for col in response_time.columns:
-    combined_data[col] = usage_count[col].astype(str) + ' / ' + response_time[col].astype(str) + 's'
+# Total 행 추가
+total_row = pd.Series(index=pivot_data.columns)
+for date in df_week['date_str'].unique():
+    total_row[(date, 'count')] = pivot_data[(date, 'count')].sum()
+    total_row[(date, 'median')] = pivot_data[(date, 'median')].mean().round(2)
+pivot_data.loc['Total'] = total_row
 
 # 레이아웃 설정
 left, right = st.columns([6, 4])
@@ -533,9 +539,9 @@ with left:
 
 with right:
     st.markdown("### Last 7 Days Response Time")
-    st.markdown("*Format: count / median response time*")
+    st.markdown("*count: number of events, median: response time in seconds*")
     st.dataframe(
-        combined_data,
+        pivot_data,
         use_container_width=True,
         height=400
     )
