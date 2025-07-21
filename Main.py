@@ -481,16 +481,20 @@ st.subheader("📈 Response Time Analysis")
 df_time['date'] = df_time['created_at'].dt.date
 daily_stats = df_time.groupby('date')['time_to_first_byte'].median().reset_index()
 
-# 2025년 4월 1일 이후 데이터만 필터링
+# 2025년 4월 1일 이후, 오늘 제외 데이터만 필터링
 start_date = pd.Timestamp('2025-04-01').date()
-daily_stats = daily_stats[daily_stats['date'] >= start_date]
+end_date = pd.Timestamp.now().date() - pd.Timedelta(days=1)
+daily_stats = daily_stats[
+    (daily_stats['date'] >= start_date) & 
+    (daily_stats['date'] <= end_date)
+]
 
 # 라인 차트
 fig1 = px.line(
     daily_stats, 
     x='date', 
     y='time_to_first_byte',
-    title='Daily Median Response Time',
+    title='Daily Median Response Time (excluding today)',
     labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date'}
 )
 fig1.update_layout(
