@@ -481,6 +481,10 @@ st.subheader("📈 Response Time Analysis")
 df_time['date'] = df_time['created_at'].dt.date
 daily_stats = df_time.groupby('date')['time_to_first_byte'].median().reset_index()
 
+# 2025년 4월 1일 이후 데이터만 필터링
+start_date = pd.Timestamp('2025-04-01').date()
+daily_stats = daily_stats[daily_stats['date'] >= start_date]
+
 # 최근 7일 데이터 준비
 one_week_ago = now - pd.Timedelta(days=7)
 df_week = df_time[df_time['created_at'] >= one_week_ago].copy()
