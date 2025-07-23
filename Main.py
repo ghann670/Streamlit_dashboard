@@ -450,7 +450,7 @@ with right:
 
 # 📊 Response Time Analysis
 st.markdown("---")
-st.subheader("📈 AI Response Time Analysis")
+st.subheader("📈 LinqAlpha Response Time Analysis")
 
 # 데이터 전처리
 df_time = df_all.copy()
