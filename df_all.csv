@@ -1,6 +1,7 @@
 id,selected_model,sender,function_mode,user_name,user_email,user_group,organization,time_to_first_byte,created_at,status,division,earnings,briefing
 0007ba07-7c12-4f77-9d4a-651359008829,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,12449.0,2025-07-04 07:48:31.087,active,,,
 0018f6cc-fca6-4f78-bb07-d4091d47993a,integrate_search,user,normal,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,414001.0,2025-07-14 03:32:52.720,active,,onboarded,onboarded
+002c520a-8fac-486f-9221-737a17d56c30,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,32921.0,2025-07-24 23:33:10.506,active,,,
 0039ebdf-217a-4b66-92f8-c81498e0f931,integrate_search,user,normal,Roger Tay,roger.tay@cgsi.com,general,CGS International,50772.0,2025-07-14 03:58:19.667,active,,,
 00444895-8101-4334-9cb3-ed8f1767e54c,integrate_search,user,normal,Jayden Son,jayden.son@macquarie.com,general,Macquarie,42483.0,2025-07-23 21:50:06.022,active,,onboarded,onboarded
 005a2aab-79f2-4925-89b4-07c0ebdee8e3,rms,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,19990.0,2025-07-03 02:42:20.736,active,,,
@@ -84,7 +85,6 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 0624dd69-2cce-4880-b848-e5a1c42b5f28,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,26075.0,2025-06-18 08:21:36.887,active,,,onboarded
 06272aa0-b5ea-4cf8-b1ee-7fb5f5220085,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,,2025-06-16 07:52:07.956,active,,onboarded,
 062a1b5e-51eb-4d29-8c49-342c38e3e8e2,integrate_search,user,primer,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,,2025-07-11 02:31:08.183,active,,onboarded,onboarded
-0679cfcd-9d16-42d9-b230-5868a5ad0385,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,25183.0,2025-07-21 09:38:28.928,active,,onboarded,
 069d4b88-08ad-4a2f-9146-c0f65691cbdb,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,89722.0,2025-06-30 23:43:01.071,active,,,
 06acc380-67e4-4485-98ad-bf8c5e5e82c1,integrate_search,user,normal,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,379421.0,2025-06-18 02:23:46.587,active,,onboarded,onboarded
 06b22ec5-78d1-44ab-bbff-6cec4d537a62,integrate_search,user,normal,Jayden Son,jayden.son@macquarie.com,general,Macquarie,38159.0,2025-06-11 02:16:20.314,active,,onboarded,onboarded
@@ -193,6 +193,7 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 1198dc89-cb7d-4e01-9147-6a15f9cf4547,integrate_search,user,normal,Victor German,victor.german@macquarie.com,general,Macquarie,24414.0,2025-06-11 02:10:21.084,active,,,
 11b71fa9-7419-4362-8c11-44642338d3ca,integrate_search,user,normal,Lin Hu,hu.lin@cgsi.com,general,CGS International,21859.0,2025-07-09 01:26:18.956,active,,onboarded,onboarded
 11c16d0b-1c5f-4586-952c-8314f2f4f637,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,,2025-07-15 04:32:50.702,active,,,onboarded
+11c30fba-4e7c-4d2f-a5f4-12b4fbd39363,integrate_search,user,normal,Max Teplitz,mteplitz@mastertoncapital.com,general,Masterton Capital,29254.0,2025-07-24 02:13:27.283,active,,,
 11fbcfe6-abd5-42cf-bffc-84f239ff5c0e,integrate_search,user,normal,Jayden Son,jayden.son@macquarie.com,general,Macquarie,,2025-07-08 08:53:06.132,active,,onboarded,onboarded
 122ec8d2-725d-4151-bddb-8e95e74732c0,reasoning_r1,user,deep_research,Matthew Brooks,matthew.brooks@macquarie.com,general,Macquarie,,2025-07-01 04:41:22.136,active,,onboarded,
 123713f8-5004-4b22-9e62-479421050ca5,rms,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,19210.0,2025-07-16 08:42:31.372,active,,,
@@ -362,6 +363,7 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 21d8d544-565d-415b-a2b5-f66dc681e47e,reasoning_r1,user,deep_research,Eric Norr,eric.norr@macquarie.com,general,Macquarie,,2025-07-16 07:57:40.619,active,,,
 21da105f-63c5-48cf-9a78-28b9a9abb8c7,integrate_search,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,40991.0,2025-07-22 07:59:50.402,active,,,
 21dd9f04-3782-4e3b-b269-f39add24dba8,integrate_search,user,normal,Bertram Lai,bertram.lai@cgsi.com,general,CGS International,56262.0,2025-07-22 23:58:29.681,active,,,
+21ec68be-47af-4f89-bfb8-45b2d187deb3,integrate_search,user,normal,David Lee,dlee@redwoodpeak.com,general,Redwood Peak,,2025-07-24 03:23:54.995,active,,onboarded,
 21fc61a3-8178-4418-abb6-60998d4462b5,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,23524.0,2025-04-23 03:47:12.356,active,,onboarded,
 22027e3d-d442-4ff1-8c3a-25e5f3dc7c82,rms,user,individual_summary,Valerie  Kingsmill,valerie.kingsmill@macquarie.com,general,Macquarie,,2025-06-17 04:40:41.173,active,,,
 2233b59c-89e2-48d3-a883-b8d83a262379,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,26796.0,2025-07-21 17:01:08.587,active,,,
@@ -440,6 +442,7 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 2a9c5477-7605-4612-ab9d-0d1a714e0358,integrate_search,user,normal,Jayden Son,jayden.son@macquarie.com,general,Macquarie,58535.0,2025-07-17 01:48:31.966,active,,onboarded,onboarded
 2ab432c5-d484-4df7-a615-4d95988d6560,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,21684.0,2025-05-09 02:57:00.513,active,,onboarded,
 2af8b22c-4f3c-4281-89b3-6aafae05bc58,integrate_search,user,normal,David Lee,dlee@redwoodpeak.com,general,Redwood Peak,19740.0,2025-07-10 01:26:17.828,active,,onboarded,
+2b01b53f-cedd-4015-a45b-62d936761234,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,30620.0,2025-07-24 22:00:08.000,active,,,
 2b061f18-20fe-4023-b4d8-b88853b4f5d6,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,22889.0,2025-06-20 02:25:51.685,active,,,active
 2b16634f-8967-4180-a12b-9f0a09a3482e,integrate_search,user,normal,Maggie Wu,maggie.wu@turiyacap.com,general,Turiya Capital,62064.0,2025-06-14 02:59:52.081,active,,,active
 2b43e037-601e-4151-bb46-6f8d4a24f13d,integrate_search,user,normal,Valerie  Kingsmill,valerie.kingsmill@macquarie.com,general,Macquarie,59529.0,2025-06-19 00:33:14.380,active,,,
@@ -488,7 +491,6 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 2f60686d-d8a4-4807-910a-5dc555567ebe,integrate_search,user,normal,Chris Zhou,chris.zhou@turiyacap.com,general,Turiya Capital,44539.0,2025-07-11 07:24:07.903,active,,,onboarded
 2f6311d8-6e86-413c-a140-745a4ff4007e,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,149155.0,2025-06-30 03:55:48.817,active,,,onboarded
 2f64a42c-34fc-433f-af83-1281e56ce7b3,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,20341.0,2025-06-26 03:44:02.677,active,,,active
-2f6d9ce3-ac52-4896-927d-8afe2a71c35a,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,26746.0,2025-07-15 00:34:28.262,active,,onboarded,
 2f7d758c-7ed2-4d0c-9f2b-4cfddfc9cd2d,integrate_search,user,normal,Victor German,victor.german@macquarie.com,general,Macquarie,31318.0,2025-06-12 05:27:29.678,active,,,
 2f93d1c8-f843-4b54-aa1c-bea8bdc20b7d,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,28583.0,2025-07-07 02:31:43.820,active,,onboarded,onboarded
 2f9c9d94-32c1-4a7e-afdf-119b63e07e36,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,17942.0,2025-06-19 00:57:52.836,active,,,
@@ -532,6 +534,7 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 336eb994-caec-4cfe-9fd5-8d18903179d0,integrate_search,user,ownership_data,Matthew Brooks,matthew.brooks@macquarie.com,general,Macquarie,,2025-06-10 22:42:31.468,active,,onboarded,
 336fdf68-e8cb-4c4e-9fb9-2bb7fb6c5745,integrate_search,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,134975.0,2025-07-17 10:26:40.330,active,,,
 3388c6b1-cbf0-481a-83db-0b52010f9180,integrate_search,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,24439.0,2025-06-20 08:03:59.981,active,,,active
+338b9af4-ad6a-429a-ba78-60b8e3e2ec65,integrate_search,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,140208.0,2025-07-24 06:48:50.066,active,,,
 339c483d-91f3-4bd4-b05e-bd2e309d520e,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,48743.0,2025-07-16 19:48:39.419,active,,,
 33b5c521-62f3-443a-aca9-b9ad27e12920,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,,2025-06-16 03:44:50.005,active,,onboarded,
 33c2781b-4fe9-4ffd-b168-b25ae190b4ea,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,57369.0,2025-05-09 08:34:46.512,active,,onboarded,
@@ -557,6 +560,7 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 35335d60-4020-4979-b0a6-f031e48a9857,rms,user,timeline,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,19685.0,2025-06-26 17:48:08.719,active,,,
 353a1e2c-7d4a-43a2-9673-1b0824b3293f,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,43074.0,2025-06-25 07:01:00.847,active,,,onboarded
 353a45f6-c85c-4c27-9a46-4a5160a83bdc,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,22571.0,2025-07-21 07:53:49.541,active,,onboarded,onboarded
+35420670-a39a-494e-be72-828633213dfd,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,25730.0,2025-07-24 19:04:52.872,active,,,
 354d9f91-d315-43a0-832d-c8f070ea2144,integrate_search,user,normal,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,412322.0,2025-06-18 08:37:55.669,active,,onboarded,onboarded
 35f8b01f-aceb-4b4e-ae9a-547a4913960f,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,23978.0,2025-06-20 08:25:40.145,active,,,
 35fa525d-da9c-44ab-8126-680c1f75d2c7,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,19541.0,2025-06-27 00:50:33.094,active,,,
@@ -730,6 +734,7 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 4609d8f3-f0db-4e31-8460-d6094df7980b,integrate_search,user,normal,Suhas Hari,suhas_hari@icicipruamc.com,general,ICICI Prudential,44110.0,2025-06-29 07:09:30.204,active,,,
 460d4d6d-03f3-4e65-bcad-ff63a4ec8d9d,integrate_search,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,104839.0,2025-07-17 08:14:55.386,active,,,
 4610a43b-e9b3-46a6-b9d2-4336f8cb82a8,integrate_search,user,structured_data,Alfred Yam,intern8@carretprivate.com,general,Carret Private,,2025-06-19 05:54:43.048,active,,,onboarded
+4637aa0c-29cb-4bdc-9974-4ffd7201a98d,integrate_search,user,normal,Hangyul Son,hangyul.son@clsa.com,general,CLSA,25311.0,2025-07-24 12:47:06.931,active,Research,,onboarded
 4643243f-689a-4da8-92df-f2b180cd29d3,integrate_search,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,26766.0,2025-06-16 06:53:40.788,active,,,active
 464c4ac9-9dba-4de3-b835-ba1f8869bb56,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,,2025-05-09 08:36:14.967,active,,onboarded,
 4656d676-cba2-4e0d-91b0-aedcb8d433af,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,23042.0,2025-06-19 08:58:27.074,active,,,active
@@ -944,6 +949,7 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 5a72f74e-3363-490d-8cde-775c2b0860a2,integrate_search,user,normal,Suthinee Witha,suthinee.wi@cgsi.com,general,CGS International,16446.0,2025-06-25 07:08:06.690,active,,onboarded,onboarded
 5a7fbdaf-c5b3-4b17-a1bd-497cf8bdb38d,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,17761.0,2025-07-02 16:24:32.448,active,,onboarded,onboarded
 5aa0315a-b1f7-4d85-9e30-017e393c958a,reasoning_r1,user,deep_research,Fergus Kwan,fergus.kwan@macquarie.com,general,Macquarie,,2025-06-27 11:45:14.749,active,,,
+5acafbe7-86f9-4650-a40c-9afa8699dd51,integrate_search,user,normal,Hangyul Son,hangyul.son@clsa.com,general,CLSA,,2025-07-24 12:00:03.893,active,Research,,onboarded
 5ad0f37e-432c-41b9-9e3f-baede572711d,integrate_search,user,normal,Peter Li,peter.li@macquarie.com,general,Macquarie,46565.0,2025-07-07 01:16:35.853,active,,onboarded,
 5ad73a57-645d-4688-b389-5ab3df791085,integrate_search,user,structured_data,Alfred Yam,intern8@carretprivate.com,general,Carret Private,5890.0,2025-07-16 13:10:45.273,active,,,onboarded
 5adb7d85-088c-4443-9c70-13f528d00f2c,integrate_search,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,28420.0,2025-06-16 05:06:13.194,active,,,active
@@ -959,7 +965,6 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 5c2716f4-9b29-48b4-96b2-dcbdea9554fe,integrate_search,user,normal,Chee Kin Soo,cheekin.soo@cgsi.com,general,CGS International,,2025-06-19 00:53:56.936,active,,,
 5c4ccd50-cbaf-4aff-98fb-b746bcf6ca57,integrate_search,user,normal,Ray Kwok,ray.kwok@cgsi.com,general,CGS International,19827.0,2025-07-17 04:06:18.170,active,,,
 5c5180dd-b333-45fa-8459-69c0720df59a,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,30212.0,2025-07-22 02:30:14.493,active,,,
-5c5f7910-f0e4-458d-af8c-3788023fb2e3,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,23339.0,2025-07-15 03:14:03.398,active,,onboarded,
 5c9ffd69-5e75-4e31-87d0-392027cac1d3,rms,user,individual_summary,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,,2025-06-15 19:29:21.531,active,,onboarded,
 5cd00d8a-332a-4e24-b36c-a90b9ad911ff,rms,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,19925.0,2025-06-17 11:43:40.215,active,,,
 5cf318ee-1d73-445d-aca2-d6e4974d1418,integrate_search,user,normal,Jayden Son,jayden.son@macquarie.com,general,Macquarie,44069.0,2025-07-17 01:36:53.905,active,,onboarded,onboarded
@@ -1045,16 +1050,18 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 63cd0ad0-7d6f-4061-8ea2-014e1f0be902,reasoning_r1,user,deep_research,Victor German,victor.german@macquarie.com,general,Macquarie,,2025-06-12 07:01:30.015,active,,,
 63e525dc-4802-41bb-881b-eea85ab96c84,reasoning_r1,user,deep_research,Matthew Brooks,matthew.brooks@macquarie.com,general,Macquarie,,2025-06-23 23:20:19.239,active,,onboarded,
 641b22fb-43d5-4c1b-9ed6-baf314c5c488,reasoning_r1,user,deep_research,Victor German,victor.german@macquarie.com,general,Macquarie,,2025-06-12 08:51:04.194,active,,,
+644e5660-4e8d-4341-bcbe-aff8198306c3,integrate_search,user,normal,Simon Kemp,simon.kemp@turiyacap.com,general,Turiya Capital,51207.0,2025-07-24 07:52:17.583,active,,onboarded,onboarded
+64677557-0cda-4798-a040-b75d051525ac,integrate_search,user,primer,Max Teplitz,mteplitz@mastertoncapital.com,general,Masterton Capital,,2025-07-24 01:40:25.905,active,,,
 648f0327-2410-4cd8-81bd-03fc811ffb7b,rms,user,normal,David Lee,dlee@redwoodpeak.com,general,Redwood Peak,11120.0,2025-07-11 01:24:13.631,active,,onboarded,
 64922e87-a10d-45b9-b257-04a6874e73ab,reasoning_r1,user,deep_research,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,,2025-06-26 00:58:09.829,active,,onboarded,
 6496f51f-8bde-4f72-ba04-a390b4112ef1,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,-217213.0,2025-06-25 09:29:32.320,active,,onboarded,
 64b0672e-47fa-4a6a-bd9e-3b295efa077e,integrate_search,user,normal,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,,2025-07-08 07:05:55.940,active,,onboarded,onboarded
-64bc3614-0d29-44fa-808a-398edd7b52da,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,27175.0,2025-07-21 07:37:26.192,active,,onboarded,
 64c69e72-67fa-4b34-b8d7-11c549eae06e,integrate_search,user,normal,Veric Tan,veric@rockspringscapital.com,general,Rock Springs Capital,28316.0,2025-07-16 17:40:56.608,active,,,
 64d5dcc4-5e5e-488e-a381-a3420126e487,integrate_search,user,normal,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,33178.0,2025-07-08 09:44:39.913,active,,onboarded,onboarded
 64dddc59-3862-4612-94c9-7462bee8aa41,integrate_search,user,normal,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,390949.0,2025-07-04 12:17:43.858,active,,onboarded,onboarded
 64f5fea1-352b-4d33-bf35-09e45f27e42a,rms,user,individual_summary,Peter Li,peter.li@macquarie.com,general,Macquarie,,2025-06-12 07:51:20.213,active,,onboarded,
 651c9a94-d6c6-4af7-bf25-331e838d27ff,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,35990.0,2025-07-22 08:23:39.043,active,,,onboarded
+6556ed67-ae41-43ca-bdf5-9c54870da102,integrate_search,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,155775.0,2025-07-24 09:28:03.772,active,,,
 6558e945-c731-45b7-bd77-819f42486fb0,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,19921.0,2025-06-13 10:03:02.800,active,,,active
 655b2a3f-67eb-4b95-9678-2b6084110493,reasoning_r1,user,deep_research,Nicholas Kordonowy,nkordonowy@thorntreecap.com,general,ThornTree Capital Partners,,2025-07-03 20:24:51.148,active,,onboarded,onboarded
 6563072c-e9ba-4069-a506-c3ca04ae6417,integrate_search,user,normal,Simon Kemp,simon.kemp@turiyacap.com,general,Turiya Capital,59444.0,2025-06-10 08:56:20.417,active,,onboarded,onboarded
@@ -1100,7 +1107,6 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 6989f40d-924d-4195-8184-0185037ea4f2,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,26456.0,2025-07-16 19:58:37.810,active,,,
 69949ec6-3295-4150-ab51-976d38948e6d,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,26824.0,2025-06-13 08:15:18.016,active,,,active
 69b0c90d-3493-43e7-b386-7704f5594df1,integrate_search,user,normal,David Lee,dlee@redwoodpeak.com,general,Redwood Peak,36513.0,2025-07-23 07:14:01.049,active,,onboarded,
-69cfa2fa-e6da-47e5-92d9-657e3616906c,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,22869.0,2025-07-21 06:27:51.622,active,,onboarded,
 69d22627-0158-48ef-8571-b36f22c28410,integrate_search,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,55433.0,2025-07-18 02:41:12.946,active,,,active
 6a013132-ebd3-41bc-974e-4641866c40cc,integrate_search,user,pulse_check,Hangyul Son,hangyul.son@clsa.com,general,CLSA,,2025-07-21 02:27:39.592,active,Research,,onboarded
 6a32d9c1-a4b8-43c7-b9aa-6379a0005bb3,rms,user,overall_summary,Alfred Yam,intern8@carretprivate.com,general,Carret Private,33464.0,2025-07-22 02:48:40.261,active,,,onboarded
@@ -1109,7 +1115,6 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 6a8288d4-6d61-408e-a545-8d2df66f5027,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,20418.0,2025-07-21 07:29:37.012,active,,onboarded,onboarded
 6a8e91dc-d70e-40b8-9c50-536f5b3a98ac,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,83540.0,2025-07-14 06:42:36.703,active,,onboarded,onboarded
 6a9a7f92-3429-4663-b47a-6ae2581ec3e6,reasoning_r1,user,deep_research,Fergus Kwan,fergus.kwan@macquarie.com,general,Macquarie,,2025-07-08 06:27:44.104,active,,,
-6aacd0af-bc9a-4658-9d82-c835a3edddee,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,28456.0,2025-07-21 07:06:10.134,active,,onboarded,
 6ad29ae7-900a-4758-9fa2-88cdd79096aa,reasoning_r1,user,deep_research,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,,2025-06-17 08:33:01.264,active,,onboarded,onboarded
 6af42227-23e9-45b4-87bf-08edbc207d9c,integrate_search,user,normal,Felix Sit,felix.sit@cgsi.com,general,CGS International,9602.0,2025-07-16 08:37:06.396,active,,,
 6b077622-3462-4606-89a4-530c91dee7fa,rms,user,overall_summary,Nicholas Kordonowy,nkordonowy@thorntreecap.com,general,ThornTree Capital Partners,58006.0,2025-06-12 22:09:43.028,active,,onboarded,onboarded
@@ -1247,18 +1252,21 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 77515255-a4dd-4717-9f48-474c390b2f2d,integrate_search,user,normal,David Lee,dlee@redwoodpeak.com,general,Redwood Peak,49568.0,2025-07-10 02:27:48.749,active,,onboarded,
 776080cd-20e9-4ac4-a7de-7c31e7d90ffe,integrate_search,user,normal,Kevin Johnson,kjohnson@thorntreecap.com,general,ThornTree Capital Partners,-117693.0,2024-12-18 10:32:34.931,active,,active,
 77612417-d963-44e3-bd5e-a1eb46fea5e5,reasoning_r1,user,deep_research,Matthew Brooks,matthew.brooks@macquarie.com,general,Macquarie,,2025-06-17 23:38:18.687,active,,onboarded,
+7784f8d1-9fa1-4bf0-926e-18f6e4363864,integrate_search,user,normal,Hangyul Son,hangyul.son@clsa.com,general,CLSA,25937.0,2025-07-24 11:58:51.160,active,Research,,onboarded
 779de696-6ad1-4ad1-9077-3c2a2aa4c4d5,integrate_search,user,normal,Max Hopkins,max.hopkins@clsa.com,general,CLSA,27849.0,2025-07-22 10:50:06.369,active,Research,onboarded,
 77aea126-24d7-4a04-a3d6-cc9ec1d63d92,integrate_search,user,company_screener,Mei Yuen  Tay,meiyuen.tay@cgsi.com,general,CGS International,,2025-06-27 05:57:06.900,active,,,
 77c03e71-2322-4445-8726-02a1c335a39c,rms,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,,2025-07-10 08:23:00.396,active,,,onboarded
 782bdaf9-0d13-49c8-a601-3d1f8cfadc94,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,18426.0,2025-06-27 04:28:53.845,active,,,
 7840256c-9564-4ce5-b2ad-b9bda6fc7e2a,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,47019.0,2025-06-20 07:21:13.364,active,,,
 785c88a1-4a37-4a20-8fa8-a54c0cbc3f3f,reasoning_r1,user,deep_research,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,,2025-07-08 01:46:59.397,active,,onboarded,
+786bba53-fe2f-44b7-ba63-6d1313c609b1,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,33730.0,2025-07-24 23:24:33.191,active,,,
 78761440-8358-4dac-8de7-3cfcb7321592,integrate_search,user,normal,Suthinee Witha,suthinee.wi@cgsi.com,general,CGS International,19241.0,2025-06-10 07:52:38.652,active,,onboarded,onboarded
 78814fc2-b604-4110-ba07-ff4f6fb54f81,integrate_search,user,normal,Fergus Kwan,fergus.kwan@macquarie.com,general,Macquarie,21678.0,2025-05-13 08:50:01.896,active,,,
 7883871e-5141-4da5-bd2d-793c44ed3563,integrate_search,user,normal,Xavier Buensalido,xavier@carretprivate.com,general,Carret Private,32021.0,2025-07-22 03:25:41.376,active,,,
 78a1cb23-28f4-491c-b4d0-067ffedb0d3e,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,49219.0,2025-07-20 08:36:43.376,active,,onboarded,onboarded
 78ca200b-17cd-496f-bff4-476187ef6534,reasoning_r1,user,deep_research,Suthinee Witha,suthinee.wi@cgsi.com,general,CGS International,,2025-07-16 07:11:30.448,active,,onboarded,onboarded
 78cdd564-b38a-4f12-b204-d705de70a0ac,rms,user,individual_summary,Terence Chang,terence.chang@macquarie.com,general,Macquarie,,2025-06-24 06:24:55.855,active,,onboarded,onboarded
+78d9465c-f67f-4f96-97d6-58f20833f748,integrate_search,user,normal,Bertram Lai,bertram.lai@cgsi.com,general,CGS International,178950.0,2025-07-25 00:22:02.789,active,,,
 79037c7d-92fb-4b81-be8b-af05ccb30d5c,integrate_search,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,21520.0,2025-06-12 13:25:32.019,active,,,
 790aef95-7750-4a51-8b6c-8ce0667c41a8,rms,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,14498.0,2025-07-06 12:52:23.932,active,,,active
 791b57a5-0afb-410b-aed6-6131c1522d89,rms,user,individual_summary,Matthew Brooks,matthew.brooks@macquarie.com,general,Macquarie,,2025-06-16 23:11:45.853,active,,onboarded,
@@ -1355,6 +1363,7 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 816d0d86-b555-46a8-91a8-5e188f036d86,rms,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,25407.0,2025-07-21 07:57:08.942,active,,onboarded,onboarded
 81ac2d05-ca4b-4f6b-868e-b25f4c7012c4,integrate_search,user,normal,Ray Kwok,ray.kwok@cgsi.com,general,CGS International,21744.0,2025-07-17 04:05:53.213,active,,,
 81afae73-95ac-4de8-bb2b-80df2d726ff5,integrate_search,user,structured_data,Seri Idan,idan@anekcapital.com,general,Anek Capital,3156.0,2025-07-21 08:58:58.692,active,,onboarded,
+81be2889-3b0b-495b-8283-a6e9714c5f8d,rms,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,17258.0,2025-07-24 03:33:19.562,active,,,
 81d08a16-f983-49f1-9bc5-c14c573187b6,integrate_search,user,normal,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,441876.0,2025-07-14 03:25:44.012,active,,onboarded,onboarded
 81d4f4f3-e914-4a82-a245-3ecd400aa5f5,integrate_search,user,normal,MICHAEL YAN LUNG YIP,michael@carretprivate.com,general,Carret Private,21146.0,2025-07-21 04:03:35.636,active,,,
 81ff99e0-7583-46eb-8581-00b1cb3d096d,integrate_search,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,141064.0,2025-07-07 05:22:17.697,active,,,
@@ -1669,6 +1678,7 @@ id,selected_model,sender,function_mode,user_name,user_email,user_group,organizat
 9f671afd-5395-4960-8508-fe0ea33db9ad,integrate_search,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,,2025-07-22 05:47:19.532,active,,,
 9f6feb93-3240-491f-9975-58a6414a08bd,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,423376.0,2025-06-25 03:49:16.692,active,,,
 9f83db2d-5d3a-4e77-a397-85f1474a02a0,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,27541.0,2025-06-16 05:40:15.454,active,,onboarded,
+9fb4784e-952f-4f81-8d57-d0a8620ab5dc,integrate_search,user,normal,David Lee,dlee@redwoodpeak.com,general,Redwood Peak,47038.0,2025-07-24 03:24:00.122,active,,onboarded,
 9feb4597-7d30-49ac-9bc3-a4b7a4c52818,integrate_search,user,normal,Ray Kwok,ray.kwok@cgsi.com,general,CGS International,103639.0,2025-07-09 03:47:37.529,active,,,
 9ffb1851-d84c-402d-862b-7c425855aa53,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,48058.0,2025-07-02 16:09:47.870,active,,,
 a00531a5-e5cf-4cb1-b9f8-415d649b2085,integrate_search,user,normal,Benjamin Kaminsky,bkaminsky@dendurcap.com,general,Dendur Capital,,2025-06-29 16:27:12.580,active,,onboarded,
@@ -1691,10 +1701,12 @@ a2247912-7363-4157-82e4-0a5d15f41cc8,rms,user,normal,Jayden Son,jayden.son@macqu
 a2249206-03bf-4a1b-b7dd-9a48438dc6d8,integrate_search,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,30750.0,2025-06-20 12:42:46.826,active,,,
 a24b7c9b-7df3-42da-bb6f-99ade642c2b8,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,31322.0,2025-06-25 00:43:40.921,active,,,
 a24bb50d-f798-4e34-8cc0-dee62f6b63bd,reasoning_r1,user,deep_research,Suthinee Witha,suthinee.wi@cgsi.com,general,CGS International,,2025-06-25 07:04:56.321,active,,onboarded,onboarded
+a2597cb2-5f72-4b3c-9e36-58be21528fce,integrate_search,user,normal,Hangyul Son,hangyul.son@clsa.com,general,CLSA,34020.0,2025-07-25 01:00:29.098,active,Research,,onboarded
 a2632ca9-c8c3-43ea-b887-77568805f3c9,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,30471.0,2025-06-16 10:31:21.726,active,,,active
 a2a59de1-4176-4170-a48c-d51c541cc6ba,integrate_search,user,normal,Marni Lysaght,marni.lysaght@macquarie.com,general,Macquarie,,2025-06-11 21:44:43.449,active,,onboarded,onboarded
 a2e3b0cc-8c13-4f49-8395-3822ee688f04,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,36480.0,2025-06-17 08:13:34.597,active,,,active
 a30b24b1-fe53-4f75-8bbf-ca5e1613fa29,integrate_search,user,normal,David Lee,dlee@redwoodpeak.com,general,Redwood Peak,37118.0,2025-07-10 01:17:49.135,active,,onboarded,
+a3322b09-66d5-4b1f-9ddc-75c05360de5e,integrate_search,user,normal,Hangyul Son,hangyul.son@clsa.com,general,CLSA,68334.0,2025-07-24 12:00:25.036,active,Research,,onboarded
 a3562bf8-acb7-4aca-9855-7af9e6b07185,reasoning_r1,user,deep_research,VISHNU MUCHHAL,vishnukant_muchhal@icicipruamc.com,general,ICICI Prudential,,2025-07-06 12:49:01.213,active,,onboarded,onboarded
 a36ebb88-3b6f-4e23-9588-fd23fa41da4e,integrate_search,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,38231.0,2025-07-18 02:35:58.516,active,,,active
 a3807298-b708-4350-a26d-2343ebe407f0,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,20475.0,2025-07-23 01:32:11.838,active,,,active
@@ -1746,7 +1758,6 @@ a7a93410-64a4-4edb-8f39-c7bc83aeb04c,integrate_search,user,normal,Marni Lysaght,
 a7ad48a5-f728-4474-83c2-8f00d69a83c7,rms,user,normal,David Lee,dlee@redwoodpeak.com,general,Redwood Peak,16435.0,2025-07-11 01:25:32.676,active,,onboarded,
 a7c83781-0ed7-4759-942e-9cbab3756368,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,78501.0,2025-06-23 02:15:19.572,active,,,onboarded
 a7d256ea-af81-4aec-90a0-ebd687052389,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,22556.0,2025-06-16 04:28:22.905,active,,,active
-a7f7bf5f-0074-4e28-8032-facb55031682,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,52064.0,2025-07-21 09:36:33.877,active,,onboarded,
 a8049fa7-93ce-41bd-956b-0e6261764a23,integrate_search,user,normal,Chris Zhou,chris.zhou@turiyacap.com,general,Turiya Capital,25378.0,2025-07-14 01:04:58.103,active,,,onboarded
 a835c9d9-af24-4bad-a01a-eb47c5b60206,integrate_search,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,162601.0,2025-07-11 06:35:57.847,active,,,
 a85862ee-d27d-4688-9743-cc5a9bb41f46,integrate_search,user,normal,Thanapol Thanapol,thanapol.ji@cgsi.com,general,CGS International,21877.0,2025-07-15 06:02:26.619,active,,,
@@ -1776,6 +1787,7 @@ aa0e606b-deeb-4939-b635-38ac9a881d10,integrate_search,user,normal,Cyrus Hung,cyr
 aa20a655-badb-41b1-8064-42bf8f1cfc88,reasoning_r1,user,deep_research,Victor German,victor.german@macquarie.com,general,Macquarie,,2025-06-11 12:27:36.908,active,,,
 aa291f94-6bf8-410d-9975-7f81398fbc44,reasoning_r1,user,deep_research,Cecily Yu,cecily.yu@clsa.com,general,CLSA,,2025-06-13 06:27:18.838,active,Product,onboarded,
 aa455cd6-d60c-4f45-87ca-c4cccb66a7ab,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,25615.0,2025-07-21 20:02:25.237,active,,,
+aa750fec-b468-47ef-8d9b-012c449b4628,integrate_search,user,normal,Bertram Lai,bertram.lai@cgsi.com,general,CGS International,24606.0,2025-07-25 00:20:50.984,active,,,
 aaa1153d-e09e-4abb-a910-c118415b4075,integrate_search,user,normal,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,425491.0,2025-06-18 05:50:40.308,active,,onboarded,onboarded
 aaa41db1-d6dc-4d90-beab-3eb3e3a4f6dc,reasoning_r1,user,deep_research,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,,2025-06-24 10:11:49.774,active,,,active
 aab3c2da-f691-41df-9067-4732af765009,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,28801.0,2025-06-09 05:49:35.778,active,,,active
@@ -1838,7 +1850,6 @@ af470022-f83b-4530-a453-37ebed917ecf,integrate_search,user,call_summarize,Alfred
 af5268b8-6b91-41e0-820f-bfb3690a8d2c,rms,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,33783.0,2025-06-23 06:32:28.436,active,,,active
 af5f9833-7604-435e-a753-dafe03feeff9,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,27304.0,2025-06-18 10:25:16.398,active,,onboarded,onboarded
 af8180a4-f9cb-48d8-b186-ca480fd57295,integrate_search,user,normal,Max Hopkins,max.hopkins@clsa.com,general,CLSA,30268.0,2025-07-22 09:38:32.012,active,Research,onboarded,
-af87fc3b-ba48-43ed-b245-77c1fe2ddb13,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,19823.0,2025-07-21 08:00:33.322,active,,onboarded,
 afb64dbf-bc8e-497a-b323-9bc8fcc3f1b1,integrate_search,user,normal,Mac Levine,mlevine@dendurcap.com,general,Dendur Capital,21069.0,2025-07-23 14:46:52.838,active,,,
 afe2d795-fd8d-4c9f-8086-27dc2cd265ef,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,41905.0,2025-06-18 03:09:36.124,active,,onboarded,
 b01bd378-54d6-4908-8aea-cab62f8a9866,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,35455.0,2025-06-23 07:54:48.967,active,,onboarded,onboarded
@@ -1872,6 +1883,7 @@ b2393158-434e-4962-9a84-82362e401beb,reasoning_r1,user,deep_research,Nick Basile
 b2757e6b-a283-475a-bee6-81cde6d6ea4c,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,24360.0,2025-06-24 03:48:51.141,active,,onboarded,onboarded
 b281f554-160a-42fe-bcde-3a234d0fa4ca,integrate_search,user,normal,Luqman Yahya,luqman.yahya@cgsi.com,general,CGS International,,2025-06-26 08:52:41.235,active,,,
 b285862f-a178-4d59-bd97-d03236858dd3,reasoning_r1,user,deep_research,Victor German,victor.german@macquarie.com,general,Macquarie,,2025-07-09 10:53:44.471,active,,,
+b2894a05-64d3-4aab-9f35-abeaf028e9a1,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,43555.0,2025-07-24 20:47:50.026,active,,,
 b2c1a6ed-f236-4891-aee9-68ca75bc1b0a,integrate_search,user,normal,Richard Feng,richard.feng@macquarie.com,general,Macquarie,41438.0,2025-06-26 09:18:48.032,active,,,
 b2d4756c-b6f6-4fca-b6d5-7d0c47e0f21b,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,19442.0,2025-07-02 02:53:16.009,active,,,active
 b2d9103a-f3e8-4230-ac31-999c2f26d98c,integrate_search,user,normal,Lin Hu,hu.lin@cgsi.com,general,CGS International,40268.0,2025-06-24 06:32:36.940,active,,onboarded,onboarded
@@ -1943,6 +1955,7 @@ b8839ba6-d7ca-453e-9ce7-7ff3b2c99120,integrate_search,user,normal,Hangyul Son,ha
 b8949bca-784b-4553-993b-0eeebec03071,rms,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,25042.0,2025-06-19 07:44:22.316,active,,,
 b8c4d2d1-71d5-4a96-8481-f3698f723f01,integrate_search,user,normal,Simon Kemp,simon.kemp@turiyacap.com,general,Turiya Capital,34844.0,2025-07-15 03:52:40.458,active,,onboarded,onboarded
 b8c9524c-bfab-4292-afe8-cb66096abab6,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,,2025-06-29 09:24:32.687,active,,,onboarded
+b8d20cfe-530d-4225-af4a-0d0bb98bf888,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,25144.0,2025-07-24 22:55:37.940,active,,,
 b8d3884d-37c1-4aaa-9c97-f0eed53550d0,integrate_search,user,normal,Daniel Lundgren,daniel@rockspringscapital.com,general,Rock Springs Capital,33176.0,2025-07-09 22:46:26.332,active,,,
 b90ecc32-19eb-4e45-9d3b-b640e08ee21b,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,11496.0,2025-05-16 00:14:32.436,active,,onboarded,
 b914e740-8e2a-431e-ba48-f3601c7a4712,integrate_search,user,normal,Chee Kin Soo,cheekin.soo@cgsi.com,general,CGS International,284134.0,2025-06-26 00:09:13.672,active,,,
@@ -1995,9 +2008,9 @@ bcd13c5a-1b09-4748-9195-1f0fc78a1ab1,integrate_search,user,normal,Matthew Vandiv
 bd41d4c3-084d-4d02-aee9-6dfda3a2cdfb,integrate_search,user,normal,Chee Kin Soo,cheekin.soo@cgsi.com,general,CGS International,31654.0,2025-07-04 00:46:17.891,active,,,
 bd4736ff-c3fe-4894-a487-e1618f6101f6,integrate_search,user,normal,Dickie Wong,dickie.wong@carretprivate.com,general,Carret Private,66137.0,2025-07-03 03:26:06.411,active,,,
 bd599994-9dc3-4f01-9f96-123b9ae26af3,integrate_search,user,normal,Fergus Kwan,fergus.kwan@macquarie.com,general,Macquarie,25589.0,2025-04-30 07:11:26.762,active,,,
-bd65018e-9251-4dde-95b4-817900d2073b,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,24545.0,2025-07-21 09:41:14.684,active,,onboarded,
 bd66ae3c-989d-47e3-8384-3613721b6ee3,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,38147.0,2025-07-02 22:22:05.454,active,,,
 bd691230-2ab5-40e0-beb1-5c84eeac8c11,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,33525.0,2025-07-09 00:27:23.844,active,,,
+bd83830f-d96b-45c8-95da-d4408347149a,integrate_search,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,28879.0,2025-07-24 09:05:00.498,active,,,active
 bda48136-b825-474f-bb92-ec6b04fb8e19,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,17896.0,2025-06-27 03:11:51.715,active,,,
 bdb3a08f-d051-4105-ae3f-75e2e262e11a,reasoning_r1,user,deep_research,Victor German,victor.german@macquarie.com,general,Macquarie,,2025-06-18 06:31:42.498,active,,,
 bdbf65ce-cfd7-4591-b6d1-9d2d4f28e04d,integrate_search,user,normal,Ray Kwok,ray.kwok@cgsi.com,general,CGS International,17222.0,2025-07-15 03:00:10.653,active,,,
@@ -2018,6 +2031,7 @@ c03d37e5-5622-416f-ba0f-98865fbde625,rms,user,normal,Siew Khee Lim,siewkhee.lim@
 c05f5574-a6e2-49c8-a054-adc27cdba087,integrate_search,user,normal,Jayden Son,jayden.son@macquarie.com,general,Macquarie,22982.0,2025-06-18 03:26:33.998,active,,onboarded,onboarded
 c0809c55-eb43-4a17-981a-53b6412df1c7,reasoning_r1,user,deep_research,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,,2025-07-16 16:30:06.405,active,,onboarded,onboarded
 c09003f8-a771-41b9-9ced-2d1e7bde30eb,reasoning_r1,user,deep_research,Ray Kwok,ray.kwok@cgsi.com,general,CGS International,,2025-07-17 06:30:25.904,active,,,
+c09c45dd-5830-4375-bfc0-e3bb87eafb9f,reasoning_r1,user,deep_research,Victor German,victor.german@macquarie.com,general,Macquarie,,2025-07-25 00:58:51.477,active,,,
 c0b0fa20-f9fe-4180-8763-b4c67155ee1c,integrate_search,user,normal,Thanapol Thanapol,thanapol.ji@cgsi.com,general,CGS International,18809.0,2025-07-22 00:49:32.613,active,,,
 c0b7476d-52d7-47c5-b799-43dc1579d366,integrate_search,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,22280.0,2025-06-12 11:22:05.181,active,,,
 c131ff8d-932f-445f-81c7-c662eda9b24f,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,66971.0,2025-07-22 06:42:59.536,active,,onboarded,
@@ -2033,6 +2047,7 @@ c1c5191c-7045-466e-8599-fd0ef13465f6,integrate_search,user,normal,Vienna Yeung,v
 c1e3e76c-251a-4a85-8234-149156b27ba9,integrate_search,user,structured_data,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,11985.0,2025-07-22 07:48:15.999,active,,onboarded,onboarded
 c1e6f5f4-6edf-428a-8c97-1571c112b631,integrate_search,user,normal,Victor German,victor.german@macquarie.com,general,Macquarie,38808.0,2025-06-12 05:40:16.479,active,,,
 c1f0d69b-7c02-40ca-8f55-a9bca2535c8e,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,45906.0,2025-07-22 06:47:56.229,active,,onboarded,
+c205832e-ed8f-49cf-aec4-839e1998f164,integrate_search,user,pulse_check,Seri Idan,idan@anekcapital.com,general,Anek Capital,,2025-07-24 13:30:08.124,active,,onboarded,
 c222861e-01b0-41f5-94c2-d01017bfcbe2,reasoning_r1,user,deep_research,Sagnik Dey,sdey@panvira.com,general,Panvira,,2025-07-15 06:04:31.547,active,,,
 c23389b6-069b-4dcb-b460-faef54ce3b27,integrate_search,user,normal,John Chu,john.chu@carretprivate.com,general,Carret Private,36587.0,2025-06-18 01:10:10.073,active,,,
 c23d4a09-eb58-40cc-acbb-508809fc067e,rms,user,individual_summary,Nitin Gupta,nitin@vedacapitalmanagement.com,general,Veda Capital,,2025-06-15 19:29:21.557,active,,onboarded,
@@ -2102,6 +2117,7 @@ c80c546e-7ab7-4ba0-aca3-867b76c11be2,integrate_search,user,normal,Allison Horenb
 c83baa24-3eb4-48bc-8bca-cd40f135da8b,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,33804.0,2025-06-09 10:58:26.075,active,,,active
 c8429890-27d2-406d-b23b-99faaf85cf1e,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,45163.0,2025-04-23 03:25:27.904,active,,onboarded,
 c867ac79-38e4-4fa1-8d78-2ee0d4d618e9,integrate_search,user,normal,Jayden Son,jayden.son@macquarie.com,general,Macquarie,52395.0,2025-07-17 01:44:41.650,active,,onboarded,onboarded
+c86f7c5e-b965-4279-9e0c-9fe60c294cb2,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,26418.0,2025-07-24 23:20:37.525,active,,,
 c86fd2c4-4ee9-42d6-8fe0-fc1047033767,integrate_search,user,normal,Roger Tay,roger.tay@cgsi.com,general,CGS International,37922.0,2025-06-25 09:38:40.451,active,,,
 c87c1696-87f4-4b3d-b29b-62f56b5b720b,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,11755.0,2025-07-08 16:15:46.255,active,,,
 c87fe991-3ac2-42fd-a5be-5483eb6612d4,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,23758.0,2025-04-23 03:29:36.367,active,,onboarded,
@@ -2114,7 +2130,6 @@ c8f91e4f-0119-4751-a380-81a18d2b2c29,integrate_search,user,normal,Jason Chandra,
 c90242e3-c78e-4674-a55a-257417304a07,reasoning_r1,user,deep_research,Matthew Brooks,matthew.brooks@macquarie.com,general,Macquarie,,2025-06-19 03:37:08.877,active,,onboarded,
 c9052809-6345-4951-b589-9470f0b43202,integrate_search,user,primer,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,,2025-07-09 00:31:30.071,active,,onboarded,
 c913e208-34d4-4474-9f87-ac5120857ef0,rms,user,normal,Ian Hui,intern9@carretprivate.com,general,Carret Private,12174.0,2025-07-17 08:29:15.958,active,,,
-c91453e0-2f64-4479-883a-64405ab9a5b8,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,22016.0,2025-07-21 07:08:49.382,active,,onboarded,
 c94c3619-84cd-4eed-bb2c-9fe2dfe3c29a,rms,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,7521.0,2025-06-20 09:03:00.437,active,,,active
 c974dbb3-27cc-4bc7-9534-f98867d84f48,integrate_search,user,normal,Fergus Kwan,fergus.kwan@macquarie.com,general,Macquarie,24505.0,2025-06-19 09:38:02.350,active,,,
 c980b6c1-1ec0-444b-bf20-e39a0f3fd5ea,integrate_search,user,primer,Cherry Ma,cherry.ma@macquarie.com,general,Macquarie,,2025-06-11 03:03:51.448,active,,onboarded,
@@ -2134,6 +2149,7 @@ ca3d75e8-d92b-42a9-a113-d8128a1637e6,integrate_search,user,normal,Evelyn Ye,evel
 ca6c77a9-ef7f-4de3-81ef-aedf2fcb1160,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,53385.0,2025-06-26 07:19:59.783,active,,onboarded,onboarded
 ca8995b5-aab8-4fd3-8875-15464d1fd66f,integrate_search,user,normal,Chris Zhou,chris.zhou@turiyacap.com,general,Turiya Capital,32355.0,2025-07-14 09:31:16.539,active,,,onboarded
 ca948923-b5c2-4044-978b-1072a5b5c078,reasoning_r1,user,deep_research,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,,2025-07-10 08:06:01.910,active,,,
+ca99c009-6ca0-4252-b552-48a21f0d1cff,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,35788.0,2025-07-24 17:22:42.466,active,,,
 caa534fb-7c46-4a1b-8f29-6c27c2392308,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,151844.0,2025-07-03 05:39:13.346,active,,,
 cab25d40-5b4e-41bc-ab8d-f2d92a508050,reasoning_r1,user,deep_research,Eric Norr,eric.norr@macquarie.com,general,Macquarie,,2025-07-18 00:29:05.627,active,,,
 cabe54bc-40bb-433a-83fa-7bdc56b881f6,integrate_search,user,structured_data,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,9626.0,2025-06-16 04:01:48.626,active,,,active
@@ -2179,14 +2195,10 @@ cebbd2ad-d776-4fb9-ba58-9f8f094aa69a,integrate_search,user,normal,Terence Chang,
 cebc9b10-e2c2-45db-b01c-f912bf121b58,rms,user,timeline,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,12949.0,2025-06-28 15:14:35.392,active,,onboarded,onboarded
 ced6d92f-30a1-4fe6-87ab-af809b393bdb,integrate_search,user,normal,Suthinee Witha,suthinee.wi@cgsi.com,general,CGS International,34615.0,2025-07-01 01:41:59.485,active,,onboarded,onboarded
 cf0675b7-3ab7-4a99-a41e-7b0f844edeaf,integrate_search,user,normal,Terence Chang,terence.chang@macquarie.com,general,Macquarie,27382.0,2025-07-07 02:50:39.202,active,,onboarded,onboarded
-cf152a14-3bea-4536-96c6-256a3d7604b9,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,117654.0,2025-07-15 03:02:28.527,active,,onboarded,
-cf47e231-755d-48e5-b4a6-bf3416f954ae,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,22136.0,2025-07-15 03:15:16.415,active,,onboarded,
-cf8ad84c-d504-447a-9f68-29b7efe6b16b,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,21818.0,2025-07-21 07:04:47.781,active,,onboarded,
 cfa1bada-2690-46e9-b646-300daef47ac6,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,19755.0,2025-06-16 10:56:20.235,active,,,active
 cfb6ae53-b266-4bfd-93cf-ce993954bae3,integrate_search,user,normal,Fergus Kwan,fergus.kwan@macquarie.com,general,Macquarie,26284.0,2025-05-13 03:07:32.725,active,,,
 cfbf5414-ab67-4b17-8a01-466a099905f3,integrate_search,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,28136.0,2025-06-19 06:03:42.791,active,,,active
 cfce378a-eb2c-4117-b352-2cf34be762c2,integrate_search,user,normal,Simon Kemp,simon.kemp@turiyacap.com,general,Turiya Capital,20626.0,2025-06-18 06:13:08.601,active,,onboarded,onboarded
-cfd1f4fb-eef3-4fef-9731-8879d270535b,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,55490.0,2025-07-15 03:06:12.415,active,,onboarded,
 cfda10fc-971a-4c74-9f1f-00f853c9b526,reasoning_r1,user,deep_research,Lin Hu,hu.lin@cgsi.com,general,CGS International,,2025-06-25 08:07:22.583,active,,onboarded,onboarded
 cffd4062-8d77-4c05-a18e-b2b00e5c7305,integrate_search,user,normal,Ray Kwok,ray.kwok@cgsi.com,general,CGS International,32823.0,2025-07-10 04:07:39.778,active,,,
 d02a6475-886d-4dd8-a908-db9b01fbb76a,integrate_search,user,normal,Sandy Dowling,sandy.chen.dowling@clsa.com,general,CLSA,40065.0,2025-07-14 07:00:52.398,active,Research,,
@@ -2241,7 +2253,6 @@ d452969e-f3a4-428a-a4ad-b326b7811b81,integrate_search,user,normal,Fergus Kwan,fe
 d46cbd18-d043-44e5-b30d-5c9cde754206,integrate_search,user,normal,Matthew Overy,matthew.overy@clsa.com,general,CLSA,19976.0,2025-05-09 01:28:55.603,active,Research,,
 d4746c1e-0dcf-4892-a253-4ae400d257f9,reasoning_r1,user,deep_research,Cherry Ma,cherry.ma@macquarie.com,general,Macquarie,,2025-06-16 02:40:07.219,active,,onboarded,
 d487ca8c-12a4-463b-8e5e-44332f94dda7,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,26222.0,2025-07-21 17:19:23.750,active,,,
-d4883db5-4f13-4b98-8e4f-865716c6235f,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,20087.0,2025-07-21 07:09:53.501,active,,onboarded,
 d4a71b82-ce4d-4e4e-81f4-fdba91462a4b,reasoning_r1,user,deep_research,Cherry Ma,cherry.ma@macquarie.com,general,Macquarie,,2025-06-16 10:04:50.995,active,,onboarded,
 d4c82f1e-2d41-434f-8f9f-0fd0a342522d,integrate_search,user,normal,Chelsea Hu,chelseahu@jmcopperbeech.com,general,J&M Copper Beech Ventures,70703.0,2025-07-10 16:45:59.654,active,,,
 d4ca7c5e-81a0-4f43-8191-d031a33b2237,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,20307.0,2025-06-19 16:00:23.803,active,,,active
@@ -2362,6 +2373,7 @@ e02ceb63-e9c9-4255-97eb-48048bc158d8,integrate_search,user,primer,Luqman Yahya,l
 e0322175-ec87-4dea-a793-084b3d594390,integrate_search,user,normal,Kunal Aswani,intern7@carretprivate.com,general,Carret Private,,2025-06-26 07:47:19.875,active,,,
 e032240f-9457-4767-bb7f-a4f403d3b8c8,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,-192892.0,2025-06-25 08:54:49.809,active,,onboarded,
 e040076e-985c-47d6-b6dc-4adf68fdfb6a,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,21617.0,2025-06-24 03:47:49.485,active,,onboarded,onboarded
+e0473881-d802-4668-af52-d1cbcdf9fb9c,integrate_search,user,normal,Christopher Kim,christopher.kim@clsa.com,general,CLSA,18238.0,2025-07-24 23:11:01.878,active,,,
 e047b14a-f168-4dc2-85bd-fb3628a6fd4c,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,23849.0,2025-06-09 06:36:28.944,active,,,active
 e07e1dd0-ebb4-4e93-be11-33dda7c35749,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,42027.0,2025-04-23 07:42:08.489,active,,onboarded,
 e0805b58-9c13-4a57-8dfa-05d85fd64bc3,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,44250.0,2025-05-09 08:17:06.061,active,,onboarded,
@@ -2465,6 +2477,7 @@ e9632fb6-ac09-4485-9351-e4a84006f80c,integrate_search,user,normal,Alfred Yam,int
 e9658210-121e-4e6d-9852-1ef2127f053f,integrate_search,user,normal,Suhas Hari,suhas_hari@icicipruamc.com,general,ICICI Prudential,25014.0,2025-06-29 10:27:26.790,active,,,
 e96d4bea-1bf4-46e7-bc57-919a68e09883,rms,user,normal,Marni Lysaght,marni.lysaght@macquarie.com,general,Macquarie,,2025-06-11 21:44:58.316,active,,onboarded,onboarded
 e977207c-7f14-44fd-aef1-4d15208c295c,integrate_search,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,127650.0,2025-07-07 06:14:04.023,active,,,
+e9775683-b9d8-4d92-85a3-6d0c6eb5a9ed,integrate_search,user,normal,Ray Kwok,ray.kwok@cgsi.com,general,CGS International,22906.0,2025-07-24 02:15:17.577,active,,,
 e97795c9-67fa-4f63-bb81-be7290005498,rms,user,individual_summary,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,,2025-07-06 06:15:19.499,active,,,active
 e979e297-21e5-49fd-9989-94a35decd110,reasoning_r1,user,deep_research,Victor German,victor.german@macquarie.com,general,Macquarie,,2025-06-11 07:02:21.243,active,,,
 e9881e60-d3c5-4d79-ad84-7bd925082a52,integrate_search,user,normal,Maggie Wu,maggie.wu@turiyacap.com,general,Turiya Capital,19400.0,2025-06-25 04:45:42.480,active,,,active
@@ -2510,7 +2523,6 @@ ede507ca-44ce-4740-84dc-9caf59b5a121,integrate_search,user,normal,Jason Sim,jaso
 ede9cd65-8374-4376-b5cb-fcb65a5b5560,integrate_search,user,normal,Simon Kemp,simon.kemp@turiyacap.com,general,Turiya Capital,25333.0,2025-06-17 01:33:24.905,active,,onboarded,onboarded
 edef7e29-f52d-4a6a-8815-2e90181b95f1,integrate_search,user,normal,Simon Kemp,simon.kemp@turiyacap.com,general,Turiya Capital,28868.0,2025-07-15 03:04:15.046,active,,onboarded,onboarded
 edfbc772-3a46-472f-a503-f45921d7b933,integrate_search,user,normal,Ray Kwok,ray.kwok@cgsi.com,general,CGS International,33717.0,2025-07-21 02:33:07.113,active,,,
-ee005381-0b9e-44a2-94bc-2818154bbb7a,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,23639.0,2025-07-21 06:33:20.870,active,,onboarded,
 ee00bc8b-673f-4356-8b4d-6b2995d06a49,rms,user,normal,Sameet Sinha,sameet.sinha@macquarie.com,general,Macquarie,16497.0,2025-06-14 11:24:14.397,active,,,
 ee280c4c-0f33-4a5f-82cf-dca89e9c15ad,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,24442.0,2025-07-16 00:54:21.368,active,,,active
 ee2a2db9-ae3f-4328-b629-660223fcce0a,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,28666.0,2025-06-26 08:18:39.273,active,,,onboarded
@@ -2545,6 +2557,7 @@ f1a01778-d089-413e-8b4e-9a66a0cd23ea,integrate_search,user,normal,Xavier Buensal
 f1b4ae04-00ca-4c7c-b0c8-dbb2acdd02bf,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,14604.0,2025-07-24 00:49:27.016,active,,,active
 f1c8cd78-d604-4ec2-8a11-4c5a871a6faa,integrate_search,user,pulse_check,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,,2025-06-20 09:53:24.888,active,,onboarded,onboarded
 f1d4e09e-abd7-4698-bc82-0a741027f049,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,56060.0,2025-07-15 05:54:57.507,active,,,active
+f1dee61b-9b07-44ef-a4c9-c1df63763b9b,integrate_search,user,normal,Carley Shum,carley@carretprivate.com,general,Carret Private,49088.0,2025-07-24 07:51:11.893,active,,,onboarded
 f20943b6-00b5-4414-bbc9-fa407a82779f,integrate_search,user,normal,Cyrus Hung,cyrus.hung@carretprivate.com,general,Carret Private,25462.0,2025-06-25 09:24:46.535,active,,onboarded,onboarded
 f228980f-18f4-42df-9e10-66dedffe33ed,reasoning_r1,user,deep_research,Victor German,victor.german@macquarie.com,general,Macquarie,,2025-06-12 00:05:55.003,active,,,
 f22ffee7-a7fc-4ec1-97cd-b9818667b43d,integrate_search,user,normal,Peter Williamson,peter.williamson@macquarie.com,general,Macquarie,25534.0,2025-06-12 02:59:00.876,active,,onboarded,
@@ -2556,7 +2569,6 @@ f274078c-73d2-44b5-9260-e4925399919c,integrate_search,user,normal,David Lee,dlee
 f2896964-f187-4930-bb78-5502e056627a,integrate_search,user,normal,Vienna Yeung,vienna.yeung@turiyacap.com,general,Turiya Capital,44714.0,2025-06-27 03:19:08.657,active,,,active
 f2ae2d71-b6ab-4247-ad85-ff1e608b2df8,reasoning_r1,user,deep_research,Ray Kwok,ray.kwok@cgsi.com,general,CGS International,,2025-07-22 08:00:33.414,active,,,
 f2b4a4df-e280-420b-9cd8-ab5eda8bc4cd,reasoning_r1,user,deep_research,Alfred Yam,intern8@carretprivate.com,general,Carret Private,,2025-07-15 00:21:19.709,active,,,onboarded
-f2c12b66-04be-46b3-bad9-281601ef1beb,integrate_search,user,normal,Siew Khee Lim,siewkhee.lim@cgsi.com,general,CGS International,35379.0,2025-07-16 06:14:56.987,active,,onboarded,
 f2fdb8b4-d614-46a0-b6c1-c6976c3ee15d,integrate_search,user,normal,Evelyn Ye,evelyn.ye@turiyacap.com,general,Turiya Capital,21950.0,2025-06-17 02:24:29.140,active,,,active
 f30a9f9d-5c40-43da-a3a3-df0a45d7910e,integrate_search,user,normal,Christian Jaeger,christian.jaeger@clsa.com,general,CLSA,19522.0,2025-07-23 00:07:53.080,active,Sales,,onboarded
 f30e0982-7c1d-442f-a277-5355613ee566,integrate_search,user,normal,Matthew Overy,matthew.overy@clsa.com,general,CLSA,19934.0,2025-05-02 07:54:00.865,active,Research,,
@@ -2698,6 +2710,7 @@ fec1e19d-9e64-4788-8bb6-636a916030a7,rms,user,normal,Alfred Yam,intern8@carretpr
 fee0aa94-5f5a-43d8-a924-ac8a68ed1e32,reasoning_r1,user,deep_research,Matthew Brooks,matthew.brooks@macquarie.com,general,Macquarie,,2025-07-10 01:36:30.859,active,,onboarded,
 fef9a69d-34bc-4e67-bff7-a9f58fa40e19,integrate_search,user,normal,Jason Chandra,jason.chandra@cgsi.com,general,CGS International,399881.0,2025-06-30 11:35:52.453,active,,onboarded,onboarded
 fefacd0d-a9ba-4887-8d96-8a826f2c7450,integrate_search,user,normal,Xavier Buensalido,xavier@carretprivate.com,general,Carret Private,47458.0,2025-07-23 04:43:42.375,active,,,
+ff07f8e1-9855-4d42-ab9c-bfd19a8ba3e0,integrate_search,user,primer,Seri Idan,idan@anekcapital.com,general,Anek Capital,,2025-07-24 13:31:55.276,active,,onboarded,
 ff123bb7-8c2e-4103-a620-c4d772548e97,integrate_search,user,normal,Prem Jearajasingam,prem.jearajasingam@cgsi.com,general,CGS International,66502.0,2025-06-18 08:20:49.908,active,,onboarded,
 ff4327f2-842f-4a59-8735-0b0e3e2b5d69,integrate_search,user,normal,Alfred Yam,intern8@carretprivate.com,general,Carret Private,28642.0,2025-07-22 08:21:49.438,active,,,onboarded
 ff474453-bdd1-4b6e-a959-c662ebb223e6,integrate_search,user,normal,Samuel Breuer,sbreuer@dendurcap.com,general,Dendur Capital,20688.0,2025-06-30 15:16:39.653,active,,,
