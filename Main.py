@@ -305,13 +305,20 @@ else:
 # 함수 및 주간 시계열
 st.markdown("---")
 
-# View Mode 선택 - 차트 제목 위에 배치
-view_mode = st.radio(
-    "Select View Mode",
-    ["Recent 4 Weeks", "Trial Period"],
-    horizontal=True,
-    key="function_trends_view_mode"
-)
+# View Mode 선택과 Trial Start Date를 나란히 표시
+col1, col2 = st.columns([2, 2])
+with col1:
+    view_mode = st.radio(
+        "Select View Mode",
+        ["Recent 4 Weeks", "Trial Period"],
+        horizontal=True,
+        key="function_trends_view_mode"
+    )
+
+with col2:
+    if view_mode == "Trial Period":
+        trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0]).strftime('%Y-%m-%d')
+        st.markdown(f"**Trial Start Date:** {trial_start}")
 
 st.subheader("📈 Weekly Function Usage Trends")
 
@@ -422,7 +429,10 @@ if view_mode == "Recent 4 Weeks":
     week_dates = pd.date_range(week_start, week_end).date
 else:
     # Trial Period Mode
-    week_options = sorted(df_org['week_from_trial'].unique())
+    # Trial Week 숫자 추출해서 내림차순 정렬
+    week_options = sorted(df_org['week_from_trial'].unique(), 
+                         key=lambda x: int(x.split()[-1]),
+                         reverse=True)
     selected_week = st.selectbox("Select Week", week_options, key="daily_select_week")
     
     # 선택된 Trial Week의 숫자 추출
@@ -521,7 +531,10 @@ if view_mode == "Recent 4 Weeks":
     week_dates = pd.date_range(week_start, week_end).date
 else:
     # Trial Period Mode
-    week_options = sorted(df_org['week_from_trial'].unique())
+    # Trial Week 숫자 추출해서 내림차순 정렬
+    week_options = sorted(df_org['week_from_trial'].unique(), 
+                         key=lambda x: int(x.split()[-1]),
+                         reverse=True)
     selected_week = st.selectbox("Select Week", week_options, key="user_week_select")
     
     # 선택된 Trial Week의 숫자 추출
