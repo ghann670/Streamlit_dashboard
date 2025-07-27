@@ -94,16 +94,6 @@ if used_weeks >= 1 and active_users > 0:
 else:
     saved_display = "—"
 
-# 최근 2주 연속 사용자 계산
-df_org['week_bucket'] = df_org['created_at'].apply(assign_week_bucket)
-recent_weeks = sorted(df_org['week_bucket'].unique(), reverse=True)[:2]
-users_by_week = {
-    week: set(df_org[df_org['week_bucket'] == week]['user_name'].unique())
-    for week in recent_weeks
-}
-consistent_users = list(set.intersection(*users_by_week.values()))
-consistent_users_count = len(consistent_users)
-
 # ✅ Invited & No-Usage Users 추출
 invited_emails = df_org[df_org['status'] == 'invited_not_joined']['user_email'].dropna().unique()
 joined_no_usage_emails = df_org[df_org['status'] == 'joined_no_usage']['user_email'].dropna().unique()
@@ -121,7 +111,7 @@ col4, col5, col6 = st.columns(3)
 earnings_users = df_org[df_org['earnings'] == 'onboarded']['user_email'].nunique()
 briefing_users = df_org[df_org['briefing'] == 'onboarded']['user_email'].nunique()
 col4.metric("Earnings/Briefing Users", f"{earnings_users}/{briefing_users}")
-col5.metric("Recent 2 Weeks Active Users", consistent_users_count)  # 새로운 메트릭
+col5.metric("Avg. Events per Active User", avg_events)
 col6.metric("Avg. Time Saved / User / Week", saved_display)
 
 # User Status 섹션
@@ -194,7 +184,7 @@ with status_col2:
             background-color: #f5fff5;
             margin-bottom: 15px;
         '>
-            {", ".join(consistent_users) if consistent_users else "—"}
+            {consistent_display}
         </div>
         """,
         unsafe_allow_html=True
