@@ -170,6 +170,16 @@ with status_col2:
     normal_only_users.sort()
     normal_only_display = ", ".join(normal_only_users) if normal_only_users else "—"
 
+    # Recent 2 Weeks Active Users 찾기 (week3, week4)
+    recent_weeks = ['week3', 'week4']
+    users_by_week = {
+        week: set(df_org[df_org['week_bucket'] == week]['user_name'].unique())
+        for week in recent_weeks
+    }
+    consistent_users = list(set.intersection(*users_by_week.values()))
+    consistent_users.sort()
+    consistent_display = ", ".join(consistent_users) if consistent_users else "—"
+
     # 오른쪽 열
     st.markdown("**Recent 2 Weeks Active Users**")
     st.markdown(
@@ -184,7 +194,7 @@ with status_col2:
             background-color: #f5fff5;
             margin-bottom: 15px;
         '>
-            —
+            {consistent_display}
         </div>
         """,
         unsafe_allow_html=True
