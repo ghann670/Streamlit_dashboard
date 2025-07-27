@@ -305,41 +305,20 @@ else:
 # 함수 및 주간 시계열
 st.markdown("---")
 
-# View Mode 선택과 Trial Start Date를 나란히 표시
-col1, col2 = st.columns([1.2, 2])
-with col1:
-    view_mode = st.radio(
-        "Select View Mode",
-        ["Recent 4 Weeks", "Trial Period"],
-        horizontal=True,
-        key="function_trends_view_mode"
-    )
+# Trial Start Date 계산
+trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0]).strftime('%Y-%m-%d')
 
-with col2:
-    trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0]).strftime('%Y-%m-%d')
-    if view_mode == "Trial Period":
-        st.write("**Trial Start Date:** " + trial_start)
-    else:
-        st.write("")  # 빈 공간 유지를 위해
+# View Mode 선택
+view_mode = st.radio(
+    "Select View Mode",
+    ["Recent 4 Weeks", f"Trial Period (Trial Start Date: {trial_start})"],
+    horizontal=True,
+    key="function_trends_view_mode"
+)
 
 st.subheader("📈 Weekly Function Usage Trends")
 
-# Trial Period 모드일 때는 시작일 정보도 표시
-if view_mode == "Trial Period":
-    trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0]).strftime('%Y-%m-%d')
-    st.caption(f"Trial Start Date: {trial_start}")
-
-if view_mode == "Recent 4 Weeks":
-    df_chart = df_org.groupby(['week_bucket', 'agent_type']).size().reset_index(name='count')
-
-    # 누락된 week_bucket, agent_type 조합 채워넣기
-    all_weeks = list(week_ranges.keys())
-    all_agents = df_chart['agent_type'].unique()
-    all_combinations = pd.MultiIndex.from_product([all_weeks, all_agents], names=['week_bucket', 'agent_type']).to_frame(index=False)
-    df_chart = pd.merge(all_combinations, df_chart, on=['week_bucket', 'agent_type'], how='left')
-    df_chart['count'] = df_chart['count'].fillna(0).astype(int)
-else:
-    # Trial Period 로직
+if view_mode == f"Trial Period (Trial Start Date: {trial_start})":
     df_org['week_from_trial'] = ((df_org['created_at'] - df_org['trial_start_date'])
                                 .dt.days // 7 + 1)
     
@@ -357,6 +336,15 @@ else:
     all_agents = df_chart['agent_type'].unique()
     all_combinations = pd.MultiIndex.from_product([all_weeks, all_agents], names=['week_from_trial', 'agent_type']).to_frame(index=False)
     df_chart = pd.merge(all_combinations, df_chart, on=['week_from_trial', 'agent_type'], how='left')
+    df_chart['count'] = df_chart['count'].fillna(0).astype(int)
+else:
+    df_chart = df_org.groupby(['week_bucket', 'agent_type']).size().reset_index(name='count')
+
+    # 누락된 week_bucket, agent_type 조합 채워넣기
+    all_weeks = list(week_ranges.keys())
+    all_agents = df_chart['agent_type'].unique()
+    all_combinations = pd.MultiIndex.from_product([all_weeks, all_agents], names=['week_bucket', 'agent_type']).to_frame(index=False)
+    df_chart = pd.merge(all_combinations, df_chart, on=['week_bucket', 'agent_type'], how='left')
     df_chart['count'] = df_chart['count'].fillna(0).astype(int)
 
 # Pivot Table - 모드에 따라 컬럼 이름 변경
