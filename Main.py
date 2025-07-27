@@ -68,6 +68,24 @@ if 'trial_start_date' not in df_org.columns:
     trial_start_date = df_org['created_at'].min()
     df_org['trial_start_date'] = trial_start_date
 
+# View Mode 선택
+view_mode = st.radio(
+    "Select View Mode",
+    ["Recent 4 Weeks", "Trial Period"],
+    horizontal=True,
+    key="function_trends_view_mode"
+)
+
+# Week 계산
+if view_mode == "Recent 4 Weeks":
+    df_org['week_bucket'] = df_org['created_at'].apply(assign_week_bucket)
+else:
+    df_org['week_from_trial'] = ((df_org['created_at'] - df_org['trial_start_date'])
+                                .dt.days // 7 + 1)
+    df_org.loc[df_org['week_from_trial'] <= 1, 'week_from_trial'] = 1
+    df_org['week_from_trial'] = df_org['week_from_trial'].fillna(1)
+    df_org['week_from_trial'] = df_org['week_from_trial'].map(lambda x: f'Trial Week {int(x)}')
+
 # Metric 계산
 total_events = df_active.shape[0]
 total_users = df_org['user_email'].nunique()
@@ -114,7 +132,6 @@ col4.metric("Earnings/Briefing Users", f"{earnings_users}/{briefing_users}")
 col5.metric("Avg. Events per Active User", avg_events)
 col6.metric("Avg. Time Saved / User / Week", saved_display)
 
-# Invited & No-Usage Users 표시
 # User Status 섹션
 st.markdown("### 👥 User Status")
 
@@ -162,9 +179,14 @@ with status_col1:
 
 with status_col2:
     # 최근 2주 연속 사용자 찾기
-    recent_weeks = sorted(df_org['week_bucket'].unique(), reverse=True)[:2]
+    if view_mode == "Recent 4 Weeks":
+        week_column = 'week_bucket'
+    else:
+        week_column = 'week_from_trial'
+    
+    recent_weeks = sorted(df_org[week_column].unique(), reverse=True)[:2]
     users_by_week = {
-        week: set(df_org[df_org['week_bucket'] == week]['user_name'].unique())
+        week: set(df_org[df_org[week_column] == week]['user_name'].unique())
         for week in recent_weeks
     }
     consistent_users = list(set.intersection(*users_by_week.values()))
@@ -252,6 +274,68 @@ fig1.update_yaxes(range=[0, max_count + 10])
 st.plotly_chart(fig1, use_container_width=True)
 
 
+
+# ✅ New Section: 유저별 라인차트 추가
+st.markdown("### 👥 Users' Daily Usage")
+
+# 유저별 일별 사용량 집계
+df_user_daily = df_active_org.groupby(
+    [df_active_org["created_at"].dt.date, "user_name"]
+).size().reset_index(name="count")
+
+df_user_daily["created_at"] = pd.to_datetime(df_user_daily["created_at"])
+df_user_daily["date_label"] = df_user_daily["created_at"].dt.strftime("%-m/%d")
+df_user_daily.rename(columns={"user_name": "user"}, inplace=True)
+
+# ✅ 유저별 total usage 수 기준 정렬
+user_total_counts = df_user_daily.groupby("user")["count"].sum()
+sorted_users = user_total_counts.sort_values(ascending=False).index.tolist()
+default_users = sorted_users[:3]  # 상위 3명 기본 선택
+
+# ✅ 세션 상태에 선택 유저 목록 저장
+if "selected_users" not in st.session_state:
+    st.session_state.selected_users = default_users
+
+# ✅ 전체 선택 / 해제 버튼
+col1, col2 = st.columns([1, 1])
+with col1:
+    if st.button("✅ 전체 선택"):
+        st.session_state.selected_users = sorted_users
+with col2:
+    if st.button("❌ 전체 해제"):
+        st.session_state.selected_users = []
+
+# ✅ 멀티셀렉트 (세션 상태로 동기화, 유효성 보정)
+valid_default_users = [user for user in st.session_state.selected_users if user in sorted_users]
+
+selected_users = st.multiselect(
+    "Select users to display",
+    options=sorted_users,
+    default=valid_default_users,
+    key="selected_users"
+)
+
+# ✅ 필터링된 유저 데이터
+df_user_filtered = df_user_daily[df_user_daily["user"].isin(selected_users)]
+
+# ✅ 라인차트 시각화
+if df_user_filtered.empty:
+    st.info("No data for selected users.")
+else:
+    chart_users = alt.Chart(df_user_filtered).mark_line(point=True).encode(
+        x=alt.X("date_label:N", title="Date", axis=alt.Axis(labelAngle=0)),
+        y=alt.Y("count:Q", title="Event Count"),
+        color=alt.Color("user:N", title="User"),
+        tooltip=["user", "count"]
+    ).properties(width=900, height=300)
+
+    st.altair_chart(chart_users, use_container_width=True)
+
+
+
+
+# 함수 및 주간 시계열
+st.markdown("---")
 
 # ✅ New Section: 유저별 라인차트 추가
 st.markdown("### 👥 Users' Daily Usage")
