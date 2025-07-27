@@ -68,24 +68,6 @@ if 'trial_start_date' not in df_org.columns:
     trial_start_date = df_org['created_at'].min()
     df_org['trial_start_date'] = trial_start_date
 
-# View Mode 선택
-view_mode = st.radio(
-    "Select View Mode",
-    ["Recent 4 Weeks", "Trial Period"],
-    horizontal=True,
-    key="function_trends_view_mode"
-)
-
-# Week 계산
-if view_mode == "Recent 4 Weeks":
-    df_org['week_bucket'] = df_org['created_at'].apply(assign_week_bucket)
-else:
-    df_org['week_from_trial'] = ((df_org['created_at'] - df_org['trial_start_date'])
-                                .dt.days // 7 + 1)
-    df_org.loc[df_org['week_from_trial'] <= 1, 'week_from_trial'] = 1
-    df_org['week_from_trial'] = df_org['week_from_trial'].fillna(1)
-    df_org['week_from_trial'] = df_org['week_from_trial'].map(lambda x: f'Trial Week {int(x)}')
-
 # Metric 계산
 total_events = df_active.shape[0]
 total_users = df_org['user_email'].nunique()
@@ -112,6 +94,16 @@ if used_weeks >= 1 and active_users > 0:
 else:
     saved_display = "—"
 
+# 최근 2주 연속 사용자 계산
+df_org['week_bucket'] = df_org['created_at'].apply(assign_week_bucket)
+recent_weeks = sorted(df_org['week_bucket'].unique(), reverse=True)[:2]
+users_by_week = {
+    week: set(df_org[df_org['week_bucket'] == week]['user_name'].unique())
+    for week in recent_weeks
+}
+consistent_users = list(set.intersection(*users_by_week.values()))
+consistent_users_count = len(consistent_users)
+
 # ✅ Invited & No-Usage Users 추출
 invited_emails = df_org[df_org['status'] == 'invited_not_joined']['user_email'].dropna().unique()
 joined_no_usage_emails = df_org[df_org['status'] == 'joined_no_usage']['user_email'].dropna().unique()
@@ -129,7 +121,7 @@ col4, col5, col6 = st.columns(3)
 earnings_users = df_org[df_org['earnings'] == 'onboarded']['user_email'].nunique()
 briefing_users = df_org[df_org['briefing'] == 'onboarded']['user_email'].nunique()
 col4.metric("Earnings/Briefing Users", f"{earnings_users}/{briefing_users}")
-col5.metric("Avg. Events per Active User", avg_events)
+col5.metric("Recent 2 Weeks Active Users", consistent_users_count)  # 새로운 메트릭
 col6.metric("Avg. Time Saved / User / Week", saved_display)
 
 # User Status 섹션
@@ -178,24 +170,6 @@ with status_col1:
     )
 
 with status_col2:
-    # 최근 2주 연속 사용자 찾기
-    if view_mode == "Recent 4 Weeks":
-        recent_weeks = sorted(df_org['week_bucket'].unique(), reverse=True)[:2]
-        users_by_week = {
-            week: set(df_org[df_org['week_bucket'] == week]['user_name'].unique())
-            for week in recent_weeks
-        }
-    else:
-        recent_weeks = sorted(df_org['week_from_trial'].unique(), reverse=True)[:2]
-        users_by_week = {
-            week: set(df_org[df_org['week_from_trial'] == week]['user_name'].unique())
-            for week in recent_weeks
-        }
-    
-    consistent_users = list(set.intersection(*users_by_week.values()))
-    consistent_users.sort()
-    consistent_display = ", ".join(consistent_users) if consistent_users else "—"
-
     # Normal만 사용한 유저 찾기
     all_users = df_org['user_name'].unique()
     normal_only_users = []
@@ -220,7 +194,7 @@ with status_col2:
             background-color: #f5fff5;
             margin-bottom: 15px;
         '>
-            {consistent_display}
+            {", ".join(consistent_users) if consistent_users else "—"}
         </div>
         """,
         unsafe_allow_html=True
