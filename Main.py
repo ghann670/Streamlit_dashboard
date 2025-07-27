@@ -180,15 +180,18 @@ with status_col1:
 with status_col2:
     # 최근 2주 연속 사용자 찾기
     if view_mode == "Recent 4 Weeks":
-        week_column = 'week_bucket'
+        recent_weeks = sorted(df_org['week_bucket'].unique(), reverse=True)[:2]
+        users_by_week = {
+            week: set(df_org[df_org['week_bucket'] == week]['user_name'].unique())
+            for week in recent_weeks
+        }
     else:
-        week_column = 'week_from_trial'
+        recent_weeks = sorted(df_org['week_from_trial'].unique(), reverse=True)[:2]
+        users_by_week = {
+            week: set(df_org[df_org['week_from_trial'] == week]['user_name'].unique())
+            for week in recent_weeks
+        }
     
-    recent_weeks = sorted(df_org[week_column].unique(), reverse=True)[:2]
-    users_by_week = {
-        week: set(df_org[df_org[week_column] == week]['user_name'].unique())
-        for week in recent_weeks
-    }
     consistent_users = list(set.intersection(*users_by_week.values()))
     consistent_users.sort()
     consistent_display = ", ".join(consistent_users) if consistent_users else "—"
