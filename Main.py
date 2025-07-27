@@ -184,7 +184,7 @@ with status_col2:
             background-color: #f5fff5;
             margin-bottom: 15px;
         '>
-            {consistent_display}
+            —
         </div>
         """,
         unsafe_allow_html=True
