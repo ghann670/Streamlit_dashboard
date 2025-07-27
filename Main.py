@@ -457,14 +457,38 @@ with right2:
 # 👥 Function Usage by User (Stacked by Week)
 st.subheader("👥 Function Usage by User (Stacked by Week)")
 
-# 📅 주차 선택
-week_options_user = sorted(df_org['week_bucket'].dropna().unique(), reverse=True)
-selected_week_user = st.selectbox("Select Week", week_options_user, key="user_week_select")
+# 📅 주차 선택 - view mode에 따라 다르게
+if view_mode == "Recent 4 Weeks":
+    week_options = sorted(df_org['week_bucket'].dropna().unique(), reverse=True)
+    selected_week = st.selectbox("Select Week", week_options, key="user_week_select")
+    
+    # 선택된 주차의 날짜 범위 계산
+    week_start, week_end = week_ranges[selected_week]
+    week_dates = pd.date_range(week_start, week_end).date
+else:
+    # Trial Period Mode
+    week_options = sorted(df_org['week_from_trial'].unique())
+    selected_week = st.selectbox("Select Week", week_options, key="user_week_select")
+    
+    # 선택된 Trial Week의 숫자 추출
+    week_num = int(selected_week.split()[-1])
+    
+    # 해당 주차의 날짜 범위 계산
+    trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0])
+    week_start = trial_start + pd.Timedelta(days=(week_num-1)*7)
+    week_end = week_start + pd.Timedelta(days=6)
+    week_dates = pd.date_range(week_start, week_end).date
 
-# ✅ 선택된 주차만 필터링
-df_user_week = df_org[df_org['week_bucket'] == selected_week_user]
+# 선택된 주간 데이터 필터링
+df_user_week = df_org[df_org['created_at'].dt.date.isin(week_dates)]
 
-# 전체 유저-기능 집계
+# 전체 유저 리스트
+all_users = sorted(df_user_week['user_name'].unique())
+
+# 유저 필터 추가
+selected_user = st.selectbox("Select User (Optional)", ["All Users"] + all_users)
+
+# 기본 집계 데이터 준비 (전체 유저)
 df_user_stack_full = df_user_week.groupby(['user_name', 'agent_type']).size().reset_index(name='count')
 
 # 👉 기능 정렬 기준 정의 (많이 쓴 순)
@@ -485,13 +509,6 @@ df_user_stack_chart['agent_type'] = pd.Categorical(
     ordered=True
 )
 df_user_stack_chart = df_user_stack_chart.sort_values(['user_name', 'agent_type'])
-
-# ✅ 오른쪽: 테이블용 - 전체 유저 포함
-df_user_stack_full['agent_type'] = pd.Categorical(
-    df_user_stack_full['agent_type'],
-    categories=sorted_func_order,
-    ordered=True
-)
 
 # 📊 시각화
 left, right = st.columns([7, 5])
@@ -518,16 +535,45 @@ with left:
     st.plotly_chart(fig, use_container_width=True)
 
 with right:
-    df_user_table = df_user_stack_full.pivot_table(
-        index='user_name',
-        columns='agent_type',
-        values='count',
-        aggfunc='sum',
-        fill_value=0
-    )
-    df_user_table['Total'] = df_user_table.sum(axis=1)
-    df_user_table = df_user_table.sort_values('Total', ascending=False)
-    df_user_table = df_user_table[['Total'] + [col for col in df_user_table.columns if col != 'Total']]
+    if selected_user == "All Users":
+        # 전체 유저 요약 테이블
+        df_user_table = df_user_stack_full.pivot_table(
+            index='agent_type',  # agent_type을 행으로
+            columns='user_name',  # user를 열로
+            values='count',
+            aggfunc='sum',
+            fill_value=0
+        )
+        
+        # Total 컬럼 추가 및 정렬
+        df_user_table['Total'] = df_user_table.sum(axis=1)
+        df_user_table = df_user_table.sort_values('Total', ascending=False)
+        df_user_table = df_user_table[['Total'] + [col for col in df_user_table.columns if col != 'Total']]
+        
+        # Total 행 추가
+        df_user_table.loc['Total'] = df_user_table.sum(numeric_only=True)
+        
+    else:
+        # 선택된 유저의 일별 상세 데이터
+        df_user_detail = df_user_week[df_user_week['user_name'] == selected_user]
+        df_user_detail['date'] = df_user_detail['created_at'].dt.strftime('%m/%d')
+        
+        # 일별-기능별 집계
+        df_user_table = df_user_detail.pivot_table(
+            index='agent_type',  # agent_type을 행으로
+            columns='date',      # 날짜를 열로
+            values='created_at',
+            aggfunc='count',
+            fill_value=0
+        )
+        
+        # Total 컬럼 추가 및 정렬
+        df_user_table['Total'] = df_user_table.sum(axis=1)
+        df_user_table = df_user_table.sort_values('Total', ascending=False)
+        df_user_table = df_user_table[['Total'] + [col for col in df_user_table.columns if col != 'Total']]
+        
+        # Total 행 추가
+        df_user_table.loc['Total'] = df_user_table.sum(numeric_only=True)
 
     st.dataframe(df_user_table.astype(int), use_container_width=True)
 
