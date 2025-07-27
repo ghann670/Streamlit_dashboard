@@ -403,7 +403,8 @@ agent_order_by_volume = (
     .sort_values(ascending=False)
     .index.tolist()
 )
-agent_order_for_stack = list(reversed(agent_order_by_volume))  # 역순으로 쌓기
+# 많이 쓴 순서 그대로 사용 (역순 제거)
+agent_order_for_stack = agent_order_by_volume
 
 # 🔁 정렬 순서 적용
 df_day['agent_type'] = pd.Categorical(
@@ -422,7 +423,7 @@ with left2:
         x="day_label",
         y="count",
         color="agent_type",
-        category_orders={"agent_type": agent_order_for_stack},
+        category_orders={"agent_type": agent_order_for_stack},  # 많이 쓴 순서대로 스택
         color_discrete_sequence=px.colors.qualitative.Set1,
         labels={"day_label": "Date", "count": "Event Count", "agent_type": "Function"},
     )
