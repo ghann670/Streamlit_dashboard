@@ -115,42 +115,109 @@ col5.metric("Avg. Events per Active User", avg_events)
 col6.metric("Avg. Time Saved / User / Week", saved_display)
 
 # Invited & No-Usage Users 표시
+# User Status 섹션
 st.markdown("### 👥 User Status")
-st.markdown("**Invited but Not Joined**")
-st.markdown(
-    f"""
-    <div style='
-        max-height: 60px;
-        overflow-y: auto;
-        font-size: 13px;
-        border: 1px solid #ccc;
-        padding: 6px;
-        border-radius: 5px;
-        background-color: #fffaf5;
-    '>
-        {invited_display}
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 
-st.markdown("**Joined but No Usage**")
-st.markdown(
-    f"""
-    <div style='
-        max-height: 60px;
-        overflow-y: auto;
-        font-size: 13px;
-        border: 1px solid #ccc;
-        padding: 6px;
-        border-radius: 5px;
-        background-color: #f5faff;
-    '>
-        {joined_display}
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# 2x2 그리드 생성
+status_col1, status_col2 = st.columns(2)
+
+with status_col1:
+    # 왼쪽 열
+    st.markdown("**Invited but Not Joined**")
+    st.markdown(
+        f"""
+        <div style='
+            max-height: 60px;
+            overflow-y: auto;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            padding: 6px;
+            border-radius: 5px;
+            background-color: #fffaf5;
+            margin-bottom: 15px;
+        '>
+            {invited_display}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown("**Joined but No Usage**")
+    st.markdown(
+        f"""
+        <div style='
+            max-height: 60px;
+            overflow-y: auto;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            padding: 6px;
+            border-radius: 5px;
+            background-color: #f5faff;
+        '>
+            {joined_display}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+with status_col2:
+    # 최근 2주 연속 사용자 찾기
+    recent_weeks = sorted(df_org['week_bucket'].unique(), reverse=True)[:2]
+    users_by_week = {
+        week: set(df_org[df_org['week_bucket'] == week]['user_name'].unique())
+        for week in recent_weeks
+    }
+    consistent_users = list(set.intersection(*users_by_week.values()))
+    consistent_users.sort()
+    consistent_display = ", ".join(consistent_users) if consistent_users else "—"
+
+    # Normal만 사용한 유저 찾기
+    all_users = df_org['user_name'].unique()
+    normal_only_users = []
+    for user in all_users:
+        user_types = df_org[df_org['user_name'] == user]['agent_type'].unique()
+        if len(user_types) == 1 and user_types[0] == 'normal':
+            normal_only_users.append(user)
+    normal_only_users.sort()
+    normal_only_display = ", ".join(normal_only_users) if normal_only_users else "—"
+
+    # 오른쪽 열
+    st.markdown("**Recent 2 Weeks Active Users**")
+    st.markdown(
+        f"""
+        <div style='
+            max-height: 60px;
+            overflow-y: auto;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            padding: 6px;
+            border-radius: 5px;
+            background-color: #f5fff5;
+            margin-bottom: 15px;
+        '>
+            {consistent_display}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown("**Normal Function Only Users**")
+    st.markdown(
+        f"""
+        <div style='
+            max-height: 60px;
+            overflow-y: auto;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            padding: 6px;
+            border-radius: 5px;
+            background-color: #fff5ff;
+        '>
+            {normal_only_display}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 
