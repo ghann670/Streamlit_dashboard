@@ -455,7 +455,7 @@ with right2:
 
 
 # 👥 Function Usage by User (Stacked by Week)
-st.subheader("👥 Function Usage by User (Stacked by Week)")
+st.subheader("👥 Function Usage by User")
 
 # 📅 주차 선택 - view mode에 따라 다르게
 if view_mode == "Recent 4 Weeks":
@@ -556,14 +556,32 @@ with right:
     else:
         # 선택된 유저의 일별 상세 데이터
         df_user_detail = df_user_week[df_user_week['user_name'] == selected_user]
-        df_user_detail['date'] = df_user_detail['created_at'].dt.strftime('%m/%d')
         
-        # 일별-기능별 집계
-        df_user_table = df_user_detail.pivot_table(
-            index='agent_type',  # agent_type을 행으로
-            columns='date',      # 날짜를 열로
-            values='created_at',
-            aggfunc='count',
+        # 모든 날짜와 agent_type 조합 생성
+        all_dates = pd.date_range(week_start, week_end).strftime('%m/%d')
+        all_agent_types = sorted_func_order
+        all_combinations = pd.MultiIndex.from_product(
+            [all_agent_types, all_dates],
+            names=['agent_type', 'date']
+        ).to_frame(index=False)
+        
+        # 실제 데이터 집계
+        df_user_detail['date'] = df_user_detail['created_at'].dt.strftime('%m/%d')
+        df_user_counts = df_user_detail.groupby(['agent_type', 'date']).size().reset_index(name='count')
+        
+        # 모든 조합과 실제 데이터 병합
+        df_user_counts = pd.merge(
+            all_combinations,
+            df_user_counts,
+            on=['agent_type', 'date'],
+            how='left'
+        ).fillna(0)
+        
+        # 피벗 테이블 생성
+        df_user_table = df_user_counts.pivot_table(
+            index='agent_type',
+            columns='date',
+            values='count',
             fill_value=0
         )
         
