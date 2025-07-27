@@ -63,6 +63,11 @@ selected_org = st.selectbox("Select Organization", org_list_sorted)
 df_org = df_all[df_all['organization'] == selected_org]
 df_active = df_org[df_org['status'] == 'active']
 
+# 임시로 organization의 첫 이벤트 날짜를 trial_start_date로 사용
+if 'trial_start_date' not in df_org.columns:
+    trial_start_date = df_org['created_at'].min()
+    df_org['trial_start_date'] = trial_start_date
+
 # Metric 계산
 total_events = df_active.shape[0]
 total_users = df_org['user_email'].nunique()
