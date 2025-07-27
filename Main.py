@@ -357,11 +357,27 @@ with right:
 # 📊 Daily usage 시계열
 st.subheader("📊 Daily Function Usage for a Selected Week")
 
-# 📅 주차 선택
-week_options = sorted(df_all['week_bucket'].dropna().unique(), reverse=True)
-selected_week = st.selectbox("Select Week", week_options, key="daily_select_week")
-week_start, week_end = week_ranges[selected_week]
-week_dates = pd.date_range(week_start, week_end).date
+# 📅 주차 선택 - view mode에 따라 다르게
+if view_mode == "Recent 4 Weeks":
+    week_options = sorted(df_org['week_bucket'].dropna().unique(), reverse=True)
+    selected_week = st.selectbox("Select Week", week_options, key="daily_select_week")
+    
+    # 선택된 주차의 날짜 범위 계산
+    week_start, week_end = week_ranges[selected_week]
+    week_dates = pd.date_range(week_start, week_end).date
+else:
+    # Trial Period Mode
+    week_options = sorted(df_org['week_from_trial'].unique())
+    selected_week = st.selectbox("Select Week", week_options, key="daily_select_week")
+    
+    # 선택된 Trial Week의 숫자 추출
+    week_num = int(selected_week.split()[-1])
+    
+    # 해당 주차의 날짜 범위 계산
+    trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0])
+    week_start = trial_start + pd.Timedelta(days=(week_num-1)*7)
+    week_end = week_start + pd.Timedelta(days=6)
+    week_dates = pd.date_range(week_start, week_end).date
 
 # 📆 선택된 주간 데이터 필터링
 df_week = df_org[df_org['created_at'].dt.date.isin(week_dates)]
