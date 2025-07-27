@@ -11,9 +11,9 @@ st.set_page_config(page_title="Main", page_icon="🚀", layout="wide")
 # Load dataset
 df_all = pd.read_csv("df_all.csv")
 
-
-# Convert created_at to datetime
+# Convert created_at and trial_start_date to datetime
 df_all['created_at'] = pd.to_datetime(df_all['created_at'])
+df_all['trial_start_date'] = pd.to_datetime(df_all['trial_start_date'])
 
 # 기준 날짜: 오늘 날짜 정오 기준
 now = pd.Timestamp.now().normalize() + pd.Timedelta(hours=12)
@@ -274,13 +274,13 @@ if view_mode == "Recent 4 Weeks":
     df_chart['count'] = df_chart['count'].fillna(0).astype(int)
 else:
     # Trial Period 로직
-    df_chart = df_org.copy()
-    df_chart['week_from_trial'] = ((df_chart['created_at'] - df_chart['trial_start_date'])
-                                  .dt.days // 7 + 1).astype(str).map(lambda x: f'Trial Week {x}')
-    df_chart = df_chart.groupby(['week_from_trial', 'agent_type']).size().reset_index(name='count')
+    df_org['week_from_trial'] = ((df_org['created_at'] - df_org['trial_start_date'])
+                                .dt.days // 7 + 1).astype(str).map(lambda x: f'Trial Week {x}')
+    
+    df_chart = df_org.groupby(['week_from_trial', 'agent_type']).size().reset_index(name='count')
     
     # 누락된 week_from_trial, agent_type 조합 채워넣기
-    all_weeks = sorted(df_chart['week_from_trial'].unique())
+    all_weeks = sorted(df_org['week_from_trial'].unique())
     all_agents = df_chart['agent_type'].unique()
     all_combinations = pd.MultiIndex.from_product([all_weeks, all_agents], names=['week_from_trial', 'agent_type']).to_frame(index=False)
     df_chart = pd.merge(all_combinations, df_chart, on=['week_from_trial', 'agent_type'], how='left')
