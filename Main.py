@@ -242,44 +242,99 @@ else:
 
 # 함수 및 주간 시계열
 st.markdown("---")
+
+# View Mode 선택 - 차트 제목 위에 배치
+view_mode = st.radio(
+    "Select View Mode",
+    ["Recent 4 Weeks", "Trial Period"],
+    horizontal=True,
+    key="function_trends_view_mode"
+)
+
 st.subheader("📈 Weekly Function Usage Trends")
 
-df_chart = df_org.groupby(['week_bucket', 'agent_type']).size().reset_index(name='count')
+# Trial Period 모드일 때는 시작일 정보도 표시
+if view_mode == "Trial Period":
+    trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0]).strftime('%Y-%m-%d')
+    st.caption(f"Trial Start Date: {trial_start}")
 
-# 누락된 week_bucket, agent_type 조합 채워넣기
-all_weeks = list(week_ranges.keys())
-all_agents = df_chart['agent_type'].unique()
-all_combinations = pd.MultiIndex.from_product([all_weeks, all_agents], names=['week_bucket', 'agent_type']).to_frame(index=False)
-df_chart = pd.merge(all_combinations, df_chart, on=['week_bucket', 'agent_type'], how='left')
-df_chart['count'] = df_chart['count'].fillna(0).astype(int)
+if view_mode == "Recent 4 Weeks":
+    df_chart = df_org.groupby(['week_bucket', 'agent_type']).size().reset_index(name='count')
 
-# Pivot Table
-df_week_table = df_chart.pivot_table(
-    index='agent_type',
-    columns='week_bucket',
-    values='count',
-    fill_value=0,
-    aggfunc='sum'
-)
+    # 누락된 week_bucket, agent_type 조합 채워넣기
+    all_weeks = list(week_ranges.keys())
+    all_agents = df_chart['agent_type'].unique()
+    all_combinations = pd.MultiIndex.from_product([all_weeks, all_agents], names=['week_bucket', 'agent_type']).to_frame(index=False)
+    df_chart = pd.merge(all_combinations, df_chart, on=['week_bucket', 'agent_type'], how='left')
+    df_chart['count'] = df_chart['count'].fillna(0).astype(int)
+else:
+    # Trial Period 로직
+    df_chart = df_org.copy()
+    df_chart['week_from_trial'] = ((df_chart['created_at'] - df_chart['trial_start_date'])
+                                  .dt.days // 7 + 1).astype(str).map(lambda x: f'Trial Week {x}')
+    df_chart = df_chart.groupby(['week_from_trial', 'agent_type']).size().reset_index(name='count')
+    
+    # 누락된 week_from_trial, agent_type 조합 채워넣기
+    all_weeks = sorted(df_chart['week_from_trial'].unique())
+    all_agents = df_chart['agent_type'].unique()
+    all_combinations = pd.MultiIndex.from_product([all_weeks, all_agents], names=['week_from_trial', 'agent_type']).to_frame(index=False)
+    df_chart = pd.merge(all_combinations, df_chart, on=['week_from_trial', 'agent_type'], how='left')
+    df_chart['count'] = df_chart['count'].fillna(0).astype(int)
+
+# Pivot Table - 모드에 따라 컬럼 이름 변경
+if view_mode == "Recent 4 Weeks":
+    df_week_table = df_chart.pivot_table(
+        index='agent_type',
+        columns='week_bucket',
+        values='count',
+        fill_value=0,
+        aggfunc='sum'
+    )
+else:
+    df_week_table = df_chart.pivot_table(
+        index='agent_type',
+        columns='week_from_trial',
+        values='count',
+        fill_value=0,
+        aggfunc='sum'
+    )
+
 df_week_table['Total'] = df_week_table.sum(axis=1)
 df_week_table = df_week_table.sort_values('Total', ascending=False)
 df_week_table = df_week_table[['Total'] + [col for col in df_week_table.columns if col != 'Total']]
 df_week_table.loc['Total'] = df_week_table.sum(numeric_only=True)
 
+# 차트 정렬 순서 설정
 sorted_agent_order = df_week_table.drop("Total").index.tolist()
-df_chart['agent_type'] = pd.Categorical(df_chart['agent_type'], categories=sorted_agent_order, ordered=True)
-df_chart = df_chart.sort_values('agent_type')
 
-left, right = st.columns([6, 6])
-with left:
-    chart_week = alt.Chart(df_chart).mark_line(point=True).encode(
-        x=alt.X('week_bucket:N', title='Week', axis=alt.Axis(labelAngle=0)),
-        y=alt.Y('count:Q', title='Event Count'),
-        color=alt.Color('agent_type:N', title='Function', sort=sorted_agent_order),
-        tooltip=['agent_type', 'count']
-    ).properties(width=600, height=300)
-
-    st.altair_chart(chart_week, use_container_width=True)
+if view_mode == "Recent 4 Weeks":
+    df_chart['agent_type'] = pd.Categorical(df_chart['agent_type'], categories=sorted_agent_order, ordered=True)
+    df_chart = df_chart.sort_values('agent_type')
+    
+    left, right = st.columns([6, 6])
+    with left:
+        chart_week = alt.Chart(df_chart).mark_line(point=True).encode(
+            x=alt.X('week_bucket:N', title='Week', axis=alt.Axis(labelAngle=0)),
+            y=alt.Y('count:Q', title='Event Count'),
+            color=alt.Color('agent_type:N', title='Function', sort=sorted_agent_order),
+            tooltip=['agent_type', 'count']
+        ).properties(width=600, height=300)
+        
+        st.altair_chart(chart_week, use_container_width=True)
+else:
+    df_chart['agent_type'] = pd.Categorical(df_chart['agent_type'], categories=sorted_agent_order, ordered=True)
+    df_chart = df_chart.sort_values(['week_from_trial', 'agent_type'])
+    
+    left, right = st.columns([6, 6])
+    with left:
+        chart_week = alt.Chart(df_chart).mark_line(point=True).encode(
+            x=alt.X('week_from_trial:N', title='Trial Week', axis=alt.Axis(labelAngle=0)),
+            y=alt.Y('count:Q', title='Event Count'),
+            color=alt.Color('agent_type:N', title='Function', sort=sorted_agent_order),
+            tooltip=['agent_type', 'count']
+        ).properties(width=600, height=300)
+        
+        st.altair_chart(chart_week, use_container_width=True)
 
 with right:
     st.dataframe(df_week_table.astype(int), use_container_width=True)
