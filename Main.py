@@ -306,7 +306,7 @@ else:
 st.markdown("---")
 
 # View Mode 선택과 Trial Start Date를 나란히 표시
-col1, col2 = st.columns([2, 2])
+col1, col2 = st.columns([1.2, 2])
 with col1:
     view_mode = st.radio(
         "Select View Mode",
@@ -316,9 +316,11 @@ with col1:
     )
 
 with col2:
+    trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0]).strftime('%Y-%m-%d')
     if view_mode == "Trial Period":
-        trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0]).strftime('%Y-%m-%d')
-        st.markdown(f"**Trial Start Date:** {trial_start}")
+        st.write("**Trial Start Date:** " + trial_start)
+    else:
+        st.write("")  # 빈 공간 유지를 위해
 
 st.subheader("📈 Weekly Function Usage Trends")
 
