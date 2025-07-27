@@ -275,7 +275,14 @@ if view_mode == "Recent 4 Weeks":
 else:
     # Trial Period 로직
     df_org['week_from_trial'] = ((df_org['created_at'] - df_org['trial_start_date'])
-                                .dt.days // 7 + 1).astype(str).map(lambda x: f'Trial Week {x}')
+                                .dt.days // 7 + 1)
+    
+    # trial_start_date와 같은 날짜(0)도 1주차로 처리
+    df_org.loc[df_org['week_from_trial'] <= 1, 'week_from_trial'] = 1
+    
+    # week 포맷팅 (정수로)
+    df_org['week_from_trial'] = df_org['week_from_trial'].astype(int)
+    df_org['week_from_trial'] = df_org['week_from_trial'].map(lambda x: f'Trial Week {x}')
     
     df_chart = df_org.groupby(['week_from_trial', 'agent_type']).size().reset_index(name='count')
     
