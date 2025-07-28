@@ -771,12 +771,12 @@ with right_col:
 
 # Response Time Analysis 섹션 마지막에 추가
 
-# 일별 최대 응답시간 찾기
-daily_max = df_time.groupby('date')['time_to_first_byte'].max()
-worst_date = daily_max.idxmax()
+# 일별 중앙값으로 가장 느린 날 찾기
+daily_median = df_time.groupby('date')['time_to_first_byte'].median()
+worst_date = daily_median.idxmax()
 worst_date_data = df_time[df_time['date'] == worst_date].copy()
 
-st.markdown("### 🔍 Detailed Analysis for Slowest Day")
+st.markdown("### 🔍 Detailed Analysis for Slowest Day (by Median Response Time)")
 st.markdown(f"**Date: {worst_date}**")
 
 # 기본 통계
