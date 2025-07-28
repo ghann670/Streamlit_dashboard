@@ -521,6 +521,20 @@ with right2:
 # 👥 Function Usage by User
 st.subheader("👥 Function Usage by User")
 
+# 전체 유저 리스트 (모든 주차의 유저를 포함하도록)
+all_users = sorted(df_org['user_name'].unique())
+
+# 세션 상태에 선택된 유저 저장
+if "selected_user_for_function" not in st.session_state:
+    st.session_state.selected_user_for_function = "All Users"
+
+# 유저 필터 추가 (세션 상태 사용)
+selected_user = st.selectbox(
+    "Select User (Optional)", 
+    ["All Users"] + all_users,
+    key="selected_user_for_function"
+)
+
 # 📅 주차 선택 - view mode에 따라 다르게
 if view_mode == "Recent 4 Weeks":
     week_options = sorted(df_org['week_bucket'].dropna().unique(), reverse=True)
@@ -548,12 +562,6 @@ else:
 
 # 선택된 주간 데이터 필터링
 df_user_week = df_org[df_org['created_at'].dt.date.isin(week_dates)]
-
-# 전체 유저 리스트
-all_users = sorted(df_user_week['user_name'].unique())
-
-# 유저 필터 추가
-selected_user = st.selectbox("Select User (Optional)", ["All Users"] + all_users)
 
 # 기본 집계 데이터 준비 (전체 유저)
 df_user_stack_full = df_user_week.groupby(['user_name', 'agent_type']).size().reset_index(name='count')
