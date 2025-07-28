@@ -522,7 +522,7 @@ with right2:
 st.subheader("👥 Function Usage by User")
 
 # 전체 유저 리스트 (모든 주차의 유저를 포함하도록)
-all_users = sorted(df_org['user_name'].unique())
+all_users = sorted(df_org['user_name'].dropna().unique())
 
 # 세션 상태에 선택된 유저 저장
 if "selected_user_for_function" not in st.session_state:
