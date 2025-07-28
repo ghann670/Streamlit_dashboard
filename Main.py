@@ -768,3 +768,42 @@ with right_col:
     func_stats.columns = ['Function', 'Mean (sec)', 'Median (sec)', 'Count']
     func_stats = func_stats.sort_values('Count', ascending=False)  # Count 기준 내림차순
     st.dataframe(func_stats.round(2), use_container_width=True, hide_index=True)  # hide_index=True 추가
+
+# Response Time Analysis 섹션 마지막에 추가
+
+# 일별 최대 응답시간 찾기
+daily_max = df_time.groupby('date')['time_to_first_byte'].max()
+worst_date = daily_max.idxmax()
+worst_date_data = df_time[df_time['date'] == worst_date].copy()
+
+st.markdown("### 🔍 Detailed Analysis for Slowest Day")
+st.markdown(f"**Date: {worst_date}**")
+
+# 기본 통계
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    st.metric("Total Requests", len(worst_date_data))
+with col2:
+    st.metric("Median Response Time", f"{worst_date_data['time_to_first_byte'].median():.1f} sec")
+with col3:
+    st.metric("Mean Response Time", f"{worst_date_data['time_to_first_byte'].mean():.1f} sec")
+with col4:
+    st.metric("Max Response Time", f"{worst_date_data['time_to_first_byte'].max():.1f} sec")
+
+# Function별 통계 테이블
+func_stats = worst_date_data.groupby('agent_type').agg({
+    'time_to_first_byte': ['count', 'mean', 'median', 'max']
+}).round(1)
+func_stats.columns = ['Count', 'Mean (sec)', 'Median (sec)', 'Max (sec)']
+func_stats = func_stats.sort_values('Count', ascending=False)
+st.markdown("#### Function Statistics")
+st.dataframe(func_stats, use_container_width=True)
+
+# Slow Requests (상위 10개)
+st.markdown("#### Slowest Requests")
+slow_requests = worst_date_data.nlargest(10, 'time_to_first_byte')[
+    ['created_at', 'agent_type', 'time_to_first_byte']
+].copy()
+slow_requests['created_at'] = slow_requests['created_at'].dt.strftime('%Y-%m-%d %H:%M:%S')
+slow_requests.columns = ['Timestamp', 'Function', 'Response Time (sec)']
+st.dataframe(slow_requests, use_container_width=True)
