@@ -802,8 +802,9 @@ st.dataframe(func_stats, use_container_width=True)
 # Slow Requests (상위 10개)
 st.markdown("#### Slowest Requests")
 slow_requests = worst_date_data.nlargest(10, 'time_to_first_byte')[
-    ['created_at', 'agent_type', 'time_to_first_byte']
+    ['created_at', 'agent_type', 'time_to_first_byte', 'id']
 ].copy()
 slow_requests['created_at'] = slow_requests['created_at'].dt.strftime('%Y-%m-%d %H:%M:%S')
-slow_requests.columns = ['Timestamp', 'Function', 'Response Time (sec)']
+slow_requests.columns = ['Timestamp', 'Function', 'Response Time (sec)', 'Request ID']
+slow_requests = slow_requests.sort_values('Response Time (sec)', ascending=False)
 st.dataframe(slow_requests, use_container_width=True)
