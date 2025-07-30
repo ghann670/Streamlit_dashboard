@@ -600,7 +600,7 @@ df_day['agent_type'] = pd.Categorical(
     categories=agent_order_for_stack,
     ordered=True
 )
-df_day = df_day.sort_values(['day_label', 'agent_type'], ascending = [True, True])
+df_day = df_day.sort_values(['created_at', 'agent_type'], ascending=[True, True])
 
 # 📈 Plotly 차트 + 📋 테이블
 left2, right2 = st.columns([6, 6])
