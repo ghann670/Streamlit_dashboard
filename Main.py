@@ -230,14 +230,24 @@ st.subheader("📅 Total Usage Over Time (All Functions)")
 # 1️⃣ 날짜별 전체 사용량 집계 (2025년 1월 1일부터 현재까지)
 start_date = pd.Timestamp('2025-01-01')
 end_date = pd.Timestamp.now()
+
+# 모든 날짜 생성
+all_dates = pd.date_range(start=start_date.date(), end=end_date.date(), freq='D')
+date_df = pd.DataFrame({'created_at': all_dates})
+
+# 실제 데이터 집계
 df_active_org = df_active.copy()
 df_active_org = df_active_org[
     (df_active_org['created_at'] >= start_date) & 
     (df_active_org['created_at'] <= end_date)
 ].sort_values("created_at")
 df_active_org["count"] = 1
-df_total_daily = df_active_org.groupby(df_active_org["created_at"].dt.date).size().reset_index(name="count")
-df_total_daily["created_at"] = pd.to_datetime(df_total_daily["created_at"])
+daily_counts = df_active_org.groupby(df_active_org["created_at"].dt.date).size().reset_index(name="count")
+daily_counts["created_at"] = pd.to_datetime(daily_counts["created_at"])
+
+# 모든 날짜에 대해 데이터 병합 (없는 날짜는 0으로 채움)
+df_total_daily = pd.merge(date_df, daily_counts, on='created_at', how='left')
+df_total_daily['count'] = df_total_daily['count'].fillna(0)
 
 # ✅ 2️⃣ 날짜 라벨 생성 (예: 7/11)
 df_total_daily["date_label"] = df_total_daily["created_at"].dt.strftime("%-m/%d")  # macOS/Linux
@@ -278,12 +288,29 @@ st.plotly_chart(fig1, use_container_width=True)
 st.markdown("### 👥 Users' Daily Usage (All events)")
 
 # 유저별 일별 사용량 집계 (2025년 1월 1일부터 현재까지)
-df_user_daily = df_active_org[
+# 실제 사용량 데이터 집계
+user_counts = df_active_org[
     (df_active_org['created_at'] >= start_date) & 
     (df_active_org['created_at'] <= end_date)
 ].groupby(
     [df_active_org["created_at"].dt.date, "user_name"]
 ).size().reset_index(name="count")
+
+# 모든 날짜와 유저 조합 생성
+all_users = df_active_org['user_name'].unique()
+all_combinations = pd.MultiIndex.from_product(
+    [all_dates.date, all_users],
+    names=['created_at', 'user_name']
+).to_frame(index=False)
+
+# 데이터 병합 (없는 날짜는 0으로 채움)
+df_user_daily = pd.merge(
+    all_combinations,
+    user_counts,
+    on=['created_at', 'user_name'],
+    how='left'
+)
+df_user_daily['count'] = df_user_daily['count'].fillna(0)
 
 df_user_daily["created_at"] = pd.to_datetime(df_user_daily["created_at"])
 df_user_daily["date_label"] = df_user_daily["created_at"].dt.strftime("%-m/%d")
