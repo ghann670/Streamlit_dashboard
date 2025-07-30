@@ -227,26 +227,37 @@ with status_col2:
 st.markdown("---")
 st.subheader("📅 Total Usage Over Time (All Functions)")
 
-# 1️⃣ 날짜별 전체 사용량 집계 (2025년 1월 1일부터 현재까지)
-start_date = pd.Timestamp('2025-01-01')
+# 1️⃣ 날짜별 전체 사용량 집계
 end_date = pd.Timestamp.now()
+default_start = pd.Timestamp('2025-01-01')
 
-# 모든 날짜 생성
-all_dates = pd.date_range(start=start_date.date(), end=end_date.date(), freq='D')
-date_df = pd.DataFrame({'created_at': all_dates})
-
-# 실제 데이터 집계
+# 조직별 trial_start_date 확인
 df_active_org = df_active.copy()
-df_active_org = df_active_org[
-    (df_active_org['created_at'] >= start_date) & 
-    (df_active_org['created_at'] <= end_date)
-].sort_values("created_at")
-df_active_org["count"] = 1
-daily_counts = df_active_org.groupby(df_active_org["created_at"].dt.date).size().reset_index(name="count")
-daily_counts["created_at"] = pd.to_datetime(daily_counts["created_at"])
 
-# 모든 날짜에 대해 데이터 병합 (없는 날짜는 0으로 채움)
-df_total_daily = pd.merge(date_df, daily_counts, on='created_at', how='left')
+# 2024년 trial_start_date를 가진 조직은 2025-01-01부터 시작하도록 조정
+df_active_org.loc[df_active_org['trial_start_date'].dt.year == 2024, 'trial_start_date'] = default_start
+
+# 각 조직별로 데이터 처리
+org_data_list = []
+for org in df_active_org['organization'].unique():
+    org_df = df_active_org[df_active_org['organization'] == org]
+    org_start = org_df['trial_start_date'].iloc[0]
+    
+    # 해당 조직의 날짜 범위 생성
+    org_dates = pd.date_range(start=org_start.date(), end=end_date.date(), freq='D')
+    org_date_df = pd.DataFrame({'created_at': org_dates})
+    
+    # 해당 조직의 실제 데이터 집계
+    org_counts = org_df.groupby(org_df["created_at"].dt.date).size().reset_index(name="count")
+    org_counts["created_at"] = pd.to_datetime(org_counts["created_at"])
+    
+    # 데이터 병합
+    org_daily = pd.merge(org_date_df, org_counts, on='created_at', how='left')
+    org_data_list.append(org_daily)
+
+# 모든 조직의 데이터 합치기
+df_total_daily = pd.concat(org_data_list)
+df_total_daily = df_total_daily.groupby('created_at')['count'].sum().reset_index()
 df_total_daily['count'] = df_total_daily['count'].fillna(0)
 
 # ✅ 2️⃣ 날짜 라벨 생성 (예: 7/11)
