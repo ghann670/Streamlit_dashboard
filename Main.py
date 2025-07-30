@@ -303,11 +303,36 @@ else:
     chart_users = alt.Chart(df_user_filtered).mark_line(point=True).encode(
         x=alt.X("date_label:N", title="Date", axis=alt.Axis(labelAngle=0)),
         y=alt.Y("count:Q", title="Event Count"),
-        color=alt.Color("user:N", title="User"),
+        color=alt.Color("user:N", title="User", sort=sorted_users),
         tooltip=["user", "count"]
     ).properties(width=900, height=300)
-
+    
     st.altair_chart(chart_users, use_container_width=True)
+
+    # 테이블 추가
+    st.markdown("#### Daily Usage Table")
+    # 피벗 테이블 생성
+    table_data = df_user_filtered.pivot_table(
+        index='user',
+        columns='date_label',
+        values='count',
+        fill_value=0
+    )
+    
+    # Total 컬럼 추가
+    table_data['Total'] = table_data.sum(axis=1)
+    
+    # Total 기준으로 정렬
+    table_data = table_data.sort_values('Total', ascending=False)
+    
+    # Total을 맨 앞으로 이동
+    cols = ['Total'] + [col for col in table_data.columns if col != 'Total']
+    table_data = table_data[cols]
+    
+    # Total 행 추가
+    table_data.loc['Total'] = table_data.sum(numeric_only=True)
+    
+    st.dataframe(table_data.astype(int), use_container_width=True)
 
 
 
