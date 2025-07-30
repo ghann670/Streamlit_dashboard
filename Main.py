@@ -569,17 +569,21 @@ df_week = df_org[df_org['created_at'].dt.date.isin(week_dates)]
 
 # 📊 일별-기능별 집계
 agent_types = df_week['agent_type'].unique()
+
+# 날짜 데이터 준비 (datetime 형식 유지)
+date_range = pd.date_range(start=min(week_dates), end=max(week_dates), freq='D')
 all_combinations = pd.MultiIndex.from_product(
-    [week_dates, agent_types],
-    names=['day_bucket', 'agent_type']
+    [date_range, agent_types],
+    names=['created_at', 'agent_type']
 ).to_frame(index=False)
 
-df_day = df_week.groupby(['day_bucket', 'agent_type']).size().reset_index(name='count')
-df_day = pd.merge(all_combinations, df_day, on=['day_bucket', 'agent_type'], how='left')
-df_day['count'] = df_day['count'].fillna(0).astype(int)
+# 데이터 집계 (datetime 형식 유지)
+df_day = df_week.groupby([df_week['created_at'].dt.date, 'agent_type']).size().reset_index(name='count')
+df_day['created_at'] = pd.to_datetime(df_day['created_at'])
 
-# ✅ 날짜 레이블 포맷 변경
-df_day['day_label'] = pd.to_datetime(df_day['day_bucket']).dt.strftime('%m-%d')
+# 모든 날짜-기능 조합에 대해 데이터 병합
+df_day = pd.merge(all_combinations, df_day, on=['created_at', 'agent_type'], how='left')
+df_day['count'] = df_day['count'].fillna(0).astype(int)
 
 # 📊 기능별 정렬 기준 계산 (많이 쓴 순서 → 아래층부터 쌓임)
 agent_order_by_volume = (
@@ -604,13 +608,15 @@ with left2:
     # 📊 Plotly stacked bar chart
     fig_day = px.bar(
         df_day,
-        x="day_label",
+        x="created_at",
         y="count",
         color="agent_type",
-        category_orders={"agent_type": agent_order_for_stack},  # 많이 쓴 순서대로 스택
+        category_orders={"agent_type": agent_order_for_stack},
         color_discrete_sequence=px.colors.qualitative.Set1,
-        labels={"day_label": "Date", "count": "Event Count", "agent_type": "Function"},
+        labels={"created_at": "Date", "count": "Event Count", "agent_type": "Function"},
     )
+    
+    # 차트 레이아웃 설정
     fig_day.update_layout(
         barmode="stack",
         width=600,
@@ -619,17 +625,28 @@ with left2:
         yaxis_title="Event Count",
         legend_title="Function",
     )
+    
+    # x축 날짜 포맷 설정
+    fig_day.update_xaxes(
+        tickformat="%m-%d",
+        type='date',
+        dtick="D1"  # 하루 간격으로 눈금 표시
+    )
+    
     st.plotly_chart(fig_day, use_container_width=True)
 
 with right2:
     # 📊 집계 테이블 준비
     df_day_table = df_day.pivot_table(
         index='agent_type',
-        columns='day_label',
+        columns='created_at',
         values='count',
         fill_value=0,
         aggfunc='sum'
     )
+    
+    # 컬럼 이름을 mm-dd 형식으로 변경
+    df_day_table.columns = pd.to_datetime(df_day_table.columns).strftime('%m-%d')
     df_day_table['Total'] = df_day_table.sum(axis=1)
     df_day_table = df_day_table.sort_values('Total', ascending=False)
     df_day_table = df_day_table[['Total'] + [col for col in df_day_table.columns if col != 'Total']]
