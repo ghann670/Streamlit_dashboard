@@ -538,20 +538,7 @@ with right:
 # 📊 Daily usage 시계열
 st.subheader("📊 Daily Function Usage for a Selected Week")
 
-# Selectbox 스타일링
-st.markdown("""
-    <style>
-    .stSelectbox [data-testid="stMarkdownContainer"] {
-        height: 200px;
-        overflow-y: scroll;
-    }
-    
-    .stSelectbox div[data-baseweb="select"] div[role="listbox"] {
-        height: 200px !important;
-        overflow-y: scroll !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
+
 
 # 📅 주차 선택 - view mode에 따라 다르게
 if view_mode == "Recent 4 Weeks":
