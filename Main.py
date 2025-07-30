@@ -893,10 +893,24 @@ if selected_date:
     
     st.markdown(f"### 📊 Detailed Analysis for {selected_date}")
     
+    # Function별 통계 테이블 먼저 계산
+    func_stats = selected_date_data.groupby('agent_type').agg({
+        'time_to_first_byte': ['count', 'mean', 'median', 'max']
+    }).round(1)
+    func_stats.columns = ['Count', 'Mean (sec)', 'Median (sec)', 'Max (sec)']
+    
+    # 원본 데이터 수와 필터링된 데이터 수 계산
+    total_raw_requests = len(selected_date_data)
+    valid_requests = func_stats['Count'].sum()
+    
     # 기본 통계
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric("Total Requests", len(selected_date_data))
+        st.metric(
+            "Total Requests",
+            f"{total_raw_requests} ({valid_requests} valid)",
+            help="Total number of requests (number of requests with valid response time)"
+        )
     with col2:
         st.metric("Median Response Time", f"{selected_date_data['time_to_first_byte'].median():.1f} sec")
     with col3:
@@ -904,13 +918,10 @@ if selected_date:
     with col4:
         st.metric("Max Response Time", f"{selected_date_data['time_to_first_byte'].max():.1f} sec")
 
-    # Function별 통계 테이블
-    st.markdown("#### Function Statistics")
-    func_stats = selected_date_data.groupby('agent_type').agg({
-        'time_to_first_byte': ['count', 'mean', 'median', 'max']
-    }).round(1)
-    func_stats.columns = ['Count', 'Mean (sec)', 'Median (sec)', 'Max (sec)']
+    # Function별 통계 테이블 열 순서 변경
+    func_stats = func_stats[['Count', 'Median (sec)', 'Mean (sec)', 'Max (sec)']]
     func_stats = func_stats.sort_values('Count', ascending=False)
+    st.markdown("#### Function Statistics")
     st.dataframe(func_stats, use_container_width=True)
 
     # Slow Requests (상위 10개)
