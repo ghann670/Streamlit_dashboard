@@ -365,8 +365,12 @@ else:
         x=alt.X(
             "created_at:T",
             title="Date",
-            axis=alt.Axis(labelAngle=0, format="%m/%d"),
-            scale=alt.Scale(nice=True)
+            axis=alt.Axis(
+                labelAngle=0,
+                format="%m/%d",
+                tickCount={"interval": "day", "step": 1},  # 하루 간격으로 눈금 표시
+                grid=True
+            )
         ),
         y=alt.Y("count:Q", title="Event Count"),
         color=alt.Color("user:N", title="User", sort=sorted_users),
