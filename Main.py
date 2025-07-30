@@ -538,6 +538,15 @@ with right:
 # 📊 Daily usage 시계열
 st.subheader("📊 Daily Function Usage for a Selected Week")
 
+# CSS로 selectbox 높이 조절
+st.markdown("""
+    <style>
+    div[data-baseweb="select"] > div {
+        max-height: 400px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # 📅 주차 선택 - view mode에 따라 다르게
 if view_mode == "Recent 4 Weeks":
     week_options = sorted(df_org['week_bucket'].dropna().unique(), reverse=True)
