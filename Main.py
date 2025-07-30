@@ -850,31 +850,83 @@ daily_stats = daily_stats[
     (daily_stats['date'] <= end_date)
 ]
 
-# 라인 차트
-fig1 = px.line(
-    daily_stats, 
-    x='date', 
-    y='time_to_first_byte',
-    title='Daily Median Response Time (excluding today)',
-    labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date', 'total_events': 'Total Events'}
+# 시계열 차트를 Altair로 변경
+base = alt.Chart(daily_stats).encode(
+    x=alt.X('date:T', title='Date', axis=alt.Axis(format='%Y-%m-%d')),
+    y=alt.Y('time_to_first_byte:Q', title='Response Time (seconds)'),
+    tooltip=[
+        alt.Tooltip('date:T', title='Date', format='%Y-%m-%d'),
+        alt.Tooltip('time_to_first_byte:Q', title='Response Time', format='.1f'),
+        alt.Tooltip('total_events:Q', title='Total Events')
+    ]
 )
 
-# hover 템플릿 수정
-fig1.update_traces(
-    hovertemplate="<br>".join([
-        "Date: %{x}",
-        "Response Time: %{y:.1f} sec",
-        "Total Events: %{customdata[0]}",
-        "<extra></extra>"
-    ]),
-    customdata=daily_stats[['total_events']]
+# 메인 라인
+line = base.mark_line()
+
+# 클릭 가능한 포인트
+points = base.mark_point(size=100, filled=True).encode(
+    opacity=alt.value(0),  # 포인트를 투명하게 만들어 라인만 보이게
+).add_selection(
+    alt.selection_single(
+        name="select",
+        fields=['date'],
+        empty='none',
+        on="click"
+    )
 )
 
-fig1.update_layout(
+# 선택된 포인트 하이라이트
+highlight = base.mark_point(color='red').encode(
+    opacity=alt.condition(alt.datum == alt.expr.select, alt.value(1), alt.value(0))
+)
+
+# 차트 결합
+chart = (line + points + highlight).properties(
+    width=900,
     height=400,
-    hovermode='x unified'
+    title='Daily Median Response Time (excluding today) - Click on the line to see details'
 )
-st.plotly_chart(fig1, use_container_width=True)
+
+# 차트 표시
+selected_point = st.altair_chart(chart, use_container_width=True)
+
+# 선택된 날짜가 있을 경우에만 상세 통계 표시
+if selected_point.selected_points:
+    selected_date = pd.to_datetime(selected_point.selected_points[0]['date']).date()
+    selected_date_data = df_time[df_time['date'] == selected_date].copy()
+    
+    st.markdown(f"### 📊 Detailed Analysis for {selected_date}")
+    
+    # 기본 통계
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Total Requests", len(selected_date_data))
+    with col2:
+        st.metric("Median Response Time", f"{selected_date_data['time_to_first_byte'].median():.1f} sec")
+    with col3:
+        st.metric("Mean Response Time", f"{selected_date_data['time_to_first_byte'].mean():.1f} sec")
+    with col4:
+        st.metric("Max Response Time", f"{selected_date_data['time_to_first_byte'].max():.1f} sec")
+
+    # Function별 통계 테이블
+    st.markdown("#### Function Statistics")
+    func_stats = selected_date_data.groupby('agent_type').agg({
+        'time_to_first_byte': ['count', 'mean', 'median', 'max']
+    }).round(1)
+    func_stats.columns = ['Count', 'Mean (sec)', 'Median (sec)', 'Max (sec)']
+    func_stats = func_stats.sort_values('Count', ascending=False)
+    st.dataframe(func_stats, use_container_width=True)
+
+    # Slow Requests (상위 10개)
+    st.markdown("#### Slowest Requests")
+    slow_requests = selected_date_data.nlargest(10, 'time_to_first_byte')[
+        ['created_at', 'agent_type', 'time_to_first_byte', 'id']
+    ].copy()
+    slow_requests['created_at'] = slow_requests['created_at'].dt.strftime('%Y-%m-%d %H:%M:%S')
+    slow_requests.columns = ['Timestamp', 'Function', 'Response Time (sec)', 'Request ID']
+    slow_requests = slow_requests.sort_values('Response Time (sec)', ascending=False)
+    st.dataframe(slow_requests, use_container_width=True)
 
 # 두 번째 줄: 히스토그램과 도표
 left_col, right_col = st.columns([3, 2])  # 히스토그램이 더 넓게
