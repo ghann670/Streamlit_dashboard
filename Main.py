@@ -878,7 +878,7 @@ points = base.mark_point(size=100, filled=True).encode(
 
 # 선택된 포인트 하이라이트
 highlight = base.mark_point(color='red').encode(
-    opacity=alt.condition(alt.datum == alt.expr.select, alt.value(1), alt.value(0))
+    opacity=alt.condition("select", alt.value(1), alt.value(0))
 )
 
 # 차트 결합
