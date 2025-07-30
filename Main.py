@@ -850,50 +850,45 @@ daily_stats = daily_stats[
     (daily_stats['date'] <= end_date)
 ]
 
-# 시계열 차트를 Altair로 변경
-base = alt.Chart(daily_stats).encode(
-    x=alt.X('date:T', title='Date', axis=alt.Axis(format='%Y-%m-%d')),
-    y=alt.Y('time_to_first_byte:Q', title='Response Time (seconds)'),
-    tooltip=[
-        alt.Tooltip('date:T', title='Date', format='%Y-%m-%d'),
-        alt.Tooltip('time_to_first_byte:Q', title='Response Time', format='.1f'),
-        alt.Tooltip('total_events:Q', title='Total Events')
-    ]
+# 라인 차트
+fig1 = px.line(
+    daily_stats, 
+    x='date', 
+    y='time_to_first_byte',
+    title='Daily Median Response Time (excluding today)',
+    labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date', 'total_events': 'Total Events'}
 )
 
-# 메인 라인
-line = base.mark_line()
-
-# 클릭 가능한 포인트
-points = base.mark_point(size=100, filled=True).encode(
-    opacity=alt.value(0),  # 포인트를 투명하게 만들어 라인만 보이게
-).add_selection(
-    alt.selection_single(
-        name="select",
-        fields=['date'],
-        empty='none',
-        on="click"
-    )
+# hover 템플릿 수정
+fig1.update_traces(
+    hovertemplate="<br>".join([
+        "Date: %{x}",
+        "Response Time: %{y:.1f} sec",
+        "Total Events: %{customdata[0]}",
+        "<extra></extra>"
+    ]),
+    customdata=daily_stats[['total_events']]
 )
 
-# 선택된 포인트 하이라이트
-highlight = base.mark_point(color='red').encode(
-    opacity=alt.condition("select", alt.value(1), alt.value(0))
-)
-
-# 차트 결합
-chart = (line + points + highlight).properties(
-    width=900,
+fig1.update_layout(
     height=400,
-    title='Daily Median Response Time (excluding today) - Click on the line to see details'
+    hovermode='x unified'
 )
 
 # 차트 표시
-selected_point = st.altair_chart(chart, use_container_width=True)
+st.plotly_chart(fig1, use_container_width=True)
+
+# 날짜 선택기 추가
+available_dates = sorted(daily_stats['date'].unique())
+selected_date = st.selectbox(
+    "Select a date to see detailed statistics",
+    [""] + [d.strftime("%Y-%m-%d") for d in available_dates],
+    index=0
+)
 
 # 선택된 날짜가 있을 경우에만 상세 통계 표시
-if selected_point.selected_points:
-    selected_date = pd.to_datetime(selected_point.selected_points[0]['date']).date()
+if selected_date:
+    selected_date = pd.to_datetime(selected_date).date()
     selected_date_data = df_time[df_time['date'] == selected_date].copy()
     
     st.markdown(f"### 📊 Detailed Analysis for {selected_date}")
