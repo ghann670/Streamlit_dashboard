@@ -538,11 +538,20 @@ with right:
 # 📊 Daily usage 시계열
 st.subheader("📊 Daily Function Usage for a Selected Week")
 
-# CSS로 selectbox 높이 조절
+# CSS로 selectbox 스타일 조정 (드롭다운 메뉴)
 st.markdown("""
     <style>
+    /* 드롭다운 메뉴의 높이와 스크롤 설정 */
+    div[role="listbox"] {
+        max-height: 500px !important;
+        overflow-y: auto !important;
+    }
+    
+    /* 선택된 항목 스타일 */
     div[data-baseweb="select"] > div {
-        max-height: 400px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     </style>
 """, unsafe_allow_html=True)
