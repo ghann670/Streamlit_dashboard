@@ -281,7 +281,7 @@ fig1.update_layout(
         rangeslider=dict(visible=True),  # 하단에 슬라이더 추가
         type="date",
         tickformat="%Y-%m-%d",
-        range=[start_date, end_date]  # x축 범위를 현재 날짜까지로 제한
+                    range=[df_total_daily['created_at'].min(), df_total_daily['created_at'].max()]  # x축 범위 설정
     ),
     margin=dict(l=50, r=50, t=30, b=50)  # 여백 조정
 )
