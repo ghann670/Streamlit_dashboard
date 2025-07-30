@@ -879,7 +879,7 @@ fig1.update_layout(
 st.plotly_chart(fig1, use_container_width=True)
 
 # 날짜 선택기 추가
-available_dates = sorted(daily_stats['date'].unique())
+available_dates = sorted(daily_stats['date'].unique(), reverse=True)  # 내림차순 정렬
 selected_date = st.selectbox(
     "Select a date to see detailed statistics",
     [""] + [d.strftime("%Y-%m-%d") for d in available_dates],
@@ -969,42 +969,3 @@ with right_col:
     func_stats = func_stats.sort_values('Count', ascending=False)  # Count 기준 내림차순
     st.dataframe(func_stats.round(2), use_container_width=True, hide_index=True)  # hide_index=True 추가
 
-# Response Time Analysis 섹션 마지막에 추가
-
-# 일별 중앙값으로 가장 느린 날 찾기
-daily_median = df_time.groupby('date')['time_to_first_byte'].median()
-worst_date = daily_median.idxmax()
-worst_date_data = df_time[df_time['date'] == worst_date].copy()
-
-st.markdown("### 🔍 Detailed Analysis for Slowest Day (by Median Response Time)")
-st.markdown(f"**Date: {worst_date}**")
-
-# 기본 통계
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    st.metric("Total Requests", len(worst_date_data))
-with col2:
-    st.metric("Median Response Time", f"{worst_date_data['time_to_first_byte'].median():.1f} sec")
-with col3:
-    st.metric("Mean Response Time", f"{worst_date_data['time_to_first_byte'].mean():.1f} sec")
-with col4:
-    st.metric("Max Response Time", f"{worst_date_data['time_to_first_byte'].max():.1f} sec")
-
-# Function별 통계 테이블
-func_stats = worst_date_data.groupby('agent_type').agg({
-    'time_to_first_byte': ['count', 'mean', 'median', 'max']
-}).round(1)
-func_stats.columns = ['Count', 'Mean (sec)', 'Median (sec)', 'Max (sec)']
-func_stats = func_stats.sort_values('Count', ascending=False)
-st.markdown("#### Function Statistics")
-st.dataframe(func_stats, use_container_width=True)
-
-# Slow Requests (상위 10개)
-st.markdown("#### Slowest Requests")
-slow_requests = worst_date_data.nlargest(10, 'time_to_first_byte')[
-    ['created_at', 'agent_type', 'time_to_first_byte', 'id']
-].copy()
-slow_requests['created_at'] = slow_requests['created_at'].dt.strftime('%Y-%m-%d %H:%M:%S')
-slow_requests.columns = ['Timestamp', 'Function', 'Response Time (sec)', 'Request ID']
-slow_requests = slow_requests.sort_values('Response Time (sec)', ascending=False)
-st.dataframe(slow_requests, use_container_width=True)
