@@ -570,25 +570,20 @@ df_week = df_org[df_org['created_at'].dt.date.isin(week_dates)]
 # 📊 일별-기능별 집계
 agent_types = df_week['agent_type'].unique()
 
-# 데이터가 있는 날짜만 추출
-df_day = df_week.groupby([df_week['created_at'].dt.date, 'agent_type']).size().reset_index(name='count')
+# 선택된 주의 모든 날짜와 기능 조합 생성
+date_range = pd.date_range(start=min(week_dates), end=max(week_dates), freq='D')
+all_combinations = pd.MultiIndex.from_product(
+    [date_range, agent_types],
+    names=['created_at', 'agent_type']
+).to_frame(index=False)
 
-if not df_day.empty:  # 데이터가 있는 경우에만 처리
-    df_day['created_at'] = pd.to_datetime(df_day['created_at'])
-    
-    # 데이터가 있는 날짜 범위에 대해서만 모든 조합 생성
-    date_range = pd.date_range(start=df_day['created_at'].min(), end=df_day['created_at'].max(), freq='D')
-    all_combinations = pd.MultiIndex.from_product(
-        [date_range, agent_types],
-        names=['created_at', 'agent_type']
-    ).to_frame(index=False)
-    
-    # 데이터 병합
-    df_day = pd.merge(all_combinations, df_day, on=['created_at', 'agent_type'], how='left')
-    df_day['count'] = df_day['count'].fillna(0).astype(int)
-else:
-    # 데이터가 없는 경우 빈 데이터프레임 생성
-    df_day = pd.DataFrame(columns=['created_at', 'agent_type', 'count'])
+# 실제 데이터 집계
+df_day = df_week.groupby([df_week['created_at'].dt.date, 'agent_type']).size().reset_index(name='count')
+df_day['created_at'] = pd.to_datetime(df_day['created_at'])
+
+# 모든 날짜-기능 조합에 대해 데이터 병합 (없는 날짜는 0으로 표시)
+df_day = pd.merge(all_combinations, df_day, on=['created_at', 'agent_type'], how='left')
+df_day['count'] = df_day['count'].fillna(0).astype(int)
 
 # 📊 기능별 정렬 기준 계산 (많이 쓴 순서 → 아래층부터 쌓임)
 agent_order_by_volume = (
@@ -629,6 +624,7 @@ with left2:
         xaxis_title="Date",
         yaxis_title="Event Count",
         legend_title="Function",
+        showlegend=True if df_day['count'].sum() > 0 else False  # 데이터가 있을 때만 범례 표시
     )
     
     # x축 날짜 포맷 설정
@@ -636,7 +632,7 @@ with left2:
         tickformat="%m-%d",
         type='date',
         dtick="D1",  # 하루 간격으로 눈금 표시
-        range=[df_day['created_at'].min(), df_day['created_at'].max()]  # 데이터가 있는 범위만 표시
+        range=[min(week_dates), max(week_dates)]  # 선택된 주의 전체 날짜 범위 표시
     )
     
     st.plotly_chart(fig_day, use_container_width=True)
