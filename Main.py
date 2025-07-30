@@ -287,45 +287,28 @@ st.plotly_chart(fig1, use_container_width=True)
 # ✅ New Section: 유저별 라인차트 추가
 st.markdown("### 👥 Users' Daily Usage (All events)")
 
-# 유저별 일별 사용량 집계 (2025년 1월 1일부터 현재까지)
+# 유저별 일별 사용량 집계 (각 유저의 첫 사용일부터 현재까지)
+# 각 유저의 첫 사용일 찾기
+user_first_dates = df_active_org.groupby('user_name')['created_at'].min().reset_index()
+user_first_dates['created_at'] = user_first_dates['created_at'].dt.date
+
 # 실제 사용량 데이터 집계
 user_counts = df_active_org[
-    (df_active_org['created_at'] >= start_date) & 
-    (df_active_org['created_at'] <= end_date)
+    df_active_org['created_at'] <= end_date
 ].groupby(
     [df_active_org["created_at"].dt.date, "user_name"]
 ).size().reset_index(name="count")
 
-# 모든 날짜와 유저 조합 생성
-all_users = df_active_org['user_name'].unique()
-all_combinations = pd.MultiIndex.from_product(
-    [all_dates.date, all_users],
-    names=['created_at', 'user_name']
-).to_frame(index=False)
-
-# 데이터 병합 (없는 날짜는 0으로 채움)
-df_user_daily = pd.merge(
-    all_combinations,
-    user_counts,
-    on=['created_at', 'user_name'],
-    how='left'
-)
-df_user_daily['count'] = df_user_daily['count'].fillna(0)
-
-df_user_daily["created_at"] = pd.to_datetime(df_user_daily["created_at"])
-df_user_daily["date_label"] = df_user_daily["created_at"].dt.strftime("%-m/%d")
-df_user_daily.rename(columns={"user_name": "user"}, inplace=True)
-
-# ✅ 유저별 total usage 수 기준 정렬
-user_total_counts = df_user_daily.groupby("user")["count"].sum()
+# 유저별 total usage 수 기준 정렬
+user_total_counts = user_counts.groupby("user_name")["count"].sum()
 sorted_users = user_total_counts.sort_values(ascending=False).index.tolist()
 default_users = sorted_users[:3]  # 상위 3명 기본 선택
 
-# ✅ 세션 상태에 선택 유저 목록 저장
+# 세션 상태에 선택 유저 목록 저장
 if "selected_users" not in st.session_state:
     st.session_state.selected_users = default_users
 
-# ✅ 전체 선택 / 해제 버튼
+# 전체 선택 / 해제 버튼
 col1, col2 = st.columns([1, 1])
 with col1:
     if st.button("✅ 전체 선택"):
@@ -334,7 +317,7 @@ with col2:
     if st.button("❌ 전체 해제"):
         st.session_state.selected_users = []
 
-# ✅ 멀티셀렉트 (세션 상태로 동기화, 유효성 보정)
+# 멀티셀렉트 (세션 상태로 동기화, 유효성 보정)
 valid_default_users = [user for user in st.session_state.selected_users if user in sorted_users]
 
 selected_users = st.multiselect(
@@ -344,18 +327,54 @@ selected_users = st.multiselect(
     key="selected_users"
 )
 
-# ✅ 필터링된 유저 데이터
-df_user_filtered = df_user_daily[df_user_daily["user"].isin(selected_users)]
+# 선택된 유저들의 데이터만 처리
+df_user_daily_list = []
+for user in selected_users:
+    user_start = user_first_dates[user_first_dates['user_name'] == user]['created_at'].iloc[0]
+    user_dates = pd.date_range(start=user_start, end=end_date.date(), freq='D')
+    
+    # 해당 유저의 날짜별 데이터 생성
+    user_df = pd.DataFrame({'created_at': user_dates})
+    user_df['user'] = user
+    
+    # 실제 데이터와 병합
+    user_counts_filtered = user_counts[user_counts['user_name'] == user].copy()
+    user_counts_filtered['created_at'] = pd.to_datetime(user_counts_filtered['created_at'])
+    
+    user_df = pd.merge(
+        user_df,
+        user_counts_filtered[['created_at', 'count']],
+        on='created_at',
+        how='left'
+    )
+    df_user_daily_list.append(user_df)
+
+# 모든 유저 데이터 합치기
+if df_user_daily_list:
+    df_user_filtered = pd.concat(df_user_daily_list, ignore_index=True)
+    df_user_filtered['count'] = df_user_filtered['count'].fillna(0)
+    df_user_filtered["date_label"] = df_user_filtered["created_at"].dt.strftime("%-m/%d")
+else:
+    df_user_filtered = pd.DataFrame(columns=['created_at', 'user', 'count', 'date_label'])
 
 # ✅ 라인차트 시각화
 if df_user_filtered.empty:
     st.info("No data for selected users.")
 else:
     chart_users = alt.Chart(df_user_filtered).mark_line(point=True).encode(
-        x=alt.X("date_label:N", title="Date", axis=alt.Axis(labelAngle=0)),
+        x=alt.X(
+            "created_at:T",
+            title="Date",
+            axis=alt.Axis(labelAngle=0, format="%m/%d"),
+            scale=alt.Scale(nice=True)
+        ),
         y=alt.Y("count:Q", title="Event Count"),
         color=alt.Color("user:N", title="User", sort=sorted_users),
-        tooltip=["user", "count"]
+        tooltip=[
+            alt.Tooltip("created_at:T", title="Date", format="%Y-%m-%d"),
+            alt.Tooltip("user:N", title="User"),
+            alt.Tooltip("count:Q", title="Count")
+        ]
     ).properties(width=900, height=300)
     
     st.altair_chart(chart_users, use_container_width=True)
@@ -363,9 +382,10 @@ else:
     # 테이블 추가
     st.markdown("#### Daily Usage Table")
     # 피벗 테이블 생성
+    df_user_filtered['date_col'] = df_user_filtered['created_at'].dt.strftime("%m/%d")
     table_data = df_user_filtered.pivot_table(
         index='user',
-        columns='date_label',
+        columns='date_col',
         values='count',
         fill_value=0
     )
