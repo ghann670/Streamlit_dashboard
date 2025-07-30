@@ -550,10 +550,9 @@ if view_mode == "Recent 4 Weeks":
     week_dates = pd.date_range(week_start, week_end).date
 else:
     # Trial Period Mode
-    # Trial Week 숫자 추출해서 내림차순 정렬
-    week_options = sorted(df_org['week_from_trial'].unique(), 
-                         key=lambda x: int(x.split()[-1]),
-                         reverse=True)
+    # 모든 가능한 Trial Week 생성 (1주차부터 현재까지)
+    max_week = ((pd.Timestamp.now() - df_org['trial_start_date'].min()).days // 7) + 1
+    week_options = [f'Trial Week {i}' for i in range(max_week, 0, -1)]
     selected_week = st.selectbox("Select Week", week_options, key="daily_select_week")
     
     # 선택된 Trial Week의 숫자 추출
