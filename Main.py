@@ -818,7 +818,13 @@ with col3:
 
 # 시계열 데이터 준비
 df_time['date'] = df_time['created_at'].dt.date
-daily_stats = df_time.groupby('date')['time_to_first_byte'].median().reset_index()
+
+# 날짜별 통계 계산 (중앙값과 이벤트 수)
+daily_stats = df_time.groupby('date').agg({
+    'time_to_first_byte': 'median',
+    'id': 'count'  # 각 날짜의 total events
+}).reset_index()
+daily_stats.columns = ['date', 'time_to_first_byte', 'total_events']
 
 # 2025년 4월 1일 이후, 오늘 제외 데이터만 필터링
 start_date = pd.Timestamp('2025-04-01').date()
@@ -834,8 +840,20 @@ fig1 = px.line(
     x='date', 
     y='time_to_first_byte',
     title='Daily Median Response Time (excluding today)',
-    labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date'}
+    labels={'time_to_first_byte': 'Response Time (seconds)', 'date': 'Date', 'total_events': 'Total Events'}
 )
+
+# hover 템플릿 수정
+fig1.update_traces(
+    hovertemplate="<br>".join([
+        "Date: %{x}",
+        "Response Time: %{y:.1f} sec",
+        "Total Events: %{customdata[0]}",
+        "<extra></extra>"
+    ]),
+    customdata=daily_stats[['total_events']]
+)
+
 fig1.update_layout(
     height=400,
     hovermode='x unified'
