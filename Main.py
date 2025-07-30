@@ -64,8 +64,11 @@ df_org = df_all[df_all['organization'] == selected_org]
 df_active = df_org[df_org['status'] == 'active']
 
 # 임시로 organization의 첫 이벤트 날짜를 trial_start_date로 사용
-if 'trial_start_date' not in df_org.columns:
-    trial_start_date = df_org['created_at'].min()
+if 'trial_start_date' not in df_org.columns or df_org['trial_start_date'].isna().all():
+    if not df_org.empty and not df_org['created_at'].isna().all():
+        trial_start_date = df_org['created_at'].min()
+    else:
+        trial_start_date = pd.Timestamp.now()  # 데이터가 없는 경우 현재 날짜 사용
     df_org['trial_start_date'] = trial_start_date
 
 # Metric 계산
@@ -237,12 +240,23 @@ df_total_daily["date_label"] = df_total_daily["created_at"].dt.strftime("%-m/%d"
 # ✅ Plotly 시계열 차트 (y축 상단 여유 포함)
 fig1 = px.line(
     df_total_daily,
-    x="date_label",
+    x="created_at",  # date_label 대신 created_at 사용
     y="count",
     markers=True,
-    labels={"date_label": "Date", "count": "Total Event Count"},
+    labels={"created_at": "Date", "count": "Total Event Count"},
 )
-fig1.update_layout(height=300, width=900)
+
+# ✅ 차트 레이아웃 설정
+fig1.update_layout(
+    height=300,
+    width=900,
+    xaxis=dict(
+        rangeslider=dict(visible=True),  # 하단에 슬라이더 추가
+        type="date",
+        tickformat="%Y-%m-%d",
+    ),
+    margin=dict(l=50, r=50, t=30, b=50)  # 여백 조정
+)
 
 # ✅ y축 범위 자동보다 조금 더 크게 설정
 max_count = df_total_daily["count"].max()
@@ -254,7 +268,7 @@ st.plotly_chart(fig1, use_container_width=True)
 
 
 # ✅ New Section: 유저별 라인차트 추가
-st.markdown("### 👥 Users' Daily Usage")
+st.markdown("### 👥 Users' Daily Usage (All events)")
 
 # 유저별 일별 사용량 집계
 df_user_daily = df_active_org.groupby(
@@ -341,7 +355,10 @@ else:
 st.markdown("---")
 
 # Trial Start Date 계산
-trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0]).strftime('%Y-%m-%d')
+try:
+    trial_start = pd.to_datetime(df_org['trial_start_date'].iloc[0]).strftime('%Y-%m-%d')
+except (IndexError, pd.errors.OutOfBoundsDatetime):
+    trial_start = pd.Timestamp.now().strftime('%Y-%m-%d')
 
 # View Mode 선택
 view_mode = st.radio(
@@ -354,6 +371,11 @@ view_mode = st.radio(
 st.subheader("📈 Weekly Function Usage Trends")
 
 if view_mode == f"Trial Period (Trial Start Date: {trial_start})":
+    # 최근 4주 데이터만 사용
+    four_weeks_ago = pd.Timestamp.now() - pd.Timedelta(weeks=4)
+    df_org = df_org[df_org['created_at'] >= four_weeks_ago]
+    
+    # trial_start_date부터 몇 주차인지 계산
     df_org['week_from_trial'] = ((df_org['created_at'] - df_org['trial_start_date'])
                                 .dt.days // 7 + 1)
     
