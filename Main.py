@@ -443,11 +443,7 @@ view_mode = st.radio(
 st.subheader("📈 Weekly Function Usage Trends")
 
 if view_mode == f"Trial Period (Trial Start Date: {trial_start})":
-    # 최근 4주 데이터만 사용
-    four_weeks_ago = pd.Timestamp.now() - pd.Timedelta(weeks=4)
-    df_org = df_org[df_org['created_at'] >= four_weeks_ago]
-    
-    # trial_start_date부터 몇 주차인지 계산
+    # trial_start_date 기준으로 주차 계산
     df_org['week_from_trial'] = ((df_org['created_at'] - df_org['trial_start_date'])
                                 .dt.days // 7 + 1)
     
@@ -564,11 +560,11 @@ else:
     week_end = week_start + pd.Timedelta(days=6)
     week_dates = pd.date_range(week_start, week_end).date
 
-# 📆 선택된 주간 데이터 필터링
-df_week = df_org[df_org['created_at'].dt.date.isin(week_dates)]
+# 📆 선택된 주간 데이터 필터링 (df_active_org 사용)
+df_week = df_active_org[df_active_org['created_at'].dt.date.isin(week_dates)]
 
 # 📊 일별-기능별 집계
-agent_types = df_week['agent_type'].unique()
+agent_types = df_active_org['agent_type'].unique()  # 전체 기능 목록 사용
 
 # 선택된 주의 모든 날짜와 기능 조합 생성
 date_range = pd.date_range(start=min(week_dates), end=max(week_dates), freq='D')
