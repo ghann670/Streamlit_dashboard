@@ -227,10 +227,14 @@ with status_col2:
 st.markdown("---")
 st.subheader("📅 Total Usage Over Time (All Functions)")
 
-# 1️⃣ 날짜별 전체 사용량 집계 (2025년 1월 1일 이후 데이터만)
+# 1️⃣ 날짜별 전체 사용량 집계 (2025년 1월 1일부터 현재까지)
 start_date = pd.Timestamp('2025-01-01')
+end_date = pd.Timestamp.now()
 df_active_org = df_active.copy()
-df_active_org = df_active_org[df_active_org['created_at'] >= start_date].sort_values("created_at")
+df_active_org = df_active_org[
+    (df_active_org['created_at'] >= start_date) & 
+    (df_active_org['created_at'] <= end_date)
+].sort_values("created_at")
 df_active_org["count"] = 1
 df_total_daily = df_active_org.groupby(df_active_org["created_at"].dt.date).size().reset_index(name="count")
 df_total_daily["created_at"] = pd.to_datetime(df_total_daily["created_at"])
@@ -256,7 +260,7 @@ fig1.update_layout(
         rangeslider=dict(visible=True),  # 하단에 슬라이더 추가
         type="date",
         tickformat="%Y-%m-%d",
-        range=[start_date, df_total_daily["created_at"].max()]  # x축 범위 설정
+        range=[start_date, end_date]  # x축 범위를 현재 날짜까지로 제한
     ),
     margin=dict(l=50, r=50, t=30, b=50)  # 여백 조정
 )
@@ -273,8 +277,11 @@ st.plotly_chart(fig1, use_container_width=True)
 # ✅ New Section: 유저별 라인차트 추가
 st.markdown("### 👥 Users' Daily Usage (All events)")
 
-# 유저별 일별 사용량 집계 (2025년 1월 1일 이후 데이터만)
-df_user_daily = df_active_org[df_active_org['created_at'] >= start_date].groupby(
+# 유저별 일별 사용량 집계 (2025년 1월 1일부터 현재까지)
+df_user_daily = df_active_org[
+    (df_active_org['created_at'] >= start_date) & 
+    (df_active_org['created_at'] <= end_date)
+].groupby(
     [df_active_org["created_at"].dt.date, "user_name"]
 ).size().reset_index(name="count")
 
